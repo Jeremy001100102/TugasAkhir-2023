@@ -11,10 +11,10 @@ if (isset($_POST['simpan'])) {
 
     }
 
-    // for ($i=0; $i < 12; $i++) { 
-    //     echo "{$dataS[$i]} \t {$dataR[$i]}";
-    //     echo "<br>";
-    // }
+    for ($i=0; $i < 12; $i++) { 
+        echo "{$dataS[$i]} \t {$dataR[$i]}";
+        echo "<br>";
+    }
 }
 ?>
 
@@ -23,7 +23,7 @@ if (isset($_POST['simpan'])) {
 <?php require "layout/header.php" ?>
 
 <h3>INPUT DATA</h3>
-<a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i>Tambah Data</a>
+<a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
 <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable mw-100 w-100">
         <div class="card mx-auto mb-3 w-75 mt-4">
@@ -102,7 +102,6 @@ if (isset($_POST['simpan'])) {
                       <div class="vr"></div>
                   </div>
 
-
                   <div class="col-5">
                     <div class="row justify-content-end">
                         <label for="<?= "{$bulan[$i]}$" ?>" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label"><?= $bulan[$i] ?></label>
@@ -117,8 +116,8 @@ if (isset($_POST['simpan'])) {
 </div>
 </div>
 <div class="modal-footer">   
- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
- <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+   <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
 </div>  
 </form>
 </div>
@@ -131,50 +130,31 @@ if (isset($_POST['simpan'])) {
 <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"> --></script>
 <script>
 
-   function getKondisi(values) {
-      hasil = values.value;  
-  }
+ function getKondisi(values) {
+  hasil = values.value;  
+}
 
 
 
 
-  $(document).ready(function(){
-    
-  //    $("#validasi").validate({
-  //   rules: {
-  //     ac: {
-  //       required : true
-  //     }
-  //     },
-  //   messages: {
-  //     ac: {
-  //       required: true
-  //     }
-  // }
-  // });
+$(document).ready(function(){
 
-   $('#tambah-data').modal({
-    backdrop: 'static', 
-    keyboard: false
-});  
+  $("#simpan").click(function() {
+    $('.ac').each(function() {
+        if ($(this).val().length === 0 || $(this).val() == "null") {
+            $(this).attr("required", true);
+            $(this).addClass("is-invalid");
+            $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
+        } else {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+            $(this).attr("oninvalid", "setCustomValidity('')");
 
-
-    $("#simpan").click(function() {
-        $('.ac').each(function() {
-            if ($(this).val().length === 0 || $(this).val() == "null") {
-                $(this).attr("required", true);
-                $(this).addClass("is-invalid");
-                $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
-            } else {
-                $(this).removeClass("is-invalid");
-                $(this).addClass("is-valid");
-                $(this).attr("oninvalid", "setCustomValidity('')");
-
-            }
-        });
+        }
     });
+});
 
-   });
+});
 
     // $(".btn-close").click(function(){
     //     $("#tambah-data").hide();
