@@ -2,6 +2,8 @@
 require_once "functions.php";
 
 
+
+
 //Tampil table Meninggal
 $dataMID = dataMeninggal();
 if (isset($_GET['id_M'])) {
@@ -13,7 +15,13 @@ if (isset($_GET['id_M'])) {
 			$_SESSION['tahun_data_mentah'] = $key['tahun_data_mentah'];
 			$_SESSION['tahun_data_real'] = $key['tahun_data_real']; 			               
 		}
-	}    
+	} 
+	echo " 
+            <script>
+                document.location.href = 'input-data.php#collapseOne';
+            </script>   
+        ";
+   
 }
 
 //Tampil table Luka Berat
@@ -28,7 +36,13 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real']; 
 			               
 		}
-	}    
+	}
+	echo " 
+            <script>
+                document.location.href = 'input-data.php#collapseTwo';
+            </script>   
+        ";
+    
 }
 
 //Tampil table Luka Ringan
@@ -43,13 +57,15 @@ if (isset($_GET['id_LR'])) {
 			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real']; 
 			               
 		}
-	}    
-}
-echo " 
+	}
+	echo " 
             <script>
-                document.location.href = 'input-data.php';
+                document.location.href = 'input-data.php#collapseThree';
             </script>   
         ";
+ 
+}
+
 
 
 ?>
