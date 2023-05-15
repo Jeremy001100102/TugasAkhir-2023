@@ -30,19 +30,21 @@ $datalukaRingan = datalukaRingan();
 										<ul class="dropdown-menu">
 											<?php foreach ($dataMeninggal as $key) : ?>
 												<li><a class="dropdown-item" href="tables.php?id_M=<?= $key['id'] ?>"><?= $key['tahun_data_mentah'] ?></a></li>
+
 											<?php endforeach; ?>
 										</ul>
 									</div>
 								</div>
 								<div class="col-8 text-end">
-									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
-									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#delete-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
 								</div>
 							</div>
 						</div>
 
 
-						<table class="table table-bordered mt-3" id="#<?= $key['id']?>">
+						<?php $_SESSION['id_updateMD'] = $_SESSION['id_update']; ?>
+						<table class="table table-bordered mt-3">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -92,7 +94,8 @@ $datalukaRingan = datalukaRingan();
 								</div>
 							</div>
 							<div class="col-8 text-end">
-								<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+								<a href="" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+
 								<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
 							</div>
 						</div>
@@ -143,6 +146,7 @@ $datalukaRingan = datalukaRingan();
 								<ul class="dropdown-menu">
 									<?php foreach ($datalukaRingan as $key) : ?>
 										<li><a class="dropdown-item" href="tables.php?id_LR=<?= $key['id'] ?>"><?= $key['tahun_data_mentah'] ?></a></li>
+										<?php $_SESSION['id_updateLR'] = $key['id'] ?>
 									<?php endforeach; ?>
 								</ul>
 							</div>
@@ -182,6 +186,15 @@ $datalukaRingan = datalukaRingan();
 </div>
 </div>
 </div>
+
+
+
+
+<?php require "update.php" ?>
+
+
+
+
 
 
 

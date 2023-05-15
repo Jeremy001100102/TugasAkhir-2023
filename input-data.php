@@ -137,8 +137,8 @@ if (isset($_POST['simpan'])) {
 </div>
 </div>
 <div class="modal-footer">   
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
- <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+   <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
 </div>  
 </form>
 </div>
@@ -149,43 +149,44 @@ if (isset($_POST['simpan'])) {
 <?php require "tampil.php" ?>
 
 
+
 <?php require "layout/footer.php" ?> 
 
 <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 <script>
 
-   function getKondisi(values) {
-      hasil = values.value;  
-  }
+ function getKondisi(values) {
+  hasil = values.value;  
+}
 
 
 
 
-  $(document).ready(function(){
+$(document).ready(function(){
 
-      $("#simpan").click(function() {
-        $('.ac').each(function() {
-            if ($(this).val().length === 0 || $(this).val() == "null") {
-                $(this).attr("required", true);
-                $(this).addClass("is-invalid");
-                $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
-            } else {
-                $(this).removeClass("is-invalid");
-                $(this).addClass("is-valid");
-                $(this).attr("oninvalid", "setCustomValidity('')");
+  $("#simpan").click(function() {
+    $('.ac').each(function() {
+        if ($(this).val().length === 0 || $(this).val() == "null") {
+            $(this).attr("required", true);
+            $(this).addClass("is-invalid");
+            $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
+        } else {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+            $(this).attr("oninvalid", "setCustomValidity('')");
 
-            }
-        });
+        }
     });
+});
 
 
 
-      var hash = window.location.hash;
-      if(hash){
-        $(hash).collapse('show');
-    }
+  var hash = window.location.hash;
+  if(hash){
+    $(hash).collapse('show');
+}
 
-    
+
 
 });
 
