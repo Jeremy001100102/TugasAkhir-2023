@@ -40,9 +40,14 @@ if (isset($_POST['simpan'])) {
 
 <?php require "layout/header.php" ?>
 
-<div class="position-relative">
-    <h3 class="d-inline">INPUT DATA</h3>
-    <a href="#" class="btn btn-sm btn-success shadow-sm d-inline position-absolute top-0 end-0" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+<div class="row">
+    <div class="col-4">
+        <h3 class="d-inline">INPUT DATA</h3>
+    </div>
+    <div class="col-8 text-end">
+        <a href="" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+        <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+    </div>
 </div>
 <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable mw-100 w-100">
@@ -137,8 +142,8 @@ if (isset($_POST['simpan'])) {
 </div>
 </div>
 <div class="modal-footer">   
-   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-   <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+ <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
 </div>  
 </form>
 </div>
@@ -155,36 +160,63 @@ if (isset($_POST['simpan'])) {
 <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 <script>
 
- function getKondisi(values) {
-  hasil = values.value;  
-}
+   function getKondisi(values) {
+      hasil = values.value;  
+  }
 
 
 
 
-$(document).ready(function(){
+  $(document).ready(function(){
 
-  $("#simpan").click(function() {
-    $('.ac').each(function() {
-        if ($(this).val().length === 0 || $(this).val() == "null") {
-            $(this).attr("required", true);
-            $(this).addClass("is-invalid");
-            $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
-        } else {
-            $(this).removeClass("is-invalid");
-            $(this).addClass("is-valid");
-            $(this).attr("oninvalid", "setCustomValidity('')");
+//validation form input dan update data
+      $("#simpan").click(function() {
+        $('.ac').each(function() {
+            if ($(this).val().length === 0 || $(this).val() == "null") {
+                $(this).attr("required", true);
+                $(this).addClass("is-invalid");
+                $(this).attr("oninvalid", "setCustomValidity('Mohon Diisi')");
+            } else {
+                $(this).removeClass("is-invalid");
+                $(this).addClass("is-valid");
+                $(this).attr("oninvalid", "setCustomValidity('')");
 
-        }
+            }
+        });
     });
-});
+
+
+//bookmark tampil data
+      var hash = window.location.hash;
+      if(hash){
+        $(hash).collapse('show');
+    }
+
+
+  //Aksi saat accordion diklik
+    // Menangkap semua elemen accordion button
+    var accordionButtons = document.querySelectorAll('.accordion-button');
+
+    // Loop melalui setiap button
+    accordionButtons.forEach(function(button) {
+        // Tambahkan event listener 'click' pada setiap button
+        button.addEventListener('click', function() {
+            // Dapatkan data-bs-target dari button yang diklik
+            var target = this.getAttribute('data-bs-target');
+
+            // Dapatkan bagian anchor dari data-bs-target
+            var anchor = target.substring(1);
+
+            // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
+            window.location.hash = anchor;
+        });
+    });
 
 
 
-  var hash = window.location.hash;
-  if(hash){
-    $(hash).collapse('show');
-}
+
+
+
 
 
 

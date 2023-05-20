@@ -61,22 +61,6 @@ function datalukaRingan(){
 }
 
 
-
-
-
-
-
-function tampilData(){
-    global $conn;
-    $query = "SELECT * FROM data_bulan_kecelakaan";
-    $dataKecelakaan = mysqli_query($conn, $query);
-
-    while ($data = mysqli_fetch_assoc($dataKecelakaan)) {
-        echo $data['data_bulan_mentah'];
-    }
-}
-
-
 function tambah($data){
     global $conn;
     $tahun_data_mentah = $data['tahunMentah'];
@@ -91,6 +75,23 @@ function tambah($data){
 
     return mysqli_affected_rows($conn);
 }
+
+function update($data, $id){
+    global $conn;
+    $tahun_data_mentah = $data['tahunMentah'];
+    $tahun_data_real = $data['tahunReal'];
+    $kategori = (int) $data['kondisiUpdate'];
+    $data_mentah = implode("|",$data['dataM']);
+    $data_real = implode("|",$data['dataR']);
+
+    $query = "UPDATE data_bulan_kecelakaan SET data_bulan_mentah = '$data_mentah', data_bulan_real = '$data_real', tahun_data_mentah = '$tahun_data_mentah', tahun_data_real = '$tahun_data_real' WHERE id = '$id' ";
+    
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+    
+}
+
 
 
 

@@ -1,5 +1,6 @@
 <?php 
 require_once "functions.php";
+session_start();
 
 
 
@@ -9,10 +10,9 @@ $dataMID = dataMeninggal();
 if (isset($_GET['id_M'])) {
 	foreach ($dataMID as $key) {
 		if($_GET['id_M'] == $key['id']){
-			session_start();
-			$_SESSION['kondisi'] = true;
+			$_SESSION['kondisiMD'] = true;
 			$_SESSION['id_update'] = $key['id'];
-			$_SESSION['kategori'] = $key['id_kategori'];
+			$_SESSION['id_category'] = $key['id_kategori'];
 			$_SESSION['convertMentah'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertReal'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentah'] = $key['tahun_data_mentah'];
@@ -32,7 +32,9 @@ $dataLB = datalukaBerat();
 if (isset($_GET['id_LB'])) {
 	foreach ($dataLB as $key) {
 		if($_GET['id_LB'] == $key['id']){
-			session_start();
+			$_SESSION['kondisiLB'] = true;
+			$_SESSION['id_update'] = $key['id'];
+			$_SESSION['id_category'] = $key['id_kategori'];
 			$_SESSION['convertMentahLB'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLB'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLB'] = $key['tahun_data_mentah'];
@@ -53,7 +55,9 @@ $dataLR = datalukaRingan();
 if (isset($_GET['id_LR'])) {
 	foreach ($dataLR as $key) {
 		if($_GET['id_LR'] == $key['id']){
-			session_start();
+			$_SESSION['kondisiLR'] = true;
+			$_SESSION['id_update'] = $key['id'];
+			$_SESSION['id_category'] = $key['id_kategori'];
 			$_SESSION['convertMentahLR'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLR'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLR'] = $key['tahun_data_mentah'];

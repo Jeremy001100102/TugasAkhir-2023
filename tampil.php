@@ -13,7 +13,7 @@ $datalukaRingan = datalukaRingan();
 	<div class="accordion w-100 position-absolute top-0 start-50 translate-middle-x" id="accordionExample">
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="headingOne">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 					<h5>Meninggal</h5>
 				</button>
 			</h2>
@@ -36,34 +36,41 @@ $datalukaRingan = datalukaRingan();
 									</div>
 								</div>
 								<div class="col-8 text-end">
-									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
-									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#delete-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+									<?php if(isset($_SESSION['kondisiMD'])) : ?>
+										<input type="checkbox" name="pilihMD
+										" class="me-2" checked>
+
+										<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+
+										<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#delete-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>
-
-
-						<?php $_SESSION['id_updateMD'] = $_SESSION['id_update']; ?>
-						<table class="table table-bordered mt-3">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Bulan</th>
-									<th>Data Mentah Tahun <?= $_SESSION['tahun_data_mentah']; ?></th>
-									<th>Data Real Tahun <?= $_SESSION['tahun_data_real']; ?></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-								<tr>
-									<th><?= $no++; ?></th>
-									<td><?=  $bulan[$i]; ?></td>
-									<td><?= $_SESSION['convertMentah'][$i]; ?></td>
-									<td><?=  $_SESSION['convertReal'][$i]; ?></td>
-								</tr>
-							<?php endfor ?>
-						</tbody>
-					</table>
+						<?php if(isset($_SESSION['kondisiMD'])) : ?>
+							<table class="table table-bordered mt-3">
+								<thead>
+									<tr class="text-center">
+										<th>#</th>
+										<th>Bulan</th>
+										<th>Data Mentah Tahun <?= $_SESSION['tahun_data_mentah']; ?></th>
+										<th>Data Real Tahun <?= $_SESSION['tahun_data_real']; ?></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+									<tr>
+										<th><?= $no++; ?></th>
+										<td><?=  $bulan[$i]; ?></td>
+										<td><?= $_SESSION['convertMentah'][$i]; ?></td>
+										<td><?=  $_SESSION['convertReal'][$i]; ?></td>
+									</tr>
+								<?php endfor ?>
+							</tbody>
+						</table>
+					<?php else : ?>
+						<em>Anda Belum Memilih Data Diatas!</em>
+					<?php endif ?>
 				<?php else : ?>
 					<h6>Data Belum Ada</h6>
 				<?php endif; ?>	
@@ -94,33 +101,41 @@ $datalukaRingan = datalukaRingan();
 								</div>
 							</div>
 							<div class="col-8 text-end">
-								<a href="" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+								<?php if(isset($_SESSION['kondisiLB'])) : ?>
+									<input type="checkbox" name="pilihLB" class="me-2">
 
-								<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+									<a href="" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+
+									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
 
-					<table class="table table-bordered mt-3">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Bulan</th>
-								<th>Data Mentah Tahun  <?= $_SESSION['tahun_data_mentahLB']; ?></th>
-								<th>Data Real Tahun <?= $_SESSION['tahun_data_realLB']; ?></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-							<tr>
-								<th><?= $no++; ?></th>
-								<td><?=  $bulan[$i]; ?></td>
-								<td><?= $_SESSION['convertMentahLB'][$i];  ?></td>
-								<td><?= $_SESSION['convertRealLB'][$i];  ?></td>
-							</tr>
-						<?php endfor ?>
-					</tbody>
-				</table>
+					<?php if (isset($_SESSION['kondisiLB'])): ?>
+						<table class="table table-bordered mt-3">
+							<thead>
+								<tr class="text-center">
+									<th>#</th>
+									<th>Bulan</th>
+									<th>Data Mentah Tahun  <?= $_SESSION['tahun_data_mentahLB']; ?></th>
+									<th>Data Real Tahun <?= $_SESSION['tahun_data_realLB']; ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+								<tr>
+									<th><?= $no++; ?></th>
+									<td><?=  $bulan[$i]; ?></td>
+									<td><?= $_SESSION['convertMentahLB'][$i];  ?></td>
+									<td><?= $_SESSION['convertRealLB'][$i];  ?></td>
+								</tr>
+							<?php endfor ?>
+						</tbody>
+					</table>
+				<?php else :  ?>
+					<em>Anda Belum Memilih Data Diatas!</em>
+				<?php endif ?>
 			<?php else : ?>
 				<h6>Data Belum Ada</h6>
 			<?php endif; ?>
@@ -152,32 +167,41 @@ $datalukaRingan = datalukaRingan();
 							</div>
 						</div>
 						<div class="col-8 text-end">
-							<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+							<?php if(isset($_SESSION['kondisiLR'])) : ?>
+							<input type="checkbox" name="pilihLR" class="me-2">
+
+							<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+
 							<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
 
-				<table class="table table-bordered mt-3" >
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Bulan</th>
-							<th>Data Mentah Tahun <?= $_SESSION['tahun_data_mentahLR']; ?></th>
-							<th>Data Real Tahun <?= $_SESSION['tahun_data_realLR']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-						<tr>
-							<th><?= $no++;?></th>
-							<td><?= $bulan[$i];?></td>
-							<td><?= $_SESSION['convertMentahLR'][$i];?></td>
-							<td><?= $_SESSION['convertRealLR'][$i]; ?></td>
-						</tr>
-					<?php endfor ?>
-				</tbody>
-			</table>
+				<?php if (isset($_SESSION['kondisiLR'])) : ?>
+					<table class="table table-bordered mt-3" >
+						<thead>
+							<tr class="text-center">
+								<th>#</th>
+								<th>Bulan</th>
+								<th>Data Mentah Tahun <?= $_SESSION['tahun_data_mentahLR']; ?></th>
+								<th>Data Real Tahun <?= $_SESSION['tahun_data_realLR']; ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+							<tr>
+								<th><?= $no++;?></th>
+								<td><?= $bulan[$i];?></td>
+								<td><?= $_SESSION['convertMentahLR'][$i];?></td>
+								<td><?= $_SESSION['convertRealLR'][$i]; ?></td>
+							</tr>
+						<?php endfor ?>
+					</tbody>
+				</table>
+			<?php else :  ?>
+				<em>Anda Belum Memilih Data Diatas!</em>
+			<?php endif ?>
 		<?php else : ?>
 			<h6>Data Belum Ada</h6>
 		<?php endif; ?>
