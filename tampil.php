@@ -29,8 +29,7 @@ $datalukaRingan = datalukaRingan();
 										</button>
 										<ul class="dropdown-menu">
 											<?php foreach ($dataMeninggal as $key) : ?>
-												<li><a class="dropdown-item" href="tables.php?id_M=<?= $key['id'] ?>"><?= $key['tahun_data_mentah'] ?></a></li>
-
+												<li><a class="dropdown-item" href="tables.php?id_MD=<?= $key['id'] ?>"><?= $key['tahun_data_mentah'] ?></a></li>
 											<?php endforeach; ?>
 										</ul>
 									</div>
@@ -40,9 +39,9 @@ $datalukaRingan = datalukaRingan();
 										<input type="checkbox" name="pilihMD
 										" class="me-2" checked>
 
-										<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
-										<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#delete-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+										<a href="delete.php?id_hapusMD=<?= $_SESSION['id_updateMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
 							</div>
@@ -69,7 +68,7 @@ $datalukaRingan = datalukaRingan();
 							</tbody>
 						</table>
 					<?php else : ?>
-						<em>Anda Belum Memilih Data Diatas!</em>
+						<em>Anda Belum Memilih Data Tahun Diatas!</em>
 					<?php endif ?>
 				<?php else : ?>
 					<h6>Data Belum Ada</h6>
@@ -104,9 +103,9 @@ $datalukaRingan = datalukaRingan();
 								<?php if(isset($_SESSION['kondisiLB'])) : ?>
 									<input type="checkbox" name="pilihLB" class="me-2">
 
-									<a href="" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
-									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+									<a href="delete.php?id_hapusLB=<?= $_SESSION['id_updateLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 								<?php endif; ?>
 							</div>
 						</div>
@@ -134,7 +133,7 @@ $datalukaRingan = datalukaRingan();
 						</tbody>
 					</table>
 				<?php else :  ?>
-					<em>Anda Belum Memilih Data Diatas!</em>
+					<em>Anda Belum Memilih Data Tahun Diatas!</em>
 				<?php endif ?>
 			<?php else : ?>
 				<h6>Data Belum Ada</h6>
@@ -161,18 +160,17 @@ $datalukaRingan = datalukaRingan();
 								<ul class="dropdown-menu">
 									<?php foreach ($datalukaRingan as $key) : ?>
 										<li><a class="dropdown-item" href="tables.php?id_LR=<?= $key['id'] ?>"><?= $key['tahun_data_mentah'] ?></a></li>
-										<?php $_SESSION['id_updateLR'] = $key['id'] ?>
 									<?php endforeach; ?>
 								</ul>
 							</div>
 						</div>
 						<div class="col-8 text-end">
 							<?php if(isset($_SESSION['kondisiLR'])) : ?>
-							<input type="checkbox" name="pilihLR" class="me-2">
+								<input type="checkbox" name="pilihLR" class="me-2">
 
-							<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+								<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
-							<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Delete</a>
+								<a href="delete.php?id_hapusLR=<?= $_SESSION['id_updateLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 							<?php endif; ?>
 						</div>
 					</div>
@@ -200,7 +198,7 @@ $datalukaRingan = datalukaRingan();
 					</tbody>
 				</table>
 			<?php else :  ?>
-				<em>Anda Belum Memilih Data Diatas!</em>
+				<em>Anda Belum Memilih Data Tahun Diatas!</em>
 			<?php endif ?>
 		<?php else : ?>
 			<h6>Data Belum Ada</h6>
@@ -215,8 +213,6 @@ $datalukaRingan = datalukaRingan();
 
 
 <?php require "update.php" ?>
-
-
 
 
 

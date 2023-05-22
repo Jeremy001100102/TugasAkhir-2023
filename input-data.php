@@ -193,11 +193,11 @@ if (isset($_POST['simpan'])) {
     }
 
 
-  //Aksi saat accordion diklik
-    // Menangkap semua elemen accordion button
+//   Aksi saat accordion diklik
+//     Menangkap semua elemen accordion button
     var accordionButtons = document.querySelectorAll('.accordion-button');
 
-    // Loop melalui setiap button
+    //Loop melalui setiap button
     accordionButtons.forEach(function(button) {
         // Tambahkan event listener 'click' pada setiap button
         button.addEventListener('click', function() {
@@ -212,12 +212,16 @@ if (isset($_POST['simpan'])) {
         });
     });
 
-
-
-
-
-
-
+//update trigger
+// $('#updateMD').on('click', function(e) {
+//       e.preventDefault();
+//     alert("fjsfs");
+    
+//   //   var activeLink = $('.dropdown-menu').find('.active');
+//   //   if (activeLink.length > 0) {
+//   //     activeLink.trigger('click');
+//   //   }
+//   });
 
 
 });
