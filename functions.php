@@ -92,6 +92,20 @@ function update($data, $id){
     
 }
 
+function hapus($id){
+    global $conn;
+
+    mysqli_query($conn, "DELETE FROM data_bulan_kecelakaan WHERE id = $id");
+    
+    return mysqli_affected_rows($conn);
+}
+
+function hapusAll(){
+    global $conn;
+    mysqli_query($conn, "TRUNCATE data_bulan_kecelakaan");    
+    return mysqli_affected_rows($conn);   
+}
+
 
 
 

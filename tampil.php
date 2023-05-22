@@ -1,6 +1,5 @@
 <?php 
 
-
 $dataMeninggal = dataMeninggal();
 $datalukaBerat = dataLukaBerat();
 $datalukaRingan = datalukaRingan();
@@ -71,6 +70,7 @@ $datalukaRingan = datalukaRingan();
 						<em>Anda Belum Memilih Data Tahun Diatas!</em>
 					<?php endif ?>
 				<?php else : ?>
+					<?php unset($_SESSION['kondisiMD']);  ?>
 					<h6>Data Belum Ada</h6>
 				<?php endif; ?>	
 			</div>
@@ -136,6 +136,7 @@ $datalukaRingan = datalukaRingan();
 					<em>Anda Belum Memilih Data Tahun Diatas!</em>
 				<?php endif ?>
 			<?php else : ?>
+				<?php unset($_SESSION['kondisiLB']);  ?>
 				<h6>Data Belum Ada</h6>
 			<?php endif; ?>
 		</div>
@@ -201,6 +202,7 @@ $datalukaRingan = datalukaRingan();
 				<em>Anda Belum Memilih Data Tahun Diatas!</em>
 			<?php endif ?>
 		<?php else : ?>
+			<?php unset($_SESSION['kondisiLR']);  ?>
 			<h6>Data Belum Ada</h6>
 		<?php endif; ?>
 	</div>

@@ -45,7 +45,7 @@ if (isset($_POST['simpan'])) {
         <h3 class="d-inline">INPUT DATA</h3>
     </div>
     <div class="col-8 text-end">
-        <a href="" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+        <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
         <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
     </div>
 </div>
@@ -195,22 +195,22 @@ if (isset($_POST['simpan'])) {
 
 //   Aksi saat accordion diklik
 //     Menangkap semua elemen accordion button
-    var accordionButtons = document.querySelectorAll('.accordion-button');
+    // var accordionButtons = document.querySelectorAll('.accordion-button');
 
-    //Loop melalui setiap button
-    accordionButtons.forEach(function(button) {
-        // Tambahkan event listener 'click' pada setiap button
-        button.addEventListener('click', function() {
-            // Dapatkan data-bs-target dari button yang diklik
-            var target = this.getAttribute('data-bs-target');
+    // //Loop melalui setiap button
+    // accordionButtons.forEach(function(button) {
+    //     // Tambahkan event listener 'click' pada setiap button
+    //     button.addEventListener('click', function() {
+    //         // Dapatkan data-bs-target dari button yang diklik
+    //         var target = this.getAttribute('data-bs-target');
 
-            // Dapatkan bagian anchor dari data-bs-target
-            var anchor = target.substring(1);
+    //         // Dapatkan bagian anchor dari data-bs-target
+    //         var anchor = target.substring(1);
 
-            // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
-            window.location.hash = anchor;
-        });
-    });
+    //         // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
+    //         window.location.hash = anchor;
+    //     });
+    // });
 
 //update trigger
 // $('#updateMD').on('click', function(e) {
