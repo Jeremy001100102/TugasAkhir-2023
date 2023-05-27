@@ -45,10 +45,12 @@ if (isset($_POST['simpan'])) {
         <h3 class="d-inline">INPUT DATA</h3>
     </div>
     <div class="col-8 text-end">
+        <a href="kalkulasi.php?id_hitungMD=<?= $_SESSION['id_updateMD']?>&id_hitungLB=<?= $_SESSION['id_updateLB']?>&id_hitungLR=<?= $_SESSION['id_updateLR']?>" id="tombolHitung" class="btn btn-sm btn-primary shadow-sm disabled"><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
         <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
         <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
     </div>
 </div>
+
 <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable mw-100 w-100">
         <div class="card mx-auto mb-3 w-75 mt-4">
@@ -155,19 +157,14 @@ if (isset($_POST['simpan'])) {
 
 
 
+
 <?php require "layout/footer.php" ?> 
 
-<!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
-   function getKondisi(values) {
-      hasil = values.value;  
-  }
 
-
-
-
-  $(document).ready(function(){
+$(document).ready(function(){
 
 //validation form input dan update data
       $("#simpan").click(function() {
@@ -185,6 +182,19 @@ if (isset($_POST['simpan'])) {
         });
     });
 
+//button aktif
+    // Mendengarkan perubahan pada checkbox
+  $("#checkMD, #checkLB, #checkLR").change(function() {
+    // Memeriksa status checkbox
+    if ($("#checkMD").is(':checked') && $("#checkLB").is(':checked') && $("#checkLR").is(':checked')) {
+      // Mengaktifkan tombol "Hitung" atau menghapus class "disable"
+      $("#tombolHitung").removeClass("disabled");
+    } else {
+      // Menonaktifkan tombol "Hitung" atau menambahkan class "disable"
+      $("#tombolHitung").addClass("disabled");
+    }
+  });
+
 
 //bookmark tampil data
       var hash = window.location.hash;
@@ -193,45 +203,26 @@ if (isset($_POST['simpan'])) {
     }
 
 
-//   Aksi saat accordion diklik
-//     Menangkap semua elemen accordion button
-    // var accordionButtons = document.querySelectorAll('.accordion-button');
+  //Aksi saat accordion diklik
+    //Menangkap semua elemen accordion button
+    var accordionButtons = document.querySelectorAll('.accordion-button');
 
-    // //Loop melalui setiap button
-    // accordionButtons.forEach(function(button) {
-    //     // Tambahkan event listener 'click' pada setiap button
-    //     button.addEventListener('click', function() {
-    //         // Dapatkan data-bs-target dari button yang diklik
-    //         var target = this.getAttribute('data-bs-target');
+    //Loop melalui setiap button
+    accordionButtons.forEach(function(button) {
+        // Tambahkan event listener 'click' pada setiap button
+        button.addEventListener('click', function() {
+            // Dapatkan data-bs-target dari button yang diklik
+            var target = this.getAttribute('data-bs-target');
 
-    //         // Dapatkan bagian anchor dari data-bs-target
-    //         var anchor = target.substring(1);
+            // Dapatkan bagian anchor dari data-bs-target
+            var anchor = target.substring(1);
 
-    //         // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
-    //         window.location.hash = anchor;
-    //     });
-    // });
-
-//update trigger
-// $('#updateMD').on('click', function(e) {
-//       e.preventDefault();
-//     alert("fjsfs");
-    
-//   //   var activeLink = $('.dropdown-menu').find('.active');
-//   //   if (activeLink.length > 0) {
-//   //     activeLink.trigger('click');
-//   //   }
-//   });
-
+            // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
+            window.location.hash = anchor;
+        });
+    });
 
 });
-
-    // $(".btn-close").click(function(){
-    //     $("#tambah-data").hide();
-    // });
-
-
-
 
 
 </script>                  

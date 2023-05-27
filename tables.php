@@ -21,7 +21,9 @@ if (isset($_GET['id_MD'])) {
 			$_SESSION['convertReal'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentah'] = $key['tahun_data_mentah'];
 			$_SESSION['tahun_data_real'] = $key['tahun_data_real']; 		               
-		}else{
+		}
+
+		if($_GET['id_MD'] == "jeremy"){
 			$_SESSION['kondisiMD'] = true;
 			$_SESSION['id_updateMD'] = $key['id'];
 			$_SESSION['id_categoryMD'] = $key['id_kategori'];
@@ -55,7 +57,8 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['convertRealLB'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLB'] = $key['tahun_data_mentah'];
 			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real']; 		               
-		}else{
+		}
+		if($_GET['id_LB'] == "jeremy"){
 			$_SESSION['kondisiLB'] = true;
 			$_SESSION['id_updateLB'] = $key['id'];
 			$_SESSION['id_categoryLB'] = $key['id_kategori'];
@@ -89,7 +92,8 @@ if (isset($_GET['id_LR'])) {
 			$_SESSION['convertRealLR'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLR'] = $key['tahun_data_mentah'];
 			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real']; 		               
-		}else{
+		}
+		if($_GET['id_LR'] == "jeremy"){
 			$_SESSION['kondisiLR'] = true;
 			$_SESSION['id_updateLR'] = $key['id'];
 			$_SESSION['id_categoryLR'] = $key['id_kategori'];

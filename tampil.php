@@ -35,8 +35,13 @@ $datalukaRingan = datalukaRingan();
 								</div>
 								<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisiMD'])) : ?>
-										<input type="checkbox" name="pilihMD
-										" class="me-2" checked>
+									
+										<div class="form-check d-inline me-2">
+											<input class="form-check-input" type="checkbox" value="" id="checkMD">
+											<label class="form-check-label" for="checkMD">Pilih Data Simulasi			
+											</label>
+										</div>
+										
 
 										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
@@ -46,7 +51,8 @@ $datalukaRingan = datalukaRingan();
 							</div>
 						</div>
 						<?php if(isset($_SESSION['kondisiMD'])) : ?>
-							<table class="table table-bordered mt-3">
+							<table class="table table-bordered">
+								<caption class="caption-top text-center">Meninggal Dunia</caption>
 								<thead>
 									<tr class="text-center">
 										<th>#</th>
@@ -58,7 +64,7 @@ $datalukaRingan = datalukaRingan();
 								<tbody>
 									<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 									<tr>
-										<th><?= $no++; ?></th>
+										<th class="text-center"><?= $no++; ?></th>
 										<td><?=  $bulan[$i]; ?></td>
 										<td><?= $_SESSION['convertMentah'][$i]; ?></td>
 										<td><?=  $_SESSION['convertReal'][$i]; ?></td>
@@ -101,7 +107,11 @@ $datalukaRingan = datalukaRingan();
 							</div>
 							<div class="col-8 text-end">
 								<?php if(isset($_SESSION['kondisiLB'])) : ?>
-									<input type="checkbox" name="pilihLB" class="me-2">
+									<div class="form-check d-inline me-2">
+											<input class="form-check-input" type="checkbox" value="" id="checkLB">
+											<label class="form-check-label" for="checkLB">Pilih Data Simulasi 			
+											</label>
+										</div>
 
 									<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
@@ -112,7 +122,8 @@ $datalukaRingan = datalukaRingan();
 					</div>
 
 					<?php if (isset($_SESSION['kondisiLB'])): ?>
-						<table class="table table-bordered mt-3">
+						<table class="table table-bordered">
+							<caption class="caption-top text-center">Luka Berat</caption>
 							<thead>
 								<tr class="text-center">
 									<th>#</th>
@@ -124,7 +135,7 @@ $datalukaRingan = datalukaRingan();
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
-									<th><?= $no++; ?></th>
+									<th class="text-center"><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['convertMentahLB'][$i];  ?></td>
 									<td><?= $_SESSION['convertRealLB'][$i];  ?></td>
@@ -167,7 +178,11 @@ $datalukaRingan = datalukaRingan();
 						</div>
 						<div class="col-8 text-end">
 							<?php if(isset($_SESSION['kondisiLR'])) : ?>
-								<input type="checkbox" name="pilihLR" class="me-2">
+								<div class="form-check d-inline me-2">
+											<input class="form-check-input" type="checkbox" value="" id="checkLR">
+											<label class="form-check-label" for="checkLR">Pilih Data Simulasi			
+											</label>
+										</div>
 
 								<a href="#" class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-dataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 
@@ -178,7 +193,8 @@ $datalukaRingan = datalukaRingan();
 				</div>
 
 				<?php if (isset($_SESSION['kondisiLR'])) : ?>
-					<table class="table table-bordered mt-3" >
+					<table class="table table-bordered">
+						<caption class="caption-top text-center">Luka Ringan</caption>
 						<thead>
 							<tr class="text-center">
 								<th>#</th>
@@ -190,7 +206,7 @@ $datalukaRingan = datalukaRingan();
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 							<tr>
-								<th><?= $no++;?></th>
+								<th class="text-center"><?= $no++;?></th>
 								<td><?= $bulan[$i];?></td>
 								<td><?= $_SESSION['convertMentahLR'][$i];?></td>
 								<td><?= $_SESSION['convertRealLR'][$i]; ?></td>
@@ -214,11 +230,8 @@ $datalukaRingan = datalukaRingan();
 
 
 
+
 <?php require "update.php" ?>
-
-
-
-
 
 
 

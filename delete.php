@@ -5,6 +5,7 @@ require 'functions.php';
 
 
 if (isset($_GET['id_hapusAll'])) {
+
 	if( hapusAll() >= 0){
 		echo " 
 		<script>

@@ -78,7 +78,7 @@
                 <a class="nav-link collapsed" href="pilih-data.php" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pilih Data</span>
+                    <span>Data Hasil Simulasi</span>
                 </a>
             </li>
 
@@ -94,7 +94,7 @@
 
             <!-- Nav Item - Frekuensi -->
             <li class="nav-item sb">
-                <a class="nav-link collapsed" href="kalkulasi.php" data-target="#collapsePages"
+                <a class="nav-link collapsed" href="kalkulasi.php?frek=jeremy" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-wave-square"></i>
                     <span>Frekuensi</span>
@@ -103,35 +103,35 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php">
+                <a class="nav-link" href="kalkulasi.php?prob=jeremy" name="probabilitas">
                     <i class="fas fa-fw fa-dice"></i>
                     <span>Probabilitas</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php">
+                <a class="nav-link" href="kalkulasi.php?kumu=jeremy">
                     <i class="fa-solid fa-arrow-up-right-dots"></i>
                     <span>Kumulatif</span></a>
             </li>
 
              <!-- Nav Item - Tables -->
             <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php">
+                <a class="nav-link" href="kalkulasi.php?inter=jeremy">
                     <i class="fa-solid fa-arrows-left-right"></i>
                     <span>Interval</span></a>
             </li>
 
               <!-- Nav Item - Tables -->
             <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php">
+                <a class="nav-link" href="kalkulasi.php?kalku=jeremy">
                     <i class="fa-solid fa-shuffle"></i>
                 <span>Angka Acak</span></a>
             </li>
 
              <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="kalkulasi.php">
+                <a class="nav-link" href="kalkulasi.php?hs=jeremy">
                    <i class="fa-solid fa-square-poll-horizontal"></i> 
                    <span>Hasil Simulasi</span></a>
             </li>
