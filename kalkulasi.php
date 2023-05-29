@@ -1,6 +1,5 @@
-<?php session_start(); 	require "layout/header.php" ?>
 <?php
-
+session_start();
 require_once "functions.php";
 
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -8,6 +7,7 @@ $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustu
 //data Meninggal Dunia
 $dataMD = dataMeninggal();
 if (isset($_GET['id_hitungMD'])) {
+	$_SESSION['link'] = "aktif";
 	foreach ($dataMD as $key) {
 		if($_GET['id_hitungMD'] == $key['id']){
 			$_SESSION['hitung_convertMentahMD'] = explode("|", $key['data_bulan_mentah']);
@@ -43,14 +43,30 @@ if (isset($_GET['id_hitungLR'])) {
 
 ?>
 
-<h1>Kalkulasi DATA</h1>
-<?php if(isset($_GET['id_hitungMD']) || isset($_GET['id_hitungLB']) || isset($_GET['id_hitungLR']) || isset($_GET['frek'])) : ?>
+<?php require "layout/header.php" ?>
+
+<?php if(isset($_SESSION['link']) && isset($_GET['frek'])) : ?>
 	<h3>Frekuensi</h3>
 	<?php 	require "frekuensi.php" ?>
 <?php endif; ?>
 
-<?php if(isset($_GET['prob'])) : ?>
+<?php if(isset($_GET['prob']) && isset($_SESSION['link'])) : ?>
 	<h3>Probabilitas</h3>
+	<?php 	require "probabilitas.php" ?>
+	<?php $_SESSION['prob'] = true; ?>
 <?php endif ?>
 
-<?php 	require "layout/footer.php" ?>
+<?php if(isset($_GET['kumu']) && isset($_SESSION['prob'])) : ?>
+	<h3>Kumulatif</h3>
+	<?php 	require "kumulatif.php" ?>
+	<?php $_SESSION['kumu'] = true; ?>
+<?php endif ?>
+
+<?php if(isset($_GET['inter']) && isset($_SESSION['kumu'])) : ?>
+	<h3>Interval</h3>
+	<?php 	require "interval.php" ?>
+	<?php $_SESSION['inter'] = true; ?>
+<?php endif ?>
+
+
+<?php require "layout/footer.php" ?>

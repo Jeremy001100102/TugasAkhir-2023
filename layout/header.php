@@ -91,10 +91,10 @@
             </div>
 
             
-
             <!-- Nav Item - Frekuensi -->
             <li class="nav-item sb">
-                <a class="nav-link collapsed" href="kalkulasi.php?frek=jeremy" data-target="#collapsePages"
+                <a class="nav-link collapsed"  tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-bs-trigger="focus" data-bs-title="Perhatian" data-bs-content="Anda Belum Melakukan Kalkulasi Data!" href="<?php if(isset($_SESSION['link'])) { echo $_SESSION['link'] === 'aktif' ? 'kalkulasi.php?frek=jeremy' : '#'; } else{
+                    echo "#";}?>" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-wave-square"></i>
                     <span>Frekuensi</span>

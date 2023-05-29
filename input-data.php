@@ -5,7 +5,10 @@ require_once "functions.php";
 
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
+//
 
+
+//tambah data
 if (isset($_POST['simpan'])) {
     // $dataS = $_POST['dataS'];
     // $dataR = $_POST['dataR'];
@@ -45,7 +48,11 @@ if (isset($_POST['simpan'])) {
         <h3 class="d-inline">INPUT DATA</h3>
     </div>
     <div class="col-8 text-end">
-        <a href="kalkulasi.php?id_hitungMD=<?= $_SESSION['id_updateMD']?>&id_hitungLB=<?= $_SESSION['id_updateLB']?>&id_hitungLR=<?= $_SESSION['id_updateLR']?>" id="tombolHitung" class="btn btn-sm btn-primary shadow-sm disabled"><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
+
+
+        <a href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
+         echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>" id="tombolHitung" class="btn btn-sm btn-primary shadow-sm disabled"><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
+    
         <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
         <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
     </div>
@@ -165,6 +172,9 @@ if (isset($_POST['simpan'])) {
 
 
 $(document).ready(function(){
+
+    $('[data-toggle="popover"]').popover();
+
 
 //validation form input dan update data
       $("#simpan").click(function() {

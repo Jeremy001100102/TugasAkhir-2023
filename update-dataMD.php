@@ -72,7 +72,7 @@ if (isset($_POST['updateMD'])) {
                             <div class="row justify-content-start">
                                 <label for="tahun1" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label">Tahun</label>
                                 <div class="col-12 col-md-6 col-sm-5"> 
-                                    <input type="number" class="form-control ac" id="tahun1" name="tahunMentah" autocomplete="off" required="required" value="<?= $_SESSION['update_tahun_data_mentahMD'] ?>">
+                                    <input type="number" class="form-control ac" id="tahun1" name="tahunMentah" autocomplete="off" required="required" value="<?= $_SESSION['update_tahun_data_mentahMD']; ?>">
                                 </div>
                             </div>
                         </div>

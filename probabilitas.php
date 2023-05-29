@@ -1,3 +1,33 @@
+<?php 	
+//Probabilitas Meninggal
+$_SESSION['convert_probMD'] = [];
+$_SESSION['jumlah_probMD'] = 0;
+for ($i=0; $i < count($bulan); $i++) { 
+	$probMD[$i] = $_SESSION['hitung_convertMentahMD'][$i] / $_SESSION['jumlahFrekuensiMD'];
+	$_SESSION['convert_probMD'][$i] = number_format($probMD[$i], 2);
+	$_SESSION['jumlah_probMD'] += $probMD[$i];
+}
+
+//Proababilitas Luka Berat
+$_SESSION['convert_probLB'] = [];
+$_SESSION['jumlah_probLB'] = 0;
+for ($i=0; $i < count($bulan); $i++) { 
+	$probLB[$i] = $_SESSION['hitung_convertMentahLB'][$i] / $_SESSION['jumlahFrekuensiLB'];
+	$_SESSION['convert_probLB'][$i] = number_format($probLB[$i], 2);
+	$_SESSION['jumlah_probLB'] += $probLB[$i];
+}
+
+//Probabilitas Luka Ringan
+$_SESSION['convert_probLR'] = [];
+$_SESSION['jumlah_probLR'] = 0;
+for ($i=0; $i < count($bulan); $i++) { 
+	$probLR[$i] = $_SESSION['hitung_convertMentahLR'][$i] / $_SESSION['jumlahFrekuensiLR'];
+	$_SESSION['convert_probLR'][$i] = number_format($probLR[$i], 2);
+	$_SESSION['jumlah_probLR'] += $probLR[$i];
+}
+
+ ?>
+
 <div class="position-relative mt-4">
 	<div class="accordion w-100 position-absolute top-0 start-50 translate-middle-x" id="accordionExample">
 		<div class="accordion-item">
@@ -16,21 +46,22 @@
 									<th>#</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
+									<th>Probabilitas</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php $jumlahFrekuensiMD = 0; $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
 									<th class="text-center"><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahMD'][$i]; ?></td>
+									<td><?= $_SESSION['convert_probMD'][$i]; ?></td>	
 								</tr>
-								<?php $jumlahFrekuensiMD += $_SESSION['hitung_convertMentahMD'][$i]; ?>
 							<?php endfor ?>
-							<?php $_SESSION['jumlahFrekuensiMD'] = $jumlahFrekuensiMD;?>
 							<tr>
 								<th class="text-center" colspan="2">Total</th>
-								<td><?= $jumlahFrekuensiMD; ?></td>
+								<td><?= $_SESSION['jumlahFrekuensiMD']; ?></td>
+								<td><?= $_SESSION['jumlah_probMD'];?></td>	
 							</tr>
 						</tbody>
 					</table>
@@ -53,21 +84,22 @@
 									<th>#</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
+									<th>Probabilitas</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php $jumlahFrekuensiLB = 0; $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
 									<th class="text-center"><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahLB'][$i]; ?></td>
+									<td><?= $_SESSION['convert_probLB'][$i]; ?></td>	
 								</tr>
-								<?php $jumlahFrekuensiLB += $_SESSION['hitung_convertMentahLB'][$i]; ?>
 							<?php endfor ?>
-							<?php $_SESSION['jumlahFrekuensiLB'] = $jumlahFrekuensiLB;?>
 							<tr>
 								<th class="text-center" colspan="2">Total</th>
-								<td><?= $jumlahFrekuensiLB; ?></td>
+								<td><?= $_SESSION['jumlahFrekuensiLB']; ?></td>
+								<td><?= $_SESSION['jumlah_probLB'];?></td>
 							</tr>
 						</tbody>
 					</table>
@@ -90,21 +122,22 @@
 									<th>#</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
+									<th>Probabilitas</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php $jumlahFrekuensiLR = 0; $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
 									<th class="text-center"><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahLR'][$i]; ?></td>
+									<td><?= $_SESSION['convert_probLR'][$i]; ?></td>	
 								</tr>
-								<?php $jumlahFrekuensiLR += $_SESSION['hitung_convertMentahLR'][$i]; ?>
-							<?php endfor ?>
-							<?php $_SESSION['jumlahFrekuensiLR'] = $jumlahFrekuensiLR;?>
+								<?php endfor ?>
 							<tr>
 								<th class="text-center" colspan="2">Total</th>
-								<td><?= $jumlahFrekuensiLR; ?></td>
+								<td><?= $_SESSION['jumlahFrekuensiLR']; ?></td>
+								<td><?= $_SESSION['jumlah_probLR'];?></td>
 							</tr>
 						</tbody>
 					</table>		
