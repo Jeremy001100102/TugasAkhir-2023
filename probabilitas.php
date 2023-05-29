@@ -66,6 +66,7 @@ for ($i=0; $i < count($bulan); $i++) {
 						</tbody>
 					</table>
 				</div>
+				</div>
 			</div>
 		</div>
 		<div class="accordion-item">
@@ -104,6 +105,7 @@ for ($i=0; $i < count($bulan); $i++) {
 						</tbody>
 					</table>
 				</div>
+				</div>
 			</div>
 		</div>
 		<div class="accordion-item">
@@ -140,7 +142,8 @@ for ($i=0; $i < count($bulan); $i++) {
 								<td><?= $_SESSION['jumlah_probLR'];?></td>
 							</tr>
 						</tbody>
-					</table>		
+					</table>
+					</div>		
 				</div>
 			</div>
 		</div>
