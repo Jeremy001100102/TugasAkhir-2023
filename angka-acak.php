@@ -1,55 +1,41 @@
 <?php 
-//interval Meninggal
-$_SESSION['batas_awalMD'] = [];
-$_SESSION['batas_akhirMD'] = [];
-$_SESSION['convert_intervalMD'] = [];
-for ($i=0; $i < count($bulan); $i++) { 
-	if ($i == 0) {
-		$_SESSION['batas_awalMD'][$i] = 0;
-		$_SESSION['batas_akhirMD'][$i] = (int) ($_SESSION['kumuMD'][$i] * 100);
-	}else{
-		$_SESSION['batas_awalMD'][$i] = $_SESSION['batas_akhirMD'][$i-1] + 1;
-		$_SESSION['batas_akhirMD'][$i] = (int) ($_SESSION['kumuMD'][$i] * 100);  
-	}
+//rumus zi + 1 = (a.zi + c) mod m
+define("a", 10); //konstanta pengali
+define("c", 17); //konstanta pergeseran
+define("m", 99); //konstanta modulus
 
-	$_SESSION['convert_intervalMD'][$i] = "{$_SESSION['batas_awalMD'][$i]}  -  {$_SESSION['batas_akhirMD'][$i]}";
+//Angka Acak Meninggal Dunia
+$zi_MD = 15;
+$_SESSION['angkaAcakMD'] = [];
+$temp_MD = 0;
+for($i=0; $i < count($bulan); $i++) { 
+	$temp_MD = (a * $zi_MD + c) % m;
+	$_SESSION['angkaAcakMD'][$i] =  $temp_MD;
+	$zi_MD = $temp_MD; 
 }
 
-//interval Luka Berat
-$_SESSION['batas_awalLB'] = [];
-$_SESSION['batas_akhirLB'] = [];
-$_SESSION['convert_intervalLB'] = [];
-for ($i=0; $i < count($bulan); $i++) { 
-	if ($i == 0) {
-		$_SESSION['batas_awalLB'][$i] = 0;
-		$_SESSION['batas_akhirLB'][$i] = (int) ($_SESSION['kumuLB'][$i] * 100);
-	}else{
-		$_SESSION['batas_awalLB'][$i] = $_SESSION['batas_akhirLB'][$i-1] + 1;
-		$_SESSION['batas_akhirLB'][$i] = (int) ($_SESSION['kumuLB'][$i] * 100);  
-	}
-
-	$_SESSION['convert_intervalLB'][$i] = "{$_SESSION['batas_awalLB'][$i]}  -  {$_SESSION['batas_akhirLB'][$i]}";
+//Angka Acak Luka Berat
+$zi_LB = 15;
+$_SESSION['angkaAcakLB'] = [];
+$temp_LB = 0;
+for($i=0; $i < count($bulan); $i++) { 
+	$temp_LB = (a * $zi_LB + c) % m;
+	$_SESSION['angkaAcakLB'][$i] =  $temp_LB;
+	$zi_LB = $temp_LB; 
 }
 
-//interval Luka Ringan
-$_SESSION['batas_awalLR'] = [];
-$_SESSION['batas_akhirLR'] = [];
-$_SESSION['convert_intervalLR'] = [];
-for ($i=0; $i < count($bulan); $i++) { 
-	if ($i == 0) {
-		$_SESSION['batas_awalLR'][$i] = 0;
-		$_SESSION['batas_akhirLR'][$i] = (int) ($_SESSION['kumuLR'][$i] * 100);
-	}else{
-		$_SESSION['batas_awalLR'][$i] = $_SESSION['batas_akhirLR'][$i-1] + 1;
-		$_SESSION['batas_akhirLR'][$i] = (int) ($_SESSION['kumuLR'][$i] * 100);  
-	}
-
-	$_SESSION['convert_intervalLR'][$i] = "{$_SESSION['batas_awalLR'][$i]}  -  {$_SESSION['batas_akhirLR'][$i]}";
+//Angka Acak Luka Ringan
+$zi_LR = 15;
+$_SESSION['angkaAcakLR'] = [];
+$temp_LR = 0;
+for($i=0; $i < count($bulan); $i++) { 
+	$temp_LR = (a * $zi_LR + c) % m;
+	$_SESSION['angkaAcakLR'][$i] =  $temp_LR;
+	$zi_LR = $temp_LR; 
 }
 
+?>
 
-
- ?>
  <div class="position-relative mt-4">
 	<div class="accordion w-100 position-absolute top-0 start-50 translate-middle-x" id="accordionExample">
 		<div class="accordion-item">
@@ -71,6 +57,7 @@ for ($i=0; $i < count($bulan); $i++) {
 									<th>Probabilitas</th>
 									<th>Kumulatif</th>
 									<th>Interval</th>
+									<th>Angka Acak</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -82,12 +69,14 @@ for ($i=0; $i < count($bulan); $i++) {
 									<td><?= $_SESSION['convert_probMD'][$i] ?></td>	
 									<td><?= $_SESSION['kumuMD'][$i]; ?></td>
 									<td class="text-center"><?= $_SESSION['convert_intervalMD'][$i] ?></td>
+									<td class="text-center"><?= $_SESSION['angkaAcakMD'][$i] ?></td>
 								</tr>
 							<?php endfor ?>
 							<tr>
 								<th class="text-center" colspan="2">Total</th>
 								<td><?= $_SESSION['jumlahFrekuensiMD']; ?></td>
 								<td><?= $_SESSION['jumlah_probMD'];?></td>
+								<td>-</td>
 								<td>-</td>
 								<td>-</td>	
 							</tr>
@@ -116,6 +105,7 @@ for ($i=0; $i < count($bulan); $i++) {
 									<th>Probabilitas</th>
 									<th>Kumulatif</th>
 									<th>Interval</th>
+									<th>Angka Acak</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -127,12 +117,14 @@ for ($i=0; $i < count($bulan); $i++) {
 									<td><?= $_SESSION['convert_probLB'][$i] ?></td>	
 									<td><?= $_SESSION['kumuLB'][$i]; ?></td>
 									<td class="text-center"><?= $_SESSION['convert_intervalLB'][$i] ?></td>
+									<td class="text-center"><?= $_SESSION['angkaAcakLB'][$i] ?></td>
 								</tr>
 							<?php endfor ?>
 							<tr>
 								<th class="text-center" colspan="2">Total</th>
 								<td><?= $_SESSION['jumlahFrekuensiLB']; ?></td>
 								<td><?= $_SESSION['jumlah_probLB'];?></td>
+								<td>-</td>
 								<td>-</td>
 								<td>-</td>
 							</tr>
@@ -161,6 +153,7 @@ for ($i=0; $i < count($bulan); $i++) {
 									<th>Probabilitas</th>
 									<th>Kumulatif</th>
 									<th>Interval</th>
+									<th>Angka Acak</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -172,6 +165,7 @@ for ($i=0; $i < count($bulan); $i++) {
 									<td><?= $_SESSION['convert_probLR'][$i] ?></td>	
 									<td><?= $_SESSION['kumuLR'][$i]; ?></td>
 									<td class="text-center"><?= $_SESSION['convert_intervalLR'][$i]?></td>
+									<td class="text-center"><?= $_SESSION['angkaAcakLR'][$i] ?></td>
 								</tr>
 							<?php endfor ?>
 							<tr>
@@ -180,6 +174,7 @@ for ($i=0; $i < count($bulan); $i++) {
 								<td><?= $_SESSION['jumlah_probLR'];?></td>
 								<td>-</td>
 								<td>-</td>
+								<td>-</td>	
 							</tr>
 						</tbody>
 					</table>
@@ -189,3 +184,6 @@ for ($i=0; $i < count($bulan); $i++) {
 		</div>
 	</div>
 </div>
+
+
+

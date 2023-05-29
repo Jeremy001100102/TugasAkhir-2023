@@ -124,7 +124,7 @@
 
               <!-- Nav Item - Tables -->
             <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php?kalku=jeremy">
+                <a class="nav-link" href="kalkulasi.php?acak=jeremy">
                     <i class="fa-solid fa-shuffle"></i>
                 <span>Angka Acak</span></a>
             </li>

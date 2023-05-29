@@ -11,7 +11,9 @@ if (isset($_GET['id_hitungMD'])) {
 	foreach ($dataMD as $key) {
 		if($_GET['id_hitungMD'] == $key['id']){
 			$_SESSION['hitung_convertMentahMD'] = explode("|", $key['data_bulan_mentah']);
-			$_SESSION['hitung_tahundataMentahMD'] = $key['tahun_data_mentah'];	               
+			$_SESSION['hitung_convertRealMD'] = explode("|", $key['data_bulan_real']);	 
+			$_SESSION['hitung_tahundataMentahMD'] = $key['tahun_data_mentah'];
+			$_SESSION['hitung_tahundataRealMD'] = $key['tahun_data_real'];
 		}
 	}
 }
@@ -22,7 +24,9 @@ if (isset($_GET['id_hitungLB'])) {
 	foreach ($dataLB as $key) {
 		if($_GET['id_hitungLB'] == $key['id']){
 			$_SESSION['hitung_convertMentahLB'] = explode("|", $key['data_bulan_mentah']);
-			$_SESSION['hitung_tahundataMentahLB'] = $key['tahun_data_mentah'];	               
+			$_SESSION['hitung_convertRealLB'] = explode("|", $key['data_bulan_real']);
+			$_SESSION['hitung_tahundataMentahLB'] = $key['tahun_data_mentah'];
+			$_SESSION['hitung_tahundataRealLB'] = $key['tahun_data_real'];	               
 		}
 	}
 }
@@ -33,7 +37,9 @@ if (isset($_GET['id_hitungLR'])) {
 	foreach ($dataLR as $key) {
 		if($_GET['id_hitungLR'] == $key['id']){
 			$_SESSION['hitung_convertMentahLR'] = explode("|", $key['data_bulan_mentah']);
-			$_SESSION['hitung_tahundataMentahLR'] = $key['tahun_data_mentah'];	               
+			$_SESSION['hitung_convertRealLR'] = explode("|", $key['data_bulan_real']);
+			$_SESSION['hitung_tahundataMentahLR'] = $key['tahun_data_mentah'];
+			$_SESSION['hitung_tahundataRealLR'] = $key['tahun_data_real'];	               
 		}
 	}
 }
@@ -65,7 +71,19 @@ if (isset($_GET['id_hitungLR'])) {
 <?php if(isset($_GET['inter']) && isset($_SESSION['kumu'])) : ?>
 	<h3>Interval</h3>
 	<?php 	require "interval.php" ?>
-	<?php $_SESSION['inter'] = true; ?>
+	<?php $_SESSION['interval'] = true; ?>
+<?php endif ?>
+
+<?php if(isset($_GET['acak']) && isset($_SESSION['interval'])) : ?>
+	<h3>Angka Acak</h3>
+	<?php 	require "angka-acak.php" ?>
+	<?php $_SESSION['angka_acak'] = true; ?>
+<?php endif ?>
+
+<?php if(isset($_GET['hs']) && isset($_SESSION['angka_acak'])) : ?>
+	<h3>Hasil Simulasi</h3>
+	<?php 	require "hasil-simulasi.php" ?>
+	<?php $_SESSION['acak'] = true; ?>
 <?php endif ?>
 
 
