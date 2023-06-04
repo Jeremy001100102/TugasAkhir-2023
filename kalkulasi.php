@@ -14,6 +14,7 @@ if (isset($_GET['id_hitungMD'])) {
 			$_SESSION['hitung_convertRealMD'] = explode("|", $key['data_bulan_real']);	 
 			$_SESSION['hitung_tahundataMentahMD'] = $key['tahun_data_mentah'];
 			$_SESSION['hitung_tahundataRealMD'] = $key['tahun_data_real'];
+			$_SESSION['hitung_id_kategoriMD'] = $key['id_kategori'];
 		}
 	}
 }
@@ -26,7 +27,8 @@ if (isset($_GET['id_hitungLB'])) {
 			$_SESSION['hitung_convertMentahLB'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['hitung_convertRealLB'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['hitung_tahundataMentahLB'] = $key['tahun_data_mentah'];
-			$_SESSION['hitung_tahundataRealLB'] = $key['tahun_data_real'];	               
+			$_SESSION['hitung_tahundataRealLB'] = $key['tahun_data_real'];
+			$_SESSION['hitung_id_kategoriLB'] = $key['id_kategori'];	               
 		}
 	}
 }
@@ -39,7 +41,8 @@ if (isset($_GET['id_hitungLR'])) {
 			$_SESSION['hitung_convertMentahLR'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['hitung_convertRealLR'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['hitung_tahundataMentahLR'] = $key['tahun_data_mentah'];
-			$_SESSION['hitung_tahundataRealLR'] = $key['tahun_data_real'];	               
+			$_SESSION['hitung_tahundataRealLR'] = $key['tahun_data_real'];	
+			$_SESSION['hitung_id_kategoriLR'] = $key['id_kategori'];               
 		}
 	}
 }
@@ -81,7 +84,10 @@ if (isset($_GET['id_hitungLR'])) {
 <?php endif ?>
 
 <?php if(isset($_GET['hs']) && isset($_SESSION['angka_acak'])) : ?>
+	<div class="row">
+		<div class="col-6">
 	<h3>Hasil Simulasi</h3>
+	</div>
 	<?php 	require "hasil-simulasi.php" ?>
 	<?php $_SESSION['acak'] = true; ?>
 <?php endif ?>

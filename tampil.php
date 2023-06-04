@@ -1,7 +1,7 @@
 <?php 
 
 $dataMeninggal = dataMeninggal();
-$datalukaBerat = dataLukaBerat();
+$datalukaBerat = datalukaBerat();
 $datalukaRingan = datalukaRingan();
 
 
