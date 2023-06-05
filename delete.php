@@ -3,7 +3,7 @@
 require 'functions.php';
 
 
-
+//hapus semua input data
 if (isset($_GET['id_hapusAll'])) {
 
 	if( hapusAll() >= 0){
@@ -24,6 +24,8 @@ if (isset($_GET['id_hapusAll'])) {
 	}	
 }
 
+
+//hapus tabel input data
 if (isset($_GET['id_hapusMD'])) {
 	$idMD = $_GET['id_hapusMD'];
 	if( hapus($idMD) > 0){
@@ -84,6 +86,64 @@ if (isset($_GET['id_hapusLR'])) {
 	}	
 }
 
+
+//hapus tabel hasil simulasi
+if (isset($_GET['id_hasil_hapusMD'])){
+	$id_hasilMD = $_GET['id_hasil_hapusMD'];
+	if( hapusHS($id_hasilMD) > 0){
+		echo " 
+		<script>
+		alert('Data berhasil dihapus');
+		document.location.href = 'tables.php?id_hasilMD=jeremy';
+		</script>	
+		";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseOne';
+		</script>	
+		";	
+	}	
+}
+
+if (isset($_GET['id_hasil_hapusLB'])){
+	$id_hasilLB = $_GET['id_hasil_hapusLB'];
+	if( hapusHS($id_hasilLB) > 0){
+		echo " 
+		<script>
+		alert('Data berhasil dihapus');
+		document.location.href = 'tables.php?id_hasilLB=jeremy';
+		</script>	
+		";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseTwo';
+		</script>	
+		";	
+	}	
+}
+
+if (isset($_GET['id_hasil_hapusLR'])){
+	$id_hasilLR = $_GET['id_hasil_hapusLR'];
+	if( hapusHS($id_hasilLR) > 0){
+		echo " 
+		<script>
+		alert('Data berhasil dihapus');
+		document.location.href = 'tables.php?id_hasilLR=jeremy';
+		</script>	
+		";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseThree';
+		</script>	
+		";	
+	}	
+}
 
 
 

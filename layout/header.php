@@ -65,7 +65,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item sb">
+            <li class="nav-item sb <?php echo ($_SERVER['PHP_SELF'] == '/input-data.php') ? 'active' : ''; ?>">
                 <a class="nav-link collapsed" href="input-data.php" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-keyboard"></i>
@@ -75,7 +75,7 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item <?php echo ($_SERVER['PHP_SELF'] == '/data-hasil-simulasi.php') ? 'active' : ''; ?>">
                 <a class="nav-link collapsed" href="data-hasil-simulasi.php" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-folder"></i>
@@ -93,45 +93,43 @@
 
             
             <!-- Nav Item - Frekuensi -->
-            <li class="nav-item sb">
-                <a class="nav-link collapsed"  tabindex="0" role="button" data-toggle="popover" data-bs-trigger="focus" data-bs-title="Perhatian" data-bs-content="Anda Belum Melakukan Kalkulasi Data!" href="<?php if(isset($_SESSION['link'])) { echo $_SESSION['link'] === 'aktif' ? 'kalkulasi.php?frek=jeremy' : '#'; } else{
-                    echo "#";}?>" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+            <li class="nav-item sb  <?php echo isset($_GET['frek']) ? 'active' : ''; ?>">
+                <a class="nav-link" href="kalkulasi.php?frek=jeremy">
                     <i class="fas fa-fw fa-wave-square"></i>
                     <span>Frekuensi</span>
                 </a>
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item sb">
-                <a class="nav-link" href="kalkulasi.php?prob=jeremy" name="probabilitas">
+            <li class="nav-item sb <?php echo isset($_GET['prob']) ? 'active' : ''; ?>">
+                <a class="nav-link" href="kalkulasi.php?prob=jeremy">
                     <i class="fas fa-fw fa-dice"></i>
                     <span>Probabilitas</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item sb">
+            <li class="nav-item sb <?php echo isset($_GET['kumu']) ? 'active' : ''; ?>">
                 <a class="nav-link" href="kalkulasi.php?kumu=jeremy">
                     <i class="fa-solid fa-arrow-up-right-dots"></i>
                     <span>Kumulatif</span></a>
             </li>
 
              <!-- Nav Item - Tables -->
-            <li class="nav-item sb">
+            <li class="nav-item sb <?php echo isset($_GET['inter']) ? 'active' : ''; ?>">
                 <a class="nav-link" href="kalkulasi.php?inter=jeremy">
                     <i class="fa-solid fa-arrows-left-right"></i>
                     <span>Interval</span></a>
             </li>
 
               <!-- Nav Item - Tables -->
-            <li class="nav-item sb">
+            <li class="nav-item sb <?php echo isset($_GET['acak']) ? 'active' : ''; ?>">
                 <a class="nav-link" href="kalkulasi.php?acak=jeremy">
                     <i class="fa-solid fa-shuffle"></i>
                 <span>Angka Acak</span></a>
             </li>
 
              <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item <?php echo isset($_GET['hs']) ? 'active' : ''; ?>">
                 <a class="nav-link" href="kalkulasi.php?hs=jeremy">
                    <i class="fa-solid fa-square-poll-horizontal"></i> 
                    <span>Hasil Simulasi</span></a>

@@ -44,7 +44,7 @@ $datalukaRingan = data_hasillukaRingan();
 								<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
 
-										<a href="delete.php?id_hapusMD=<?= $_SESSION['id_updateMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+										<a href="delete.php?id_hasil_hapusMD=<?= $_SESSION['id_hasiltampilMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
 							</div>
@@ -135,14 +135,14 @@ $datalukaRingan = data_hasillukaRingan();
 							</div>
 						</div>
 						<div class="col-8 text-end">
-									<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
+									<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
 
-										<a href="delete.php?id_hapusMD=<?= $_SESSION['id_updateMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+										<a href="delete.php?id_hasil_hapusLB=<?= $_SESSION['id_hasiltampilLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
 							</div>
 						</div>
-						<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
+						<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
 							<table class="table table-bordered">
 								<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLB']; ?></caption>
 								<thead>
@@ -230,7 +230,7 @@ $datalukaRingan = data_hasillukaRingan();
 						<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
 
-										<a href="delete.php?id_hapusLR=<?= $_SESSION['id_updateLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+										<a href="delete.php?id_hasil_hapusLR=<?= $_SESSION['id_hasiltampilLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
 							</div>
@@ -303,3 +303,13 @@ $datalukaRingan = data_hasillukaRingan();
 
 
 <?php 	require "layout/footer.php" ?>
+
+<script>
+	$(document).ready(function(){
+		//bookmark tampil data
+              var hash = window.location.hash;
+              if(hash){
+                $(hash).collapse('show');
+            }
+	});
+</script>

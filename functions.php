@@ -158,6 +158,15 @@ function hapusAll(){
     return mysqli_affected_rows($conn);   
 }
 
+//hapus tabel hasil simulasi
+function hapusHS($id){
+    global $conn;
+
+    mysqli_query($conn, "DELETE FROM hasil_simulasi WHERE id = $id");
+    
+    return mysqli_affected_rows($conn);
+}
+
 function simpanHasil($data){
     global $conn;
 
