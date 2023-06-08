@@ -1,5 +1,9 @@
 <?php
-session_start(); 
+session_start();
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+}
+
 require_once "functions.php";
 
 
@@ -48,15 +52,15 @@ if (isset($_POST['simpan'])) {
         <h3 class="d-inline">INPUT DATA</h3>
     </div>
     <div class="col-8 text-end">
-           <a class="btn btn-sm btn-primary shadow-sm disabled popover-dismiss" title="Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!" id="tombolHitung" href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
-           echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
+      <a class="btn btn-sm btn-primary shadow-sm disabled popover-dismiss" title="Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!" id="tombolHitung" href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
+         echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
 
-           <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
-           <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
-       </div>
-   </div>
+         <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+         <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+     </div>
+ </div>
 
-   <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+ <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable mw-100 w-100">
         <div class="card mx-auto mb-3 w-75 mt-4">
 
@@ -149,8 +153,8 @@ if (isset($_POST['simpan'])) {
 </div>
 </div>
 <div class="modal-footer">   
-   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-   <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+ <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
 </div>  
 </form>
 </div>
@@ -171,7 +175,7 @@ if (isset($_POST['simpan'])) {
 
     $(document).ready(function(){
 
-        $('[data-toggle="popover"]').popover();
+        // $('[data-toggle="popover"]').popover();
       // Ambil referensi ke elemen tombol
 
 
@@ -203,46 +207,63 @@ if (isset($_POST['simpan'])) {
           } else {
       // Menonaktifkan tombol "Hitung" atau menambahkan class "disable"
               $("#tombolHitung").addClass("disabled");
-               
-             
+
+
           }
       });
 
-     $('#tombolHitung').click(function() {
-    if ($(this).hasClass('disabled')) {
-      $(this).attr('title', 'Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!');
-       $('[data-toggle="popover"]').popover();
+  //    $('#tombolHitung').click(function() {
+  //   if ($(this).hasClass('disabled')) {
+  //     alert("Anda Belum Melakukan Pemilihan Dat")     
+  //   }
+  // });    
+   // Mendapatkan referensi tombol hitung
+  var tombolHitung = document.getElementById('tombolHitung');
+
+  // Mendapatkan referensi alert
+  var warningAlert = document.getElementById('warningAlert');
+
+  // Menambahkan event listener untuk klik pada tombol
+  tombolHitung.addEventListener('click', function(event) {
+    // Memeriksa keadaan disabled tombol hitung
+    if (tombolHitung.classList.contains('disabled')) {
+      event.preventDefault(); // Menghentikan perilaku standar tombol (pengalihan ke URL)
+
+      // Menampilkan alert jika tombol hitung dalam keadaan disabled
+      warningAlert.style.display = 'block';
     }
-  });       
+  });   
+
+
 
 
 //bookmark tampil data
-              var hash = window.location.hash;
-              if(hash){
-                $(hash).collapse('show');
-            }
+        var hash = window.location.hash;
+        if(hash){
+            $(hash).collapse('show');
+        }
 
 
   //Aksi saat accordion diklik
     //Menangkap semua elemen accordion button
-            var accordionButtons = document.querySelectorAll('.accordion-button');
+        var accordionButtons = document.querySelectorAll('.accordion-button');
 
     //Loop melalui setiap button
-            accordionButtons.forEach(function(button) {
+        accordionButtons.forEach(function(button) {
         // Tambahkan event listener 'click' pada setiap button
-                button.addEventListener('click', function() {
+            button.addEventListener('click', function() {
             // Dapatkan data-bs-target dari button yang diklik
-                    var target = this.getAttribute('data-bs-target');
+                var target = this.getAttribute('data-bs-target');
 
             // Dapatkan bagian anchor dari data-bs-target
-                    var anchor = target.substring(1);
+                var anchor = target.substring(1);
 
             // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
-                    window.location.hash = anchor;
-                });
+                window.location.hash = anchor;
             });
-
         });
 
+    });
 
-    </script>                  
+
+</script>                  

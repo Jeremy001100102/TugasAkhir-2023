@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['login'])) {
+	header("Location: login.php");
+}
+
 require_once "functions.php";
 
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -147,7 +151,7 @@ if (isset($_GET['id_hitungLR'])) {
 	<div class="alert alert-warning" role="alert">
   Anda Belum Melakukan Kalkulasi Perhitungan <a href="kalkulasi.php?kumu=jeremy" class="alert-link">Kumulatif</a>!
 </div>
-<?php  elseif(isset($_GET['hs']) && !isset($_SESSION['inter'])) : ?>
+<?php  elseif(isset($_GET['hs']) && !isset($_SESSION['interval'])) : ?>
 	<div class="alert alert-warning" role="alert">
   Anda Belum Melakukan Kalkulasi Perhitungan <a href="kalkulasi.php?inter=jeremy" class="alert-link">Interval</a>!
 </div>
