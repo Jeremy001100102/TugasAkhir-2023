@@ -62,8 +62,8 @@ $dataAkun = dataAkun();
 					<?php else : ?>
 						<th class="text-center"><?= $no++; ?></th>
 						<td><?= $key['username']; ?></td>
-						<td class="text-center"><a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#update-akun" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-pen-to-square"></i> Update</a> |
-							<a href="delete.php?id_hapusAkun=1" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+						<td class="text-center">
+							<a href="delete.php?id_hapusAkun=<?= $key['id']; ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 						</td>
 					</tr>
 				<?php endif; ?>
@@ -74,7 +74,7 @@ $dataAkun = dataAkun();
 </div>
 </div>
 
-<!-- Logout Modal-->
+<!-- tambah akun Modal-->
 <div class="modal fade" id="tambah-akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -125,6 +125,8 @@ aria-hidden="true">
 	</div>
 </div>
 </div>
+
+
 
 <?php require "layout/footer.php"; ?>
 

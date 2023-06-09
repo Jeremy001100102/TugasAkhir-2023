@@ -145,7 +145,23 @@ if (isset($_GET['id_hasil_hapusLR'])){
 	}	
 }
 
-
+//hasil akun user
+if(isset($_GET['id_hapusAkun'])){
+	if( hapusAkun($_GET['id_hapusAkun']) > 0){
+		echo " 
+		<script>
+		document.location.href = 'akun.php';
+		</script>	
+		";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal dihapus');
+		document.location.href = 'akun.php';
+		</script>	
+		";	
+	}
+}
 
 
 
