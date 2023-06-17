@@ -178,7 +178,7 @@ function simpanHasil($data){
     $intervalMD = implode("|", $data['intervalMD']);
     $angka_acakMD = implode("|", $data['angka_acakMD']);
     $hasil_simulasiMD = implode("|" , $data['hasil_simulasiMD']);
-    $tahun_hasilMD = $data['tahun_datamentahMD'];
+    $tahun_hasilMD = $data['tahun_data_realMD'];
     $data_realMD = implode("|", $data['data_realMD']);
     $tahun_data_realMD = $data['tahun_data_realMD'];
     $tingkat_akurasiMD = implode("|", $data['akurasiMD']);
@@ -204,7 +204,7 @@ function simpanHasil($data){
     $intervalLB = implode("|", $data['intervalLB']);
     $angka_acakLB = implode("|", $data['angka_acakLB']);
     $hasil_simulasiLB = implode("|" , $data['hasil_simulasiLB']);
-    $tahun_hasilLB = $data['tahun_datamentahLB'];
+    $tahun_hasilLB = $data['tahun_data_realLB'];
     $data_realLB = implode("|", $data['data_realLB']);
     $tahun_data_realLB = $data['tahun_data_realLB'];
     $tingkat_akurasiLB = implode("|", $data['akurasiLB']);
@@ -230,7 +230,7 @@ function simpanHasil($data){
     $intervalLR = implode("|", $data['intervalLR']);
     $angka_acakLR = implode("|", $data['angka_acakLR']);
     $hasil_simulasiLR = implode("|" , $data['hasil_simulasiLR']);
-    $tahun_hasilLR = $data['tahun_datamentahLR'];
+    $tahun_hasilLR = $data['tahun_data_realLR'];
     $data_realLR = implode("|", $data['data_realLR']);
     $tahun_data_realLR = $data['tahun_data_realLR'];
     $tingkat_akurasiLR = implode("|", $data['akurasiLR']);

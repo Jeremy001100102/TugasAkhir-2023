@@ -54,7 +54,7 @@ $dataAkun = dataAkun();
 				<tbody>
 					<?php $no = 1;  foreach ($dataAkun as $key) :?>
 					<?php if($key['username'] === "jeremy bessiesura") : ?>
-						<tr class="bg-secondary bg-gradient">
+						<tr class="bg-dark bg-gradient text-white">
 							<th class="text-center"><?= $no++; ?></th>
 							<td><?= $key['username']; ?></td>
 							<td class="text-center"> Permanent </td>

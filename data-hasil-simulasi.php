@@ -43,6 +43,7 @@ $datalukaRingan = data_hasillukaRingan();
 								</div>
 								<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
+											<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie "></i> Grafik</a>
 
 										<a href="delete.php?id_hasil_hapusMD=<?= $_SESSION['id_hasiltampilMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
@@ -136,7 +137,7 @@ $datalukaRingan = data_hasillukaRingan();
 						</div>
 						<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
-
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 										<a href="delete.php?id_hasil_hapusLB=<?= $_SESSION['id_hasiltampilLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
@@ -229,7 +230,7 @@ $datalukaRingan = data_hasillukaRingan();
 						</div>
 						<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
-
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 										<a href="delete.php?id_hasil_hapusLR=<?= $_SESSION['id_hasiltampilLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
 								</div>
@@ -301,7 +302,7 @@ $datalukaRingan = data_hasillukaRingan();
 </div>
 
 
-
+<?php require "grafik.php"; ?>
 <?php 	require "layout/footer.php" ?>
 
 <script>

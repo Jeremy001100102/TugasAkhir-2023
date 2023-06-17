@@ -66,96 +66,94 @@ if (isset($_POST['simpan'])) {
 
             <div class="modal-content">
                 <div class="modal-header">
-         <!--  <div class="card-header border-secondary bg-secondary border-2 text-white text-center" style="font-size: 18px;">
-            Masukkan Jumlah Korban Kecelakaan -->
-            <div class="modal-title w-100 text-center position-absolute fw-bold fs-4">Masukkan Jumlah Korban Kecelakaan</div>
 
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-          
-      </div>
-      <div class="modal-body">
-        <div class="card-body">
-            <form method="POST" role="form" id="validasi">
-                <div class="container">
-                    <div class="row mb-3 justify-content-center">   
-                        <div class="col-12 col-lg-6 col-md-8 col-sm-10 col-xl-4">   
-                            <select name="kondisi" class="form-select ac" id="condition" onchange="getKondisi(this)">
-                                <option value="null"  hidden selected="selected">Pilih Kondisi Korban Kecelakaan</option>
-                                <?php while ( $dataKategori = mysqli_fetch_assoc($kategori)) : ?>
-                                    <option value="<?= $dataKategori['id']?>"><?= $dataKategori['nama']  ?></option>
-                                <?php endwhile; ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mb-3 text-center">   
-                        <div class="col-5"> 
-                            <h5 class="fw-semibold">Data Mentah</h5>
-                        </div>
-                        <div class="col-2 text-center">   
-                          <div class="vr"></div>
-                      </div>
-                      <div class="col-5"> 
-                        <h5 class="fw-semibold">Data Real</h5>
-                    </div>
-                </div>
+                    <div class="modal-title w-100 text-center position-absolute fw-bold fs-4">Masukkan Jumlah Korban Kecelakaan</div>
 
-                <div class="row mb-3">
-                    <div class="col-5">
-                        <div class="row justify-content-start">
-                            <label for="tahun1" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label">Tahun</label>
-                            <div class="col-12 col-md-6 col-sm-5"> 
-                                <input type="number" class="form-control ac" id="tahun1" name="tahunMentah" value="2022" autocomplete="off" required="required">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <div class="card-body">
+                    <form method="POST" role="form" id="validasi">
+                        <div class="container">
+                            <div class="row mb-3 justify-content-center">   
+                                <div class="col-12 col-lg-6 col-md-8 col-sm-10 col-xl-4">   
+                                    <select name="kondisi" class="form-select ac" id="condition" onchange="getKondisi(this)">
+                                        <option value="null"  hidden selected="selected">Pilih Kondisi Korban Kecelakaan</option>
+                                        <?php while ( $dataKategori = mysqli_fetch_assoc($kategori)) : ?>
+                                            <option value="<?= $dataKategori['id']?>"><?= $dataKategori['nama']  ?></option>
+                                        <?php endwhile; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3 text-center">   
+                                <div class="col-5"> 
+                                    <h5 class="fw-semibold">Data Mentah</h5>
+                                </div>
+                                <div class="col-2 text-center">   
+                                  <div class="vr"></div>
+                              </div>
+                              <div class="col-5"> 
+                                <h5 class="fw-semibold">Data Real</h5>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-5">
+                                <div class="row justify-content-start">
+                                    <label for="tahun1" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label">Tahun</label>
+                                    <div class="col-12 col-md-6 col-sm-5"> 
+                                        <input type="number" class="form-control ac" id="tahun1" name="tahunMentah" value="2022" autocomplete="off" required="required">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2 text-center">   
+                              <div class="vr"></div>
+                          </div>
+
+                          <div class="col-5">
+                            <div class="row justify-content-end">
+                                <label for="tahun2" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label">Tahun</label>
+                                <div class="col-12 col-md-6 col-sm-5"> 
+                                    <input type="number" class="form-control ac" id="tahun2" name="tahunReal" value="2023" autocomplete="off" required="required">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <?php   for($i=0; $i < count($bulan); $i++) : ?>
+                        <div class="row mb-3">
+                            <div class="col-5">
+                                <div class="row justify-content-start">
+                                    <label for="<?= $bulan[$i] ?>" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label"><?= $bulan[$i] ?></label>
+                                    <div class="col-12 col-md-6 col-sm-5">   
+                                        <input type="number" class="form-control ac" id="<?= $bulan[$i]?>" name="dataM[]" required="required"> 
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="col-2 text-center">   
-                      <div class="vr"></div>
-                  </div>
+                            <div class="col-2 text-center">   
+                              <div class="vr"></div>
+                          </div>
 
-                  <div class="col-5">
-                    <div class="row justify-content-end">
-                        <label for="tahun2" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label">Tahun</label>
-                        <div class="col-12 col-md-6 col-sm-5"> 
-                            <input type="number" class="form-control ac" id="tahun2" name="tahunReal" value="2023" autocomplete="off" required="required">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php   for($i=0; $i < count($bulan); $i++) : ?>
-                <div class="row mb-3">
-                    <div class="col-5">
-                        <div class="row justify-content-start">
-                            <label for="<?= $bulan[$i] ?>" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label"><?= $bulan[$i] ?></label>
-                            <div class="col-12 col-md-6 col-sm-5">   
-                                <input type="number" class="form-control ac" id="<?= $bulan[$i]?>" name="dataM[]" required="required"> 
+                          <div class="col-5">
+                            <div class="row justify-content-end">
+                                <label for="<?= "{$bulan[$i]}$" ?>" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label"><?= $bulan[$i] ?></label>
+                                <div class="col-12 col-md-6 col-sm-5"> 
+                                    <input type="number" class="form-control ac" id="<?= "{$bulan[$i]}$" ?>" name ="dataR[]" required="required">
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-2 text-center">   
-                      <div class="vr"></div>
-                  </div>
-
-                  <div class="col-5">
-                    <div class="row justify-content-end">
-                        <label for="<?= "{$bulan[$i]}$" ?>" class="col-12 col-lg-5 col-md-6 col-sm-7 col-form-label"><?= $bulan[$i] ?></label>
-                        <div class="col-12 col-md-6 col-sm-5"> 
-                            <input type="number" class="form-control ac" id="<?= "{$bulan[$i]}$" ?>" name ="dataR[]" required="required">
-                        </div>
-                    </div>
-                </div>
+                <?php  endfor; ?>    
             </div>
-        <?php  endfor; ?>    
+        </div>
     </div>
-</div>
-</div>
-<div class="modal-footer">   
- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
- <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
-</div>  
+    <div class="modal-footer">   
+     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+     <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+ </div>  
 </form>
 </div>
 </div>
@@ -218,21 +216,21 @@ if (isset($_POST['simpan'])) {
   //   }
   // });    
    // Mendapatkan referensi tombol hitung
-  var tombolHitung = document.getElementById('tombolHitung');
+        var tombolHitung = document.getElementById('tombolHitung');
 
   // Mendapatkan referensi alert
-  var warningAlert = document.getElementById('warningAlert');
+        var warningAlert = document.getElementById('warningAlert');
 
   // Menambahkan event listener untuk klik pada tombol
-  tombolHitung.addEventListener('click', function(event) {
+        tombolHitung.addEventListener('click', function(event) {
     // Memeriksa keadaan disabled tombol hitung
-    if (tombolHitung.classList.contains('disabled')) {
+            if (tombolHitung.classList.contains('disabled')) {
       event.preventDefault(); // Menghentikan perilaku standar tombol (pengalihan ke URL)
 
       // Menampilkan alert jika tombol hitung dalam keadaan disabled
       warningAlert.style.display = 'block';
-    }
-  });   
+  }
+});   
 
 
 
