@@ -4,7 +4,7 @@ aria-hidden="true">
 <div class="modal-dialog mw-100 w-75" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <div class="modal-title text-center w-100 fw-bold fs-4">Grafik Meninggal Dunia</div>
+      <div class="modal-title text-center w-100 fw-bold fs-4">Grafik Luka Berat</div>
       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -24,12 +24,16 @@ aria-hidden="true">
 
 
 <?php
-$data_hasilLB = $_SESSION['grafik_hasil_LB'];
-$data_realLB =  $_SESSION['grafik_hasil_datarealLB'];
-$tahun_data_realLB = $_SESSION['grafik_tahun_data_realLB'];
-$tahun_data_hasilLB = $_SESSION['grafik_tahun_hasilLB'];
-$nilaiMax_LB = max($data_hasilLB) >= max($data_realLB) ?(int) max($data_hasilLB) : (int) max($data_realLB);
-$max_sumbuY_LB = $nilaiMax_LB % 2 == 0 ? $nilaiMax_LB + 4 : $nilaiMax_LB + 3;    
+
+if (isset($_SESSION['grafik_hasil_LB'])) {
+  $data_hasilLB = $_SESSION['grafik_hasil_LB'];
+  $data_realLB =  $_SESSION['grafik_hasil_datarealLB'];
+  $tahun_data_realLB = $_SESSION['grafik_tahun_data_realLB'];
+  $tahun_data_hasilLB = $_SESSION['grafik_tahun_hasilLB'];
+  $nilaiMax_LB = max($data_hasilLB) >= max($data_realLB) ?(int) max($data_hasilLB) : (int) max($data_realLB);
+  $max_sumbuY_LB = $nilaiMax_LB % 2 == 0 ? $nilaiMax_LB + 4 : $nilaiMax_LB + 3;    
+
+}
 
 
 ?>
@@ -37,6 +41,7 @@ $max_sumbuY_LB = $nilaiMax_LB % 2 == 0 ? $nilaiMax_LB + 4 : $nilaiMax_LB + 3;
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
 
+<?php if (isset($_SESSION['grafik_hasil_LB'])) : ?>
 <script>
 
   let yHasilLB = <?=  json_encode($data_hasilLB); ?>;
@@ -139,3 +144,4 @@ $max_sumbuY_LB = $nilaiMax_LB % 2 == 0 ? $nilaiMax_LB + 4 : $nilaiMax_LB + 3;
     }
   });
 </script>
+<?php   endif; ?>

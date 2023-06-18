@@ -11,6 +11,12 @@
 
     <title>Admin</title>
 
+    <!-- export -->
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+ 
+
+
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

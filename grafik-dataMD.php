@@ -24,12 +24,16 @@ aria-hidden="true">
 
 
 <?php
-$data_hasilMD = $_SESSION['grafik_hasil_MD'];
-$data_realMD =  $_SESSION['grafik_hasil_datarealMD'];
-$tahun_data_realMD = $_SESSION['grafik_tahun_data_realMD'];
-$tahun_data_hasilMD = $_SESSION['grafik_tahun_hasilMD'];
-$nilaiMax_MD = max($data_hasilMD) >= max($data_realMD) ?(int) max($data_hasilMD) : (int) max($data_realMD);
-$max_sumbuY_MD = $nilaiMax_MD % 2 == 0 ? $nilaiMax_MD + 4 : $nilaiMax_MD + 3;    
+if (isset($_SESSION['grafik_hasil_MD'])) {
+
+  $data_hasilMD = $_SESSION['grafik_hasil_MD'];
+  $data_realMD =  $_SESSION['grafik_hasil_datarealMD'];
+  $tahun_data_realMD = $_SESSION['grafik_tahun_data_realMD'];
+  $tahun_data_hasilMD = $_SESSION['grafik_tahun_hasilMD'];
+  $nilaiMax_MD = max($data_hasilMD) >= max($data_realMD) ?(int) max($data_hasilMD) : (int) max($data_realMD);
+  $max_sumbuY_MD = $nilaiMax_MD % 2 == 0 ? $nilaiMax_MD + 4 : $nilaiMax_MD + 3;    
+  
+}
 
 
 ?>
@@ -37,8 +41,8 @@ $max_sumbuY_MD = $nilaiMax_MD % 2 == 0 ? $nilaiMax_MD + 4 : $nilaiMax_MD + 3;
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
 
+<?php if (isset($_SESSION['grafik_hasil_MD'])) : ?>
 <script>
-
   let yHasilMD = <?=  json_encode($data_hasilMD); ?>;
   let yRealMD = <?=   json_encode($data_realMD); ?>;
   let max_sumbuyMD = <?= json_encode($max_sumbuY_MD); ?>;
@@ -139,3 +143,4 @@ $max_sumbuY_MD = $nilaiMax_MD % 2 == 0 ? $nilaiMax_MD + 4 : $nilaiMax_MD + 3;
     }
   });
 </script>
+<?php   endif; ?>

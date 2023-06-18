@@ -1,6 +1,9 @@
 <?php 
 require_once "functions.php"; 
 session_start();
+if (!isset($_SESSION['login'])) {
+	header("Location: login.php");
+}
 
 //data bulan
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -43,6 +46,8 @@ $datalukaRingan = data_hasillukaRingan();
 								</div>
 								<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
+
 											<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie "></i> Grafik</a>
 
 										<a href="delete.php?id_hasil_hapusMD=<?= $_SESSION['id_hasiltampilMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
@@ -102,6 +107,8 @@ $datalukaRingan = data_hasillukaRingan();
 							</tr>
 						</tbody>
 					</table>
+
+
 				<?php else : ?>
 					<em>Anda Belum Memilih Data Tahun Diatas!</em>
 				<?php endif ?>
@@ -137,6 +144,7 @@ $datalukaRingan = data_hasillukaRingan();
 						</div>
 						<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
 										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 										<a href="delete.php?id_hasil_hapusLB=<?= $_SESSION['id_hasiltampilLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
@@ -230,6 +238,7 @@ $datalukaRingan = data_hasillukaRingan();
 						</div>
 						<div class="col-8 text-end">
 									<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
 										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 										<a href="delete.php?id_hasil_hapusLR=<?= $_SESSION['id_hasiltampilLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
@@ -303,8 +312,15 @@ $datalukaRingan = data_hasillukaRingan();
 
 
 <?php require "grafik.php"; ?>
+<?php require "export.php"; ?>
 <?php 	require "layout/footer.php" ?>
-
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 <script>
 	$(document).ready(function(){
 		//bookmark tampil data
@@ -312,5 +328,27 @@ $datalukaRingan = data_hasillukaRingan();
               if(hash){
                 $(hash).collapse('show');
             }
+
+     //export data
+     $('#exportMD').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } ); 
+
+    $('#exportLB').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } ); 
+
+    $('#exportLR').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );         
 	});
 </script>
