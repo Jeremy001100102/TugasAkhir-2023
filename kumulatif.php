@@ -8,7 +8,7 @@ for ($i=0; $i < count($bulan); $i++) {
 		$kumuMD = $_SESSION['convert_probMD'][$i];  	
 	}else{ 
 		$kumuMD += $_SESSION['convert_probMD'][$i];
-		$_SESSION['kumuMD'][$i] = $kumuMD;
+		$_SESSION['kumuMD'][$i] = number_format($kumuMD, 2);
 	}
 }
 
@@ -21,7 +21,7 @@ for ($i=0; $i < count($bulan); $i++) {
 		$kumuLB = $_SESSION['convert_probLB'][$i];  	
 	}else{ 
 		$kumuLB += $_SESSION['convert_probLB'][$i];
-		$_SESSION['kumuLB'][$i] = $kumuLB;
+		$_SESSION['kumuLB'][$i] = number_format($kumuLB, 2);
 	}
 }
 
@@ -34,7 +34,7 @@ for ($i=0; $i < count($bulan); $i++) {
 		$kumuLR = $_SESSION['convert_probLR'][$i];  	
 	}else{ 
 		$kumuLR += $_SESSION['convert_probLR'][$i];
-		$_SESSION['kumuLR'][$i] = $kumuLR;
+		$_SESSION['kumuLR'][$i] = number_format($kumuLR,2 );
 	}
 }
 

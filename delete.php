@@ -10,14 +10,35 @@ if (isset($_GET['id_hapusAll'])) {
 		echo " 
 		<script>
 		alert('Data berhasil dihapus');
-		document.location.href = 'input-data.php';
+		document.location.href = 'input-data.php#collapseOne#collapseTwo#collapseThree';
 		</script>	
 		";
 	}else{
 		echo "
 		<script>
 		alert('Data gagal dihapus');
-		document.location.href = 'input-data.php';
+		document.location.href = 'input-data.php#collapseOne#collapseTwo#collapseThree';
+		</script>	
+		";
+		
+	}	
+}
+
+//hapus semua data hasil simulasi
+if (isset($_GET['id_hapus-hasilAll'])) {
+
+	if( hapus_hasilAll() >= 0){
+		echo " 
+		<script>
+		alert('Data berhasil dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
+		</script>	
+		";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
 		</script>	
 		";
 		

@@ -87,59 +87,59 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
 
        }]
       },
-      annotation: {
-        drawTime: "afterDraw",
-        annotations: [{
-         id: 'box1',
-         type: 'box',
-         xScaleID: 'x-axis-1',
-         xMin: '',
-         xMax: 'Januari',
-         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-         borderColor: 'rgba(100, 100, 100, 0.2)',
-         content: ['Musim Hujan'],
-         font: {
-          size: 18
-        }
-      },
-      {
-       id: 'box2',
-       type: 'box',
-       xScaleID: 'x-axis-1',
-       xMin: 'Januari',
-       xMax: 'Mei',
-       backgroundColor: 'rgba(75, 192, 192, 0.2)',
-       borderColor: 'rgba(100, 100, 100, 0.2)'
-     },
-     {
-       id: 'box3',
-       type: 'box',
-       xScaleID: 'x-axis-1',
-       xMin: 'Mei',
-       xMax: 'November',
-       backgroundColor:  'rgba(255, 99, 132, 0.2)',
-       borderColor: 'rgba(100, 100, 100, 0.2)'
-     },
-     {
-       id: 'box5',
-       type: 'box',
-       xScaleID: 'x-axis-1',
-       xMin: 'November',
-       xMax: 'Desember',
-       backgroundColor: 'rgba(75, 192, 192, 0.2)',
-       borderColor: 'rgba(100, 100, 100, 0.2)'
-     },
-     {
-       id: 'box6',
-       type: 'box',
-       xScaleID: 'x-axis-1',
-       xMin: 'Desember',
-       xMax: '',
-       backgroundColor: 'rgba(75, 192, 192, 0.2)',
-       borderColor: 'rgba(100, 100, 100, 0.2)'
-     }
-     ]
-      }      
+     //  annotation: {
+     //    drawTime: "afterDraw",
+     //    annotations: [{
+     //     id: 'box1',
+     //     type: 'box',
+     //     xScaleID: 'x-axis-1',
+     //     xMin: '',
+     //     xMax: 'Januari',
+     //     backgroundColor: 'rgba(75, 192, 192, 0.2)',
+     //     borderColor: 'rgba(100, 100, 100, 0.2)',
+     //     content: ['Musim Hujan'],
+     //     font: {
+     //      size: 18
+     //    }
+     //  },
+     //  {
+     //   id: 'box2',
+     //   type: 'box',
+     //   xScaleID: 'x-axis-1',
+     //   xMin: 'Januari',
+     //   xMax: 'Mei',
+     //   backgroundColor: 'rgba(75, 192, 192, 0.2)',
+     //   borderColor: 'rgba(100, 100, 100, 0.2)'
+     // },
+     // {
+     //   id: 'box3',
+     //   type: 'box',
+     //   xScaleID: 'x-axis-1',
+     //   xMin: 'Mei',
+     //   xMax: 'November',
+     //   backgroundColor:  'rgba(255, 99, 132, 0.2)',
+     //   borderColor: 'rgba(100, 100, 100, 0.2)'
+     // },
+     // {
+     //   id: 'box5',
+     //   type: 'box',
+     //   xScaleID: 'x-axis-1',
+     //   xMin: 'November',
+     //   xMax: 'Desember',
+     //   backgroundColor: 'rgba(75, 192, 192, 0.2)',
+     //   borderColor: 'rgba(100, 100, 100, 0.2)'
+     // },
+     // {
+     //   id: 'box6',
+     //   type: 'box',
+     //   xScaleID: 'x-axis-1',
+     //   xMin: 'Desember',
+     //   xMax: '',
+     //   backgroundColor: 'rgba(75, 192, 192, 0.2)',
+     //   borderColor: 'rgba(100, 100, 100, 0.2)'
+     // }
+     // ]
+      // }      
     }
   });
 </script>

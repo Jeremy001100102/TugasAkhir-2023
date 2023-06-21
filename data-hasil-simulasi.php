@@ -16,8 +16,14 @@ $datalukaRingan = data_hasillukaRingan();
 ?>
 <?php 	require "layout/header.php" ?>
 
-
-<h3>Data Hasil Simulasi</h3>
+<div class="row">
+	<div class="col-6">
+		<h3>Data Hasil Simulasi</h3>
+	</div>
+	<div class="col-6 text-end">
+		<a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-data-hasilAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+	</div>
+</div>
 
 <div class="position-relative mt-4">
 	<div class="accordion w-100 position-absolute top-0 start-50 translate-middle-x" id="accordionExample">
@@ -48,7 +54,7 @@ $datalukaRingan = data_hasillukaRingan();
 									<?php if(isset($_SESSION['kondisi_hasilMD'])) : ?>
 										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
 
-											<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie "></i> Grafik</a>
+										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie "></i> Grafik</a>
 
 										<a href="delete.php?id_hasil_hapusMD=<?= $_SESSION['id_hasiltampilMD']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
 									<?php endif; ?>
@@ -143,74 +149,74 @@ $datalukaRingan = data_hasillukaRingan();
 							</div>
 						</div>
 						<div class="col-8 text-end">
-									<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
-										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
-										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
-										<a href="delete.php?id_hasil_hapusLB=<?= $_SESSION['id_hasiltampilLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
-									<?php endif; ?>
-								</div>
-							</div>
+							<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
+								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
+								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
+								<a href="delete.php?id_hasil_hapusLB=<?= $_SESSION['id_hasiltampilLB']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+							<?php endif; ?>
 						</div>
-						<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
-							<table class="table table-bordered">
-								<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLB']; ?></caption>
-								<thead>
-									<tr class="text-center">
-										<th>#</th>
-										<th>Bulan</th>
-										<th>Frekuensi</th>
-										<th>Probabilitas</th>
-										<th>Kumulatif</th>
-										<th>Interval</th>
-										<th>Angka Acak</th>
-										<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLB'] ?>			
-									</th>
-									<th>Data Real <?= $_SESSION['tahun_data_realLB'] ?></th>
-									<th>Tingkat Akurasi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-								<tr class="text-center">
-									<th ><?= $no++; ?></th>
-									<td class="text-start"><?=  $bulan[$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_frekLB'][$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_probLB'][$i] ?></td>
-									<td> <?= $_SESSION['convert_hasil_kumuLB'][$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_interLB'][$i] ?></td>
-									<td> <?= $_SESSION['convert_hasil_acakLB'][$i] ?></td>
-									<td> <?= $_SESSION['convert_hasil_LB'][$i] ?></td>
-									<td>  <?= $_SESSION['convert_hasil_datarealLB'][$i]; ?></td>
-									<td> <?= $_SESSION['convert_hasil_akurasiLB'][$i]; ?></td>	
-								</tr>
-							<?php endfor ?>
+					</div>
+				</div>
+				<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
+					<table class="table table-bordered">
+						<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLB']; ?></caption>
+						<thead>
 							<tr class="text-center">
-								<th colspan="2">Total</th>
-								<td><?= $_SESSION['total_hasil_frekLB']; ?></td>
-								<td><?= $_SESSION['total_hasil_probLB']; ?></td>
-								<td colspan="3">-</td>
-								<td><?= $_SESSION['total_hasil_simLB']; ?></td>
-								<td><?= $_SESSION['total_data_realLB'];  ?></td>
-								<td>-</td>	
-							</tr>
-							<tr class="text-center">
-								<th colspan="2">Rata-rata</th>
-								<td><?= $_SESSION['rata2_hasilfrekLB']; ?></td>
-								<td colspan="4">-</td>
-								<td><?= $_SESSION['rata2_hasil_simLB']; ?></td>
-								<td><?= $_SESSION['rata2_hasil_realLB']; ?></td>
-								<td><?= $_SESSION['rata2_hasil_akurasiLB']; ?></td>			
-							</tr>
-						</tbody>
-					</table>
-			<?php else :  ?>
-				<em>Anda Belum Memilih Data Tahun Diatas!</em>
-			<?php endif ?>
-		<?php else : ?>
-			<?php unset($_SESSION['kondisi_hasilLB']);  ?>
-			<h6>Data Belum Ada</h6>
-		<?php endif; ?>
-	</div>
+								<th>#</th>
+								<th>Bulan</th>
+								<th>Frekuensi</th>
+								<th>Probabilitas</th>
+								<th>Kumulatif</th>
+								<th>Interval</th>
+								<th>Angka Acak</th>
+								<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLB'] ?>			
+							</th>
+							<th>Data Real <?= $_SESSION['tahun_data_realLB'] ?></th>
+							<th>Tingkat Akurasi</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+						<tr class="text-center">
+							<th ><?= $no++; ?></th>
+							<td class="text-start"><?=  $bulan[$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_frekLB'][$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_probLB'][$i] ?></td>
+							<td> <?= $_SESSION['convert_hasil_kumuLB'][$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_interLB'][$i] ?></td>
+							<td> <?= $_SESSION['convert_hasil_acakLB'][$i] ?></td>
+							<td> <?= $_SESSION['convert_hasil_LB'][$i] ?></td>
+							<td>  <?= $_SESSION['convert_hasil_datarealLB'][$i]; ?></td>
+							<td> <?= $_SESSION['convert_hasil_akurasiLB'][$i]; ?></td>	
+						</tr>
+					<?php endfor ?>
+					<tr class="text-center">
+						<th colspan="2">Total</th>
+						<td><?= $_SESSION['total_hasil_frekLB']; ?></td>
+						<td><?= $_SESSION['total_hasil_probLB']; ?></td>
+						<td colspan="3">-</td>
+						<td><?= $_SESSION['total_hasil_simLB']; ?></td>
+						<td><?= $_SESSION['total_data_realLB'];  ?></td>
+						<td>-</td>	
+					</tr>
+					<tr class="text-center">
+						<th colspan="2">Rata-rata</th>
+						<td><?= $_SESSION['rata2_hasilfrekLB']; ?></td>
+						<td colspan="4">-</td>
+						<td><?= $_SESSION['rata2_hasil_simLB']; ?></td>
+						<td><?= $_SESSION['rata2_hasil_realLB']; ?></td>
+						<td><?= $_SESSION['rata2_hasil_akurasiLB']; ?></td>			
+					</tr>
+				</tbody>
+			</table>
+		<?php else :  ?>
+			<em>Anda Belum Memilih Data Tahun Diatas!</em>
+		<?php endif ?>
+	<?php else : ?>
+		<?php unset($_SESSION['kondisi_hasilLB']);  ?>
+		<h6>Data Belum Ada</h6>
+	<?php endif; ?>
+</div>
 </div>
 </div>
 <div class="accordion-item">
@@ -237,84 +243,102 @@ $datalukaRingan = data_hasillukaRingan();
 							</div>
 						</div>
 						<div class="col-8 text-end">
-									<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
-										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
-										<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
-										<a href="delete.php?id_hasil_hapusLR=<?= $_SESSION['id_hasiltampilLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
-									<?php endif; ?>
-								</div>
-							</div>
+							<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
+								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
+								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
+								<a href="delete.php?id_hasil_hapusLR=<?= $_SESSION['id_hasiltampilLR']  ?>" class="btn btn-sm btn-dark shadow-sm d-inline"><i class="fa-solid fa-trash-can"></i> Delete</a>
+							<?php endif; ?>
 						</div>
-						<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
-							<table class="table table-bordered">
-								<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLR']; ?></caption>
-								<thead>
-									<tr class="text-center">
-										<th>#</th>
-										<th>Bulan</th>
-										<th>Frekuensi</th>
-										<th>Probabilitas</th>
-										<th>Kumulatif</th>
-										<th>Interval</th>
-										<th>Angka Acak</th>
-										<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLR'] ?>			
-									</th>
-									<th>Data Real <?= $_SESSION['tahun_data_realLR'] ?></th>
-									<th>Tingkat Akurasi</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-								<tr class="text-center">
-									<th ><?= $no++; ?></th>
-									<td class="text-start"><?=  $bulan[$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_frekLR'][$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_probLR'][$i]; ?></td>
-									<td> <?= $_SESSION['convert_hasil_kumuLR'][$i]; ?></td>
-									<td><?= $_SESSION['convert_hasil_interLR'][$i] ?></td>
-									<td> <?= $_SESSION['convert_hasil_acakLR'][$i] ?></td>
-									<td> <?= $_SESSION['convert_hasil_LR'][$i] ?></td>
-									<td>  <?= $_SESSION['convert_hasil_datarealLR'][$i]; ?></td>
-									<td> <?= $_SESSION['convert_hasil_akurasiLR'][$i]; ?></td>	
-								</tr>
-							<?php endfor ?>
+					</div>
+				</div>
+				<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
+					<table class="table table-bordered">
+						<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLR']; ?></caption>
+						<thead>
 							<tr class="text-center">
-								<th colspan="2">Total</th>
-								<td><?= $_SESSION['total_hasil_frekLR']; ?></td>
-								<td><?= $_SESSION['total_hasil_probLR']; ?></td>
-								<td colspan="3">-</td>
-								<td><?= $_SESSION['total_hasil_simLR']; ?></td>
-								<td><?= $_SESSION['total_data_realLR'];  ?></td>
-								<td>-</td>	
-							</tr>
-							<tr class="text-center">
-								<th colspan="2">Rata-rata</th>
-								<td><?= $_SESSION['rata2_hasilfrekLR']; ?></td>
-								<td colspan="4">-</td>
-								<td><?= $_SESSION['rata2_hasil_simLR']; ?></td>
-								<td><?= $_SESSION['rata2_hasil_realLR']; ?></td>
-								<td><?= $_SESSION['rata2_hasil_akurasiLR']; ?></td>			
-							</tr>
-						</tbody>
-					</table>
-			<?php else :  ?>
-				<em>Anda Belum Memilih Data Tahun Diatas!</em>
-			<?php endif ?>
-		<?php else : ?>
-			<?php unset($_SESSION['kondisi_hasilLR']);  ?>
-			<h6>Data Belum Ada</h6>
-		<?php endif; ?>
-	</div>
+								<th>#</th>
+								<th>Bulan</th>
+								<th>Frekuensi</th>
+								<th>Probabilitas</th>
+								<th>Kumulatif</th>
+								<th>Interval</th>
+								<th>Angka Acak</th>
+								<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLR'] ?>			
+							</th>
+							<th>Data Real <?= $_SESSION['tahun_data_realLR'] ?></th>
+							<th>Tingkat Akurasi</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
+						<tr class="text-center">
+							<th ><?= $no++; ?></th>
+							<td class="text-start"><?=  $bulan[$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_frekLR'][$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_probLR'][$i]; ?></td>
+							<td> <?= $_SESSION['convert_hasil_kumuLR'][$i]; ?></td>
+							<td><?= $_SESSION['convert_hasil_interLR'][$i] ?></td>
+							<td> <?= $_SESSION['convert_hasil_acakLR'][$i] ?></td>
+							<td> <?= $_SESSION['convert_hasil_LR'][$i] ?></td>
+							<td>  <?= $_SESSION['convert_hasil_datarealLR'][$i]; ?></td>
+							<td> <?= $_SESSION['convert_hasil_akurasiLR'][$i]; ?></td>	
+						</tr>
+					<?php endfor ?>
+					<tr class="text-center">
+						<th colspan="2">Total</th>
+						<td><?= $_SESSION['total_hasil_frekLR']; ?></td>
+						<td><?= $_SESSION['total_hasil_probLR']; ?></td>
+						<td colspan="3">-</td>
+						<td><?= $_SESSION['total_hasil_simLR']; ?></td>
+						<td><?= $_SESSION['total_data_realLR'];  ?></td>
+						<td>-</td>	
+					</tr>
+					<tr class="text-center">
+						<th colspan="2">Rata-rata</th>
+						<td><?= $_SESSION['rata2_hasilfrekLR']; ?></td>
+						<td colspan="4">-</td>
+						<td><?= $_SESSION['rata2_hasil_simLR']; ?></td>
+						<td><?= $_SESSION['rata2_hasil_realLR']; ?></td>
+						<td><?= $_SESSION['rata2_hasil_akurasiLR']; ?></td>			
+					</tr>
+				</tbody>
+			</table>
+		<?php else :  ?>
+			<em>Anda Belum Memilih Data Tahun Diatas!</em>
+		<?php endif ?>
+	<?php else : ?>
+		<?php unset($_SESSION['kondisi_hasilLR']);  ?>
+		<h6>Data Belum Ada</h6>
+	<?php endif; ?>
+</div>
 </div>
 </div>
 </div>
 </div>
 
-
+<!-- Modal Hapus Semua Data Hasil-->
+ <div class="modal fade" id="hapus-data-hasilAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin hapus?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Yes" dibawah ini jika anda ingin hapus semua data</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="delete.php?id_hapus-hasilAll=jeremy">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php require "grafik.php"; ?>
 <?php require "export.php"; ?>
 <?php 	require "layout/footer.php" ?>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
@@ -324,31 +348,44 @@ $datalukaRingan = data_hasillukaRingan();
 <script>
 	$(document).ready(function(){
 		//bookmark tampil data
-              var hash = window.location.hash;
-              if(hash){
-                $(hash).collapse('show');
+		var hash = window.location.hash;
+		if(hash){
+			$(hash).collapse('show');
+		}
+		  window.onload = function() {
+        var bookmarks = window.location.hash.split('#');
+        
+        for (var i = 1; i < bookmarks.length; i++) {
+            var bookmark = bookmarks[i];
+            
+            // Buka collapse dengan menggunakan identifikasi bookmark
+            var collapse = document.getElementById(bookmark);
+            if (collapse) {
+                collapse.classList.add('show');
             }
+        }
+    };
 
      //export data
-     $('#exportMD').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } ); 
+		$('#exportMD').DataTable( {
+			dom: 'Bfrtip',
+			buttons: [
+				'excel', 'pdf', 'print'
+				]
+		} ); 
 
-    $('#exportLB').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } ); 
+		$('#exportLB').DataTable( {
+			dom: 'Bfrtip',
+			buttons: [
+				'excel', 'pdf', 'print'
+				]
+		} ); 
 
-    $('#exportLR').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } );         
+		$('#exportLR').DataTable( {
+			dom: 'Bfrtip',
+			buttons: [
+				'excel', 'pdf', 'print'
+				]
+		} );         
 	});
 </script>

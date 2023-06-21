@@ -1,3 +1,9 @@
+<?php 
+$romawi = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+$romawi2 = ["M" , "N"];
+
+
+ ?>
 <!-- Meninggal Dunia -->
 <div class="modal fade" id="exportdataMD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
@@ -29,7 +35,7 @@ aria-hidden="true">
               <tbody>
                 <?php for ($i=0; $i < count($bulan) ; $i++) : ?>
                 <tr class="text-center">
-                  <td class="text-start"><?=  $bulan[$i]; ?></td>
+                  <td class="text-start"><span style="display:none;"><?= $romawi[$i]?></span><?= "{$bulan[$i]}";?></td>
                   <td><?= $_SESSION['convert_hasil_frekMD'][$i]; ?></td>
                   <td><?= $_SESSION['convert_hasil_probMD'][$i] ?></td>
                   <td> <?= $_SESSION['convert_hasil_kumuMD'][$i]; ?></td>
@@ -41,7 +47,7 @@ aria-hidden="true">
                 </tr>
               <?php endfor ?>
               <tr class="text-center">
-                <td>Total</td>
+                <td><?= "<span style ='display:none;'>$romawi2[0]</span>"?>Total</td>
                 <td><?= $_SESSION['total_hasil_frekMD']; ?></td>
                 <td><?= $_SESSION['total_hasil_probMD']; ?></td>
                 <td>-</td>
@@ -52,7 +58,7 @@ aria-hidden="true">
                 <td>-</td>  
               </tr>
               <tr class="text-center">
-                <td>Rata-rata</td>
+                <td><?= "<span style ='display:none;'>$romawi2[1]</span>"?>Rata-rata</td>
                 <td><?= $_SESSION['rata2_hasilfrekMD']; ?></td>
                 <td>-</td>
                 <td>-</td>
@@ -104,7 +110,7 @@ aria-hidden="true">
               <tbody>
                 <?php for ($i=0; $i < count($bulan) ; $i++) : ?>
                 <tr class="text-center">
-                  <td class="text-start"><?=  $bulan[$i]; ?></td>
+                  <td class="text-start"><?= "<span style='display:none;'>$romawi[$i]</span>{$bulan[$i]}"; ?></td>
                   <td><?= $_SESSION['convert_hasil_frekLB'][$i]; ?></td>
                   <td><?= $_SESSION['convert_hasil_probLB'][$i] ?></td>
                   <td> <?= $_SESSION['convert_hasil_kumuLB'][$i]; ?></td>
@@ -116,7 +122,7 @@ aria-hidden="true">
                 </tr>
               <?php endfor ?>
               <tr class="text-center">
-                <td>Total</td>
+                <td><?= "<span style ='display:none;'>$romawi2[0]</span>"?>Total</td>
                 <td><?= $_SESSION['total_hasil_frekLB']; ?></td>
                 <td><?= $_SESSION['total_hasil_probLB']; ?></td>
                 <td>-</td>
@@ -127,7 +133,7 @@ aria-hidden="true">
                 <td>-</td>  
               </tr>
               <tr class="text-center">
-                <td>Rata-rata</td>
+                <td><?= "<span style ='display:none;'>$romawi2[1]</span>"?>Rata-rata</td>
                 <td><?= $_SESSION['rata2_hasilfrekLB']; ?></td>
                 <td>-</td>
                 <td>-</td>
@@ -179,7 +185,7 @@ aria-hidden="true">
               <tbody>
                 <?php for ($i=0; $i < count($bulan) ; $i++) : ?>
                 <tr class="text-center">
-                  <td class="text-start"><?=  $bulan[$i]; ?></td>
+                  <td class="text-start"><?= "<span style='display:none;'>$romawi[$i]</span>{$bulan[$i]}"; ?></td>
                   <td><?= $_SESSION['convert_hasil_frekLR'][$i]; ?></td>
                   <td><?= $_SESSION['convert_hasil_probLR'][$i] ?></td>
                   <td> <?= $_SESSION['convert_hasil_kumuLR'][$i]; ?></td>
@@ -191,7 +197,7 @@ aria-hidden="true">
                 </tr>
               <?php endfor ?>
               <tr class="text-center">
-                <td>Total</td>
+                <td><?= "<span style ='display:none;'>$romawi2[0]</span>"?>Total</td>
                 <td><?= $_SESSION['total_hasil_frekLR']; ?></td>
                 <td><?= $_SESSION['total_hasil_probLR']; ?></td>
                 <td>-</td>
@@ -202,7 +208,7 @@ aria-hidden="true">
                 <td>-</td>  
               </tr>
               <tr class="text-center">
-                <td>Rata-rata</td>
+                <td><?= "<span style ='display:none;'>$romawi2[1]</span>"?>Rata-rata</td>
                 <td><?= $_SESSION['rata2_hasilfrekLR']; ?></td>
                 <td>-</td>
                 <td>-</td>

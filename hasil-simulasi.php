@@ -211,7 +211,7 @@ if(isset($_POST['simpan'])){
 							<caption class="caption-top text-center">Data Meninggal Dunia <?=  $_SESSION['hitung_tahundataMentahMD']; ?></caption>
 							<thead>
 								<tr class="text-center">
-									<th>#</th>
+									<th>No</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
 									<th>Probabilitas</th>
@@ -226,9 +226,9 @@ if(isset($_POST['simpan'])){
 						</thead>
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-							<tr>
+							<tr class="text-center">
 								<th class="text-center"><?= $no++; ?></th>
-								<td><?=  $bulan[$i]; ?></td>
+								<td class="text-start"><?=  $bulan[$i]; ?></td>
 								<td><?= $_SESSION['hitung_convertMentahMD'][$i]; ?></td>
 								<td><?= $_SESSION['convert_probMD'][$i] ?></td>	
 								<td> <?= $_SESSION['kumuMD'][$i]; ?></td>
@@ -239,7 +239,7 @@ if(isset($_POST['simpan'])){
 								<td> <?= "{$_SESSION['convert_presentaseMD'][$i]}%"; ?></td>	
 							</tr>
 						<?php endfor ?>
-						<tr>
+						<tr class="text-center">
 							<th class="text-center" colspan="2">Total</th>
 							<td><?= $_SESSION['jumlahFrekuensiMD']; ?></td>
 							<td><?= $_SESSION['jumlah_probMD'];?></td>
@@ -250,7 +250,7 @@ if(isset($_POST['simpan'])){
 							<td> <?= $_SESSION['total_dataRealMD']  ?></td>
 							<td>-</td>		
 						</tr>
-						<tr>
+						<tr class="text-center">
 							<th class="text-center" colspan="2">Rata-rata</th>
 							<td> <?= round($_SESSION['jumlahFrekuensiMD'] / count($bulan)); ?></td>
 							<td class="text-center" colspan="4">-</td>
@@ -292,9 +292,9 @@ if(isset($_POST['simpan'])){
 				</thead>
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-					<tr>
+					<tr class="text-center">
 						<th class="text-center"><?= $no++; ?></th>
-						<td><?=  $bulan[$i]; ?></td>
+						<td class="text-start"><?=  $bulan[$i]; ?></td>
 						<td><?= $_SESSION['hitung_convertMentahLB'][$i]; ?></td>
 						<td><?= $_SESSION['convert_probLB'][$i] ?></td>	
 						<td> <?= $_SESSION['kumuLB'][$i]; ?></td>
@@ -305,7 +305,7 @@ if(isset($_POST['simpan'])){
 						<td> <?= "{$_SESSION['convert_presentaseLB'][$i]}%"; ?></td>	
 					</tr>
 				<?php endfor ?>
-				<tr>
+				<tr class="text-center">
 					<th class="text-center" colspan="2">Total</th>
 					<td><?= $_SESSION['jumlahFrekuensiLB']; ?></td>
 					<td><?= $_SESSION['jumlah_probLB'];?></td>
@@ -316,7 +316,7 @@ if(isset($_POST['simpan'])){
 					<td> <?= $_SESSION['total_dataRealLB']  ?></td>
 					<td>-</td>		
 				</tr>
-				<tr>
+				<tr class="text-center">
 					<th class="text-center" colspan="2">Rata-rata</th>
 					<td> <?= round($_SESSION['jumlahFrekuensiLB'] / count($bulan)); ?></td>
 					<td class="text-center" colspan="4">-</td>
@@ -358,9 +358,9 @@ if(isset($_POST['simpan'])){
 				</thead>
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
-					<tr>
+					<tr class="text-center">
 						<th class="text-center"><?= $no++; ?></th>
-						<td><?=  $bulan[$i]; ?></td>
+						<td class="text-start"><?=  $bulan[$i]; ?></td>
 						<td><?= $_SESSION['hitung_convertMentahLR'][$i]; ?></td>
 						<td><?= $_SESSION['convert_probLR'][$i] ?></td>	
 						<td> <?= $_SESSION['kumuLR'][$i]; ?></td>
@@ -371,7 +371,7 @@ if(isset($_POST['simpan'])){
 						<td> <?= "{$_SESSION['convert_presentaseLR'][$i]}%"; ?></td>	
 					</tr>
 				<?php endfor ?>
-				<tr>
+				<tr class="text-center">
 					<th class="text-center" colspan="2">Total</th>
 					<td><?= $_SESSION['jumlahFrekuensiLR']; ?></td>
 					<td><?= $_SESSION['jumlah_probLR'];?></td>
@@ -382,7 +382,7 @@ if(isset($_POST['simpan'])){
 					<td> <?= $_SESSION['total_dataRealLR']  ?></td>
 					<td>-</td>		
 				</tr>
-				<tr>
+				<tr class="text-center">
 					<th class="text-center" colspan="2">Rata-rata</th>
 					<td> <?= round($_SESSION['jumlahFrekuensiLR'] / count($bulan)); ?></td>
 					<td class="text-center" colspan="4">-</td>

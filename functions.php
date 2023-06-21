@@ -144,6 +144,7 @@ function update($data, $id){
     
 }
 
+//hapus data input 
 function hapus($id){
     global $conn;
 
@@ -152,6 +153,7 @@ function hapus($id){
     return mysqli_affected_rows($conn);
 }
 
+//hapus semua input data
 function hapusAll(){
     global $conn;
     mysqli_query($conn, "TRUNCATE data_bulan_kecelakaan");    
@@ -165,6 +167,13 @@ function hapusHS($id){
     mysqli_query($conn, "DELETE FROM hasil_simulasi WHERE id = $id");
     
     return mysqli_affected_rows($conn);
+}
+
+//hapus semua input data
+function hapus_hasilAll(){
+    global $conn;
+    mysqli_query($conn, "TRUNCATE hasil_simulasi");    
+    return mysqli_affected_rows($conn);   
 }
 
 function simpanHasil($data){

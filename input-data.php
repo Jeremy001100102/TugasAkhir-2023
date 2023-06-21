@@ -24,6 +24,7 @@ if (isset($_POST['simpan'])) {
 
 
     if( tambah($_POST) > 0){
+        
         echo " 
         <script>
         alert('Data berhasil ditambahkan');
@@ -53,14 +54,15 @@ if (isset($_POST['simpan'])) {
     </div>
     <div class="col-8 text-end">
       <a class="btn btn-sm btn-primary shadow-sm disabled popover-dismiss" title="Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!" id="tombolHitung" href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
-         echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
+       echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
 
-         <a href="delete.php?id_hapusAll=jeremy" class="btn btn-sm btn-danger shadow-sm"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
-         <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
-     </div>
- </div>
+       <a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-input-dataAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
 
- <div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
+       <a href="#" class="btn btn-sm btn-success shadow-sm" data-toggle="modal" data-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+   </div>
+</div>
+
+<div class="modal fade"  id="tambah-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
     <div class="modal-dialog modal-dialog-scrollable mw-100 w-100">
         <div class="card mx-auto mb-3 w-75 mt-4">
 
@@ -151,20 +153,36 @@ if (isset($_POST['simpan'])) {
         </div>
     </div>
     <div class="modal-footer">   
-     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-     <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
- </div>  
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+       <button type="submit" class="btn btn-success" id="simpan" name="simpan">Simpan</button> 
+   </div>  
 </form>
 </div>
 </div>
 </div>
 </div>
 
+<!-- Modal Hapus Semua Input Data-->
+ <div class="modal fade" id="hapus-input-dataAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin hapus?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Yes" dibawah ini jika anda ingin hapus semua data</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="delete.php?id_hapusAll=jeremy">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php require "tampil.php" ?>
-
-
-
-
 <?php require "layout/footer.php" ?> 
 
 <script>
@@ -175,6 +193,14 @@ if (isset($_POST['simpan'])) {
 
         // $('[data-toggle="popover"]').popover();
       // Ambil referensi ke elemen tombol
+
+        function alertInput(){
+            Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+        )
+        }
 
 
 //validation form input dan update data
@@ -210,36 +236,25 @@ if (isset($_POST['simpan'])) {
           }
       });
 
-  //    $('#tombolHitung').click(function() {
-  //   if ($(this).hasClass('disabled')) {
-  //     alert("Anda Belum Melakukan Pemilihan Dat")     
-  //   }
-  // });    
-   // Mendapatkan referensi tombol hitung
-        var tombolHitung = document.getElementById('tombolHitung');
-
-  // Mendapatkan referensi alert
-        var warningAlert = document.getElementById('warningAlert');
-
-  // Menambahkan event listener untuk klik pada tombol
-        tombolHitung.addEventListener('click', function(event) {
-    // Memeriksa keadaan disabled tombol hitung
-            if (tombolHitung.classList.contains('disabled')) {
-      event.preventDefault(); // Menghentikan perilaku standar tombol (pengalihan ke URL)
-
-      // Menampilkan alert jika tombol hitung dalam keadaan disabled
-      warningAlert.style.display = 'block';
-  }
-});   
-
-
-
-
+ 
 //bookmark tampil data
         var hash = window.location.hash;
         if(hash){
             $(hash).collapse('show');
         }
+         window.onload = function() {
+        var bookmarks = window.location.hash.split('#');
+        
+        for (var i = 1; i < bookmarks.length; i++) {
+            var bookmark = bookmarks[i];
+            
+            // Buka collapse dengan menggunakan identifikasi bookmark
+            var collapse = document.getElementById(bookmark);
+            if (collapse) {
+                collapse.classList.add('show');
+            }
+        }
+    };
 
 
   //Aksi saat accordion diklik
