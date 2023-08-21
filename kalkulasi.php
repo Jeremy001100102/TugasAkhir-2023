@@ -162,4 +162,20 @@ if (isset($_GET['id_hitungLR'])) {
 <?php endif ?>
 
 
+<?php if(isset($_GET['rs'])) : 
+	$_SESSION['angka_acak'] = null;
+	$_SESSION['interval'] = null;
+	$_SESSION['kumu'] = null;
+	$_SESSION['prob'] = null;
+	$_SESSION['link'] = null;
+
+
+	echo " 
+		<script>
+		document.location.href = 'index.php';
+		</script>	
+		";
+
+ endif; ?>
+
 <?php require "layout/footer.php" ?>

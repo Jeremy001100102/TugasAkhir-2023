@@ -53,6 +53,12 @@ $datalukaRingan = datalukaRingan();
 						<?php if(isset($_SESSION['kondisiMD'])) : ?>
 							<table class="table table-bordered">
 								<caption class="caption-top text-center">Meninggal Dunia</caption>
+								<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 								<thead>
 									<tr class="text-center">
 										<th>#</th>
@@ -64,7 +70,7 @@ $datalukaRingan = datalukaRingan();
 								<tbody>
 									<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 									<tr>
-										<th class="text-center"><?= $no++; ?></th>
+										<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 										<td><?=  $bulan[$i]; ?></td>
 										<td><?= $_SESSION['convertMentah'][$i]; ?></td>
 										<td><?=  $_SESSION['convertReal'][$i]; ?></td>
@@ -124,6 +130,12 @@ $datalukaRingan = datalukaRingan();
 					<?php if (isset($_SESSION['kondisiLB'])): ?>
 						<table class="table table-bordered">
 							<caption class="caption-top text-center">Luka Berat</caption>
+							<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 							<thead>
 								<tr class="text-center">
 									<th>#</th>
@@ -135,7 +147,7 @@ $datalukaRingan = datalukaRingan();
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
-									<th class="text-center"><?= $no++; ?></th>
+									<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['convertMentahLB'][$i];  ?></td>
 									<td><?= $_SESSION['convertRealLB'][$i];  ?></td>
@@ -195,6 +207,12 @@ $datalukaRingan = datalukaRingan();
 				<?php if (isset($_SESSION['kondisiLR'])) : ?>
 					<table class="table table-bordered">
 						<caption class="caption-top text-center">Luka Ringan</caption>
+						<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 						<thead>
 							<tr class="text-center">
 								<th>#</th>
@@ -206,7 +224,7 @@ $datalukaRingan = datalukaRingan();
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 							<tr>
-								<th class="text-center"><?= $no++;?></th>
+								<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++;?></th>
 								<td><?= $bulan[$i];?></td>
 								<td><?= $_SESSION['convertMentahLR'][$i];?></td>
 								<td><?= $_SESSION['convertRealLR'][$i]; ?></td>

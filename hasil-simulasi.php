@@ -209,6 +209,12 @@ if(isset($_POST['simpan'])){
 					<div class="position-relative">		
 						<table class="table table-bordered">
 							<caption class="caption-top text-center">Data Meninggal Dunia <?=  $_SESSION['hitung_tahundataMentahMD']; ?></caption>
+							<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 							<thead>
 								<tr class="text-center">
 									<th>No</th>
@@ -227,7 +233,7 @@ if(isset($_POST['simpan'])){
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 							<tr class="text-center">
-								<th class="text-center"><?= $no++; ?></th>
+								<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 								<td class="text-start"><?=  $bulan[$i]; ?></td>
 								<td><?= $_SESSION['hitung_convertMentahMD'][$i]; ?></td>
 								<td><?= $_SESSION['convert_probMD'][$i] ?></td>	
@@ -275,6 +281,12 @@ if(isset($_POST['simpan'])){
 			<div class="position-relative">
 				<table class="table table-bordered">
 					<caption class="caption-top text-center">Data Luka Berat <?=  $_SESSION['hitung_tahundataMentahLB']; ?></caption>
+					<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 					<thead>
 						<tr class="text-center">
 							<th>#</th>
@@ -293,7 +305,7 @@ if(isset($_POST['simpan'])){
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 					<tr class="text-center">
-						<th class="text-center"><?= $no++; ?></th>
+						<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 						<td class="text-start"><?=  $bulan[$i]; ?></td>
 						<td><?= $_SESSION['hitung_convertMentahLB'][$i]; ?></td>
 						<td><?= $_SESSION['convert_probLB'][$i] ?></td>	
@@ -341,6 +353,12 @@ if(isset($_POST['simpan'])){
 			<div class="position-relative">
 				<table class="table table-bordered">
 					<caption class="caption-top text-center" name="tahun_data_mentah" value="<?=  $_SESSION['hitung_tahundataMentahLR']; ?>">Data Luka Ringan <?=  $_SESSION['hitung_tahundataMentahLR']; ?></caption>
+					<caption class="caption-top">								
+								<ul style="list-style-type:square;">
+									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
+									<li style="color: red;"><span style="color: gray;">Musim Kemarau<span></li>
+								</ul> 
+							</caption>
 					<thead>
 						<tr class="text-center">
 							<th>#</th>
@@ -359,7 +377,7 @@ if(isset($_POST['simpan'])){
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 					<tr class="text-center">
-						<th class="text-center"><?= $no++; ?></th>
+						<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 						<td class="text-start"><?=  $bulan[$i]; ?></td>
 						<td><?= $_SESSION['hitung_convertMentahLR'][$i]; ?></td>
 						<td><?= $_SESSION['convert_probLR'][$i] ?></td>	

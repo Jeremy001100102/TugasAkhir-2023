@@ -135,10 +135,17 @@
             </li>
 
              <!-- Nav Item - Tables -->
-            <li class="nav-item <?php echo isset($_GET['hs']) ? 'active' : ''; ?>">
+            <li class="nav-item sb <?php echo isset($_GET['hs']) ? 'active' : ''; ?> ">
                 <a class="nav-link" href="kalkulasi.php?hs=jeremy">
                    <i class="fa-solid fa-square-poll-horizontal"></i> 
                    <span>Hasil Simulasi</span></a>
+            </li>
+
+             <!-- Nav Item - Tables -->
+            <li class="nav-item <?php echo isset($_GET['rs']) ? 'active' : ''; ?> ">
+                <a class="nav-link" href="kalkulasi.php?rs=jeremy">
+                   <i class="fa-solid fa-arrow-rotate-left"></i> 
+                   <span>Reset</span></a>
             </li>
 
             <!-- Divider -->
