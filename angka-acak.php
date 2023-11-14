@@ -1,16 +1,16 @@
 <?php 
-session_start();
-if (!isset($_SESSION['login'])) {
-	header("Location: login.php");
-}
+// session_start();
+// if (!isset($_SESSION['login'])) {
+// 	header("Location: login.php");
+// }
 
 //rumus zi + 1 = (a.zi + c) mod m
-define("a", 10); //konstanta pengali
-define("c", 17); //konstanta pergeseran
+define("a", 19); //konstanta pengali
+define("c", 27); //konstanta pergeseran
 define("m", 99); //konstanta modulus
 
 //Angka Acak Meninggal Dunia
-$zi_MD = 15;
+$zi_MD = 47;
 $_SESSION['angkaAcakMD'] = [];
 $temp_MD = 0;
 for($i=0; $i < count($bulan); $i++) { 
@@ -20,7 +20,7 @@ for($i=0; $i < count($bulan); $i++) {
 }
 
 //Angka Acak Luka Berat
-$zi_LB = 15;
+$zi_LB = 47;
 $_SESSION['angkaAcakLB'] = [];
 $temp_LB = 0;
 for($i=0; $i < count($bulan); $i++) { 
@@ -30,7 +30,7 @@ for($i=0; $i < count($bulan); $i++) {
 }
 
 //Angka Acak Luka Ringan
-$zi_LR = 15;
+$zi_LR = 47;
 $_SESSION['angkaAcakLR'] = [];
 $temp_LR = 0;
 for($i=0; $i < count($bulan); $i++) { 

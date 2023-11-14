@@ -169,7 +169,6 @@ if (isset($_GET['id_hitungLR'])) {
 	$_SESSION['prob'] = null;
 	$_SESSION['link'] = null;
 
-
 	echo " 
 		<script>
 		document.location.href = 'index.php';

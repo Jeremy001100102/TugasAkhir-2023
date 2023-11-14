@@ -1,15 +1,16 @@
 <?php
 session_start();
+
+//Mencegah sebelum masuk halaman input data
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
 }
 
+//database
 require_once "functions.php";
 
-
+//array data tampil bulan
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-
-//
 
 
 //tambah data
@@ -24,7 +25,7 @@ if (isset($_POST['simpan'])) {
 
 
     if( tambah($_POST) > 0){
-        
+
         echo " 
         <script>
         alert('Data berhasil ditambahkan');
@@ -45,8 +46,9 @@ if (isset($_POST['simpan'])) {
 ?>
 
 
-
+<!-- Header -->
 <?php require "layout/header.php" ?>
+
 
 <div class="row">
     <div class="col-4">
@@ -163,24 +165,24 @@ if (isset($_POST['simpan'])) {
 </div>
 
 <!-- Modal Hapus Semua Input Data-->
- <div class="modal fade" id="hapus-input-dataAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin hapus?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Pilih "Yes" dibawah ini jika anda ingin hapus semua data</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="delete.php?id_hapusAll=jeremy">Yes</a>
-                </div>
-            </div>
+<div class="modal fade" id="hapus-input-dataAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin hapus?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Pilih "Yes" dibawah ini jika anda ingin hapus semua data</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="delete.php?id_hapusAll=jeremy">Yes</a>
         </div>
     </div>
+</div>
+</div>
 
 <?php require "tampil.php" ?>
 <?php require "layout/footer.php" ?> 
@@ -196,10 +198,10 @@ if (isset($_POST['simpan'])) {
 
         function alertInput(){
             Swal.fire(
-        'Good job!',
-        'You clicked the button!',
-        'success'
-        )
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
         }
 
 
@@ -231,30 +233,51 @@ if (isset($_POST['simpan'])) {
           } else {
       // Menonaktifkan tombol "Hitung" atau menambahkan class "disable"
               $("#tombolHitung").addClass("disabled");
-
-
           }
       });
 
  
+
+
+        $("#checkMD, #checkLB, #checkLR").change(function() {
+            let cekMD = $(this).is(':checked') ? 1 : 0;
+            let cekLB = $(this).is(':checked') ? 1 : 0;
+            let cekLR = $(this).is(':checked') ? 1 : 0;
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "input-data.php",
+                data: { cekMD: cekMD, cekLB : cekLB, cekLR : cekLR},
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        
+        
+
+
 //bookmark tampil data
         var hash = window.location.hash;
         if(hash){
             $(hash).collapse('show');
         }
-         window.onload = function() {
-        var bookmarks = window.location.hash.split('#');
-        
-        for (var i = 1; i < bookmarks.length; i++) {
-            var bookmark = bookmarks[i];
-            
+        window.onload = function() {
+            var bookmarks = window.location.hash.split('#');
+
+            for (var i = 1; i < bookmarks.length; i++) {
+                var bookmark = bookmarks[i];
+
             // Buka collapse dengan menggunakan identifikasi bookmark
-            var collapse = document.getElementById(bookmark);
-            if (collapse) {
-                collapse.classList.add('show');
+                var collapse = document.getElementById(bookmark);
+                if (collapse) {
+                    collapse.classList.add('show');
+                }
             }
-        }
-    };
+        };
 
 
   //Aksi saat accordion diklik

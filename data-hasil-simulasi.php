@@ -166,7 +166,7 @@ $datalukaRingan = data_hasillukaRingan();
 					<?php if(isset($_SESSION['kondisi_hasilLB'])) : ?>
 
 						<table class="table table-bordered">
-							<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLB']; ?></caption>
+							<caption class="caption-top text-center">Data Hasil Simulasi Luka Berat <?=  $_SESSION['tahun_hasilLB']; ?></caption>
 							<caption class="caption-top">								
 								<ul style="list-style-type:square;">
 									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
@@ -268,7 +268,7 @@ $datalukaRingan = data_hasillukaRingan();
 				</div>
 				<?php if(isset($_SESSION['kondisi_hasilLR'])) : ?>
 					<table class="table table-bordered">
-						<caption class="caption-top text-center">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilLR']; ?></caption>
+						<caption class="caption-top text-center">Data Hasil Simulasi Luka Ringan <?=  $_SESSION['tahun_hasilLR']; ?></caption>
 						<caption class="caption-top">								
 								<ul style="list-style-type:square;">
 									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>

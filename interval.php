@@ -6,10 +6,10 @@ $_SESSION['convert_intervalMD'] = [];
 for ($i=0; $i < count($bulan); $i++) { 
 	if ($i == 0) {
 		$_SESSION['batas_awalMD'][$i] = 0;
-		$_SESSION['batas_akhirMD'][$i] = (int) ($_SESSION['kumuMD'][$i] * 100);
+		$_SESSION['batas_akhirMD'][$i] = (int) round($_SESSION['kumuMD'][$i] * 100);
 	}else{
 		$_SESSION['batas_awalMD'][$i] = $_SESSION['batas_akhirMD'][$i-1] + 1;
-		$_SESSION['batas_akhirMD'][$i] = (int) ($_SESSION['kumuMD'][$i] * 100);  
+		$_SESSION['batas_akhirMD'][$i] = (int) round($_SESSION['kumuMD'][$i] * 100);  
 	}
 
 	$_SESSION['convert_intervalMD'][$i] = "{$_SESSION['batas_awalMD'][$i]}  -  {$_SESSION['batas_akhirMD'][$i]}";
@@ -22,10 +22,10 @@ $_SESSION['convert_intervalLB'] = [];
 for ($i=0; $i < count($bulan); $i++) { 
 	if ($i == 0) {
 		$_SESSION['batas_awalLB'][$i] = 0;
-		$_SESSION['batas_akhirLB'][$i] = (int) ($_SESSION['kumuLB'][$i] * 100);
+		$_SESSION['batas_akhirLB'][$i] = (int) round($_SESSION['kumuLB'][$i] * 100);
 	}else{
 		$_SESSION['batas_awalLB'][$i] = $_SESSION['batas_akhirLB'][$i-1] + 1;
-		$_SESSION['batas_akhirLB'][$i] = (int) ($_SESSION['kumuLB'][$i] * 100);  
+		$_SESSION['batas_akhirLB'][$i] = (int) round($_SESSION['kumuLB'][$i] * 100); 
 	}
 
 	$_SESSION['convert_intervalLB'][$i] = "{$_SESSION['batas_awalLB'][$i]}  -  {$_SESSION['batas_akhirLB'][$i]}";
@@ -38,10 +38,10 @@ $_SESSION['convert_intervalLR'] = [];
 for ($i=0; $i < count($bulan); $i++) { 
 	if ($i == 0) {
 		$_SESSION['batas_awalLR'][$i] = 0;
-		$_SESSION['batas_akhirLR'][$i] = (int) ($_SESSION['kumuLR'][$i] * 100);
+		$_SESSION['batas_akhirLR'][$i] = (int) round($_SESSION['kumuLR'][$i] * 100);
 	}else{
 		$_SESSION['batas_awalLR'][$i] = $_SESSION['batas_akhirLR'][$i-1] + 1;
-		$_SESSION['batas_akhirLR'][$i] = (int) ($_SESSION['kumuLR'][$i] * 100);  
+		$_SESSION['batas_akhirLR'][$i] = (int) round($_SESSION['kumuLR'][$i] * 100);  
 	}
 
 	$_SESSION['convert_intervalLR'][$i] = "{$_SESSION['batas_awalLR'][$i]}  -  {$_SESSION['batas_akhirLR'][$i]}";
