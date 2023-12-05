@@ -277,22 +277,26 @@ function register($data){
     //cek username sudah ada atau belum
     $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username'");
     if(mysqli_fetch_assoc($result)){
-        echo "
-            <script>
-                alert('username yang anda masukkan sudah terdaftar');
-            </script>
-        ";
+        $_SESSION['alert'] = "off";
+        $_SESSION['pesan'] = "Username yang anda masukkan sudah terdaftar!";
+        // echo "
+        //     <script>
+        //         alert('username yang anda masukkan sudah terdaftar');
+        //     </script>
+        // ";
         return false;
     }   
 
 
     //cek konfirmasi password
     if( $password !== $password2){
-        echo "
-            <script>
-                alert('konfirmasi password tidak sesuai!');
-            </script>
-        ";
+        $_SESSION['alert'] = "off";
+        $_SESSION['pesan'] = "Konfirmasi password tidak sesuai!";
+        // echo "
+        //     <script>
+        //         alert('konfirmasi password tidak sesuai!');
+        //     </script>
+        // ";
         return false;
     }
 

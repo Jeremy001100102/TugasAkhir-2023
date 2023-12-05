@@ -13,17 +13,15 @@ if (isset($_POST['updateLR'])) {
     if (update($_POST, $_SESSION['id_updateLR']) > 0) {
         echo "
         <script>
-        var id = " . json_encode($id_tampilLR) . ";
-        alert('Data berhasil diupdate');
-        document.location.href = 'tables.php?id_LR=' + id;
+        var id = " . json_encode($id_tampilLR) . ";        
+        document.location.href = 'tables.php?id_LR=' + id +'&u_berhasil=berhasil';
         </script>
         ";
     } else {
         echo "
         <script>
         var id = " . json_encode($id_tampilLR) . ";
-        alert('Data gagal diupdate');
-        document.location.href = 'tables.php?id_LR=' + id;
+        document.location.href = 'tables.php?id_LR=' + id +'&u_gagal=gagal';
         </script>
         ";
     }

@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 require 'functions.php';
 
@@ -7,13 +6,13 @@ require 'functions.php';
 if(isset($_POST['register'])){
 
 	if(register($_POST) > 0){
-		echo "
-
-		<script>
-		alert('user baru berhasil ditambahakan');
-		</script>
-
-		";
+		 $_SESSION['alert'] = "on";
+        $_SESSION['pesan'] = "User Berhasil Ditambahkan!";
+		// echo "
+		// <script>
+		// alert('User baru berhasil ditambahakan');
+		// </script>
+		// ";
 	}else{
 		echo mysqli_error($conn);
 	}
@@ -126,7 +125,36 @@ aria-hidden="true">
 </div>
 </div>
 
+<?php   
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "on") {
+ echo "
+ <script>
+ Swal.fire({
+    title: 'Berhasil!',
+    text: '{$_SESSION['pesan']}',
+    icon: 'success'
+    });
 
+    </script>
+    ";
+
+    unset($_SESSION['alert']);
+} 
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
+    echo "
+    <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal!',
+      text: '{$_SESSION['pesan']}'
+
+      });
+      </script>
+      ";
+      unset($_SESSION['alert']);
+  }
+
+  ?>
 
 <?php require "layout/footer.php"; ?>
 

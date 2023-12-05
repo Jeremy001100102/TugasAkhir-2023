@@ -14,16 +14,14 @@ if (isset($_POST['updateMD'])) {
         echo "
         <script>
         var id = " . json_encode($id_tampilMD) . ";
-        alert('Data berhasil diupdate');
-        document.location.href = 'tables.php?id_MD=' + id;
+        document.location.href = 'tables.php?id_MD=' + id +'&u_berhasil=berhasil';
         </script>
         ";
     } else {
         echo "
         <script>
         var id = " . json_encode($id_tampilMD) . ";
-        alert('Data gagal diupdate');
-        document.location.href = 'tables.php?id_MD=' + id;
+        document.location.href = 'tables.php?id_MD=' + id +'&u_gagal=gagal';
         </script>
         ";
     }

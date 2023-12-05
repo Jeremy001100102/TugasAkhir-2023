@@ -71,7 +71,7 @@ for ($i=0; $i < count($bulan); $i++) {
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
-									<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
+									<th class="text-center" <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahMD'][$i]; ?></td>
 									<td><?= $_SESSION['convert_probMD'][$i] ?></td>	
@@ -119,7 +119,7 @@ for ($i=0; $i < count($bulan); $i++) {
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
-									<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
+									<th class="text-center" <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahLB'][$i]; ?></td>
 									<td><?= $_SESSION['convert_probLB'][$i] ?></td>	
@@ -167,7 +167,7 @@ for ($i=0; $i < count($bulan); $i++) {
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr>
-									<th class="text-center" <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
+									<th class="text-center" <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 									<td><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['hitung_convertMentahLR'][$i]; ?></td>
 									<td><?= $_SESSION['convert_probLR'][$i] ?></td>	

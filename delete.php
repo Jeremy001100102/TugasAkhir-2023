@@ -7,12 +7,16 @@ require 'functions.php';
 if (isset($_GET['id_hapusAll'])) {
 
 	if( hapusAll() >= 0){
-		echo " 
-		<script>
-		alert('Data berhasil dihapus');
-		document.location.href = 'input-data.php#collapseOne#collapseTwo#collapseThree';
-		</script>	
-		";
+		$_SESSION['alert'] = "on";
+        $_SESSION['pesan'] = "Data Berhasil Dihapus Semua!";
+        header("Location: input-data.php#collapseOne#collapseTwo#collapseThree");
+        exit;
+		// echo " 
+		// <script>
+		// alert('Data berhasil dihapus');
+		// document.location.href = 'input-data.php#collapseOne#collapseTwo#collapseThree';
+		// </script>	
+		// ";
 	}else{
 		echo "
 		<script>
@@ -28,12 +32,16 @@ if (isset($_GET['id_hapusAll'])) {
 if (isset($_GET['id_hapus-hasilAll'])) {
 
 	if( hapus_hasilAll() >= 0){
-		echo " 
-		<script>
-		alert('Data berhasil dihapus');
-		document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
-		</script>	
-		";
+		$_SESSION['alert'] = "on";
+        $_SESSION['pesan'] = "Data Berhasil Dihapus Semua!";
+        header("Location: data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree");
+        exit;
+		// echo " 
+		// <script>
+		// alert('Data berhasil dihapus');
+		// document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
+		// </script>	
+		// ";
 	}else{
 		echo "
 		<script>
@@ -52,7 +60,6 @@ if (isset($_GET['id_hapusMD'])) {
 	if( hapus($idMD) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_MD=jeremy';
 		</script>	
 		";
@@ -72,7 +79,6 @@ if (isset($_GET['id_hapusLB'])) {
 	if( hapus($idLB) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_LB=jeremy';
 		</script>	
 		";
@@ -92,7 +98,6 @@ if (isset($_GET['id_hapusLR'])) {
 	if( hapus($idLR) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_LR=jeremy';
 		</script>	
 		";
@@ -114,7 +119,6 @@ if (isset($_GET['id_hasil_hapusMD'])){
 	if( hapusHS($id_hasilMD) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_hasilMD=jeremy';
 		</script>	
 		";
@@ -133,7 +137,6 @@ if (isset($_GET['id_hasil_hapusLB'])){
 	if( hapusHS($id_hasilLB) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_hasilLB=jeremy';
 		</script>	
 		";
@@ -152,7 +155,6 @@ if (isset($_GET['id_hasil_hapusLR'])){
 	if( hapusHS($id_hasilLR) > 0){
 		echo " 
 		<script>
-		alert('Data berhasil dihapus');
 		document.location.href = 'tables.php?id_hasilLR=jeremy';
 		</script>	
 		";
@@ -166,19 +168,24 @@ if (isset($_GET['id_hasil_hapusLR'])){
 	}	
 }
 
-//hasil akun user
+//hapus akun user
 if(isset($_GET['id_hapusAkun'])){
 	if( hapusAkun($_GET['id_hapusAkun']) > 0){
-		echo " 
-		<script>
-		document.location.href = 'akun.php';
-		</script>	
-		";
+		$_SESSION['alert'] = "on";
+        $_SESSION['pesan'] = "User Berhasil Dihapus!";
+        header("Location: akun.php");
+        exit;
+		// echo " 
+		// <script>
+		// 	alert('Data berhasil dihapus');
+		// 	document.location.href = 'akun.php';
+		// </script>	
+		// ";
 	}else{
 		echo "
 		<script>
-		alert('Data gagal dihapus');
-		document.location.href = 'akun.php';
+			alert('Data gagal dihapus');
+			document.location.href = 'akun.php';
 		</script>	
 		";	
 	}

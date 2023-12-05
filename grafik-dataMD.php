@@ -1,7 +1,7 @@
 
 <div class="modal fade" id="grafikMD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
-<div class="modal-dialog mw-100 w-75" role="document">
+<div class="modal-dialog modal-lg mw-100 w-75" role="document">
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title text-center w-100 fw-bold fs-4">Grafik Meninggal Dunia</div>

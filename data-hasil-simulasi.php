@@ -88,7 +88,7 @@ $datalukaRingan = data_hasillukaRingan();
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 								<tr class="text-center">
-									<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?> ><?= $no++; ?></th>
+									<th <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?> ><?= $no++; ?></th>
 										<td class="text-start"><?=  $bulan[$i]; ?></td>
 										<td><?= $_SESSION['convert_hasil_frekMD'][$i]; ?></td>
 										<td><?= $_SESSION['convert_hasil_probMD'][$i] ?></td>
@@ -193,7 +193,7 @@ $datalukaRingan = data_hasillukaRingan();
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 							<tr class="text-center">
-								<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
+								<th <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 									<td class="text-start"><?=  $bulan[$i]; ?></td>
 									<td><?= $_SESSION['convert_hasil_frekLB'][$i]; ?></td>
 									<td><?= $_SESSION['convert_hasil_probLB'][$i] ?></td>
@@ -293,7 +293,7 @@ $datalukaRingan = data_hasillukaRingan();
 					<tbody>
 						<?php $no = 1; for ($i=0; $i < count($bulan) ; $i++) : ?>
 						<tr class="text-center">
-							<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
+							<th <?= $no >= 4 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?>><?= $no++; ?></th>
 								<td class="text-start"><?=  $bulan[$i]; ?></td>
 								<td><?= $_SESSION['convert_hasil_frekLR'][$i]; ?></td>
 								<td><?= $_SESSION['convert_hasil_probLR'][$i]; ?></td>
@@ -356,9 +356,44 @@ aria-hidden="true">
 	</div>
 </div>
 </div>
+
+<?php   
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "on") {
+ echo "
+ <script>
+ Swal.fire({
+    title: 'Berhasil!',
+    text: '{$_SESSION['pesan']}',
+    icon: 'success'
+    });
+
+    </script>
+    ";
+
+    unset($_SESSION['alert']);
+} 
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
+    echo "
+    <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal!',
+      text: '{$_SESSION['pesan']}'
+
+      });
+      </script>
+      ";
+      unset($_SESSION['alert']);
+  }
+
+  ?>
 <?php require "grafik.php"; ?>
 <?php require "export.php"; ?>
 <?php 	require "layout/footer.php" ?>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -386,6 +421,45 @@ aria-hidden="true">
 				}
 			}
 		};
+
+		//Aksi saat accordion diklik
+    //Menangkap semua elemen accordion button
+        var accordionButtons = document.querySelectorAll('.accordion-button');
+
+    //Loop melalui setiap button
+        accordionButtons.forEach(function(button) {
+        // Tambahkan event listener 'click' pada setiap button
+            button.addEventListener('click', function() {
+            // Dapatkan data-bs-target dari button yang diklik
+                var target = this.getAttribute('data-bs-target');
+
+            // Dapatkan bagian anchor dari data-bs-target
+                var anchor = target.substring(1);
+
+            // Perbarui URL dengan menambahkan bookmark sesuai dengan anchor
+                window.location.hash = anchor;
+            });
+        });
+
+ 
+       //order table
+//         new DataTable('#exportMD','#exportLB', '#exportLR', {
+//     columnDefs: [
+//         {
+//             targets: [0],
+//             orderData: [0, 1]
+//         },
+//         {
+//             targets: [1],
+//             orderData: [1, 0]
+//         },
+//         {
+//             targets: [9],
+//             orderData: [9, 0]
+//         }
+//     ]
+// });
+
 
      //export data
 		$('#exportMD').DataTable( {

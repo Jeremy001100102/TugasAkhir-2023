@@ -30,6 +30,15 @@ if (isset($_GET['id_MD'])) {
 			$_SESSION['tahun_data_real'] = $key['tahun_data_real']; 		               
 		}
 
+		if(isset($_GET['u_gagal'])){
+			$_SESSION['alert'] = "off";
+			$_SESSION['pesan'] = "Data Gagal Diupdate!";
+		}
+		if(isset($_GET['u_berhasil'])){	
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
+		}
+
 		if($_GET['id_MD'] == "jeremy"){
 			$_SESSION['kondisiMD'] = true;
 			$_SESSION['id_updateMD'] = $key['id'];
@@ -38,14 +47,18 @@ if (isset($_GET['id_MD'])) {
 			$_SESSION['convertReal'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentah'] = $key['tahun_data_mentah'];
 			$_SESSION['tahun_data_real'] = $key['tahun_data_real']; 
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!";
 		}
 	} 
-	echo " 
-            <script>
-                document.location.href = 'input-data.php#collapseOne';
-            </script>   
-        ";
-   
+
+	header("Location: input-data.php#collapseOne");
+	// echo " 
+    //         <script>
+    //             document.location.href = 'input-data.php#collapseOne';
+    //         </script>   
+    //     ";
+
 }
 
 //Tampil table Luka Berat
@@ -63,8 +76,18 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['convertMentahLB'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLB'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLB'] = $key['tahun_data_mentah'];
-			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real']; 		               
+			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real'];	               
 		}
+
+		if(isset($_GET['u_gagal'])){
+			$_SESSION['alert'] = "off";
+			$_SESSION['pesan'] = "Data Gagal Diupdate!";
+		}
+		if(isset($_GET['u_berhasil'])){	
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
+		}
+
 		if($_GET['id_LB'] == "jeremy"){
 			$_SESSION['kondisiLB'] = true;
 			$_SESSION['id_updateLB'] = $key['id'];
@@ -72,15 +95,18 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['convertMentahLB'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLB'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLB'] = $key['tahun_data_mentah'];
-			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real']; 
+			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real'];
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!"; 
 		}
 	}
-	echo " 
-            <script>
-                document.location.href = 'input-data.php#collapseTwo';
-            </script>   
-        ";
-    
+	header("Location: input-data.php#collapseTwo");
+	// echo " 
+    //         <script>
+    //             document.location.href = 'input-data.php#collapseTwo';
+    //         </script>   
+    //     ";
+
 }
 
 //Tampil table Luka Ringan
@@ -98,8 +124,18 @@ if (isset($_GET['id_LR'])) {
 			$_SESSION['convertMentahLR'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLR'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLR'] = $key['tahun_data_mentah'];
-			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real']; 		               
+			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real'];
 		}
+
+		if(isset($_GET['u_gagal'])){
+			$_SESSION['alert'] = "off";
+			$_SESSION['pesan'] = "Data Gagal Diupdate!";
+		}
+		if(isset($_GET['u_berhasil'])){	
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
+		}
+
 		if($_GET['id_LR'] == "jeremy"){
 			$_SESSION['kondisiLR'] = true;
 			$_SESSION['id_updateLR'] = $key['id'];
@@ -107,23 +143,27 @@ if (isset($_GET['id_LR'])) {
 			$_SESSION['convertMentahLR'] = explode("|", $key['data_bulan_mentah']);
 			$_SESSION['convertRealLR'] = explode("|", $key['data_bulan_real']);
 			$_SESSION['tahun_data_mentahLR'] = $key['tahun_data_mentah'];
-			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real']; 
+			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real'];
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!"; 
 		}
 	}
-	echo " 
-            <script>
-                document.location.href = 'input-data.php#collapseThree';
-            </script>   
-        ";
- 
+
+	header("Location: input-data.php#collapseThree");
+	// echo " 
+    //         <script>
+    //             document.location.href = 'input-data.php#collapseThree';
+    //         </script>   
+    //     ";
+
 }
 
 
 
 //Tampil Table Hasil Meninggal
-if (isset($_GET['id_hasilMD'])) {
-	$_SESSION['id_hasiltampilMD'] = $_GET['id_hasilMD'];
-}
+// if (isset($_GET['id_hasilMD'])) {
+// 	$_SESSION['id_hasiltampilMD'] = $_GET['id_hasilMD'];
+// }
 
 $data_hasilMD = data_hasilMeninggal();
 if (isset($_GET['id_hasilMD'])) {
@@ -131,6 +171,7 @@ if (isset($_GET['id_hasilMD'])) {
 		if($_GET['id_hasilMD'] == $key['id']){
 			$_SESSION['kondisi_hasilMD'] = true;
 			$_SESSION['id_hasilMD'] = $key['id'];
+			$_SESSION['id_hasiltampilMD'] = $key['id'];
 			$_SESSION['id_hasil_categoryMD'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekMD'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probMD'] = explode("|", $key['probabilitas']);
@@ -157,6 +198,7 @@ if (isset($_GET['id_hasilMD'])) {
 		if($_GET['id_hasilMD'] == "jeremy"){
 			$_SESSION['kondisi_hasilMD'] = true;
 			$_SESSION['id_hasilMD'] = $key['id'];
+			$_SESSION['id_hasiltampilMD'] = $key['id'];
 			$_SESSION['id_hasil_categoryMD'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekMD'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probMD'] = explode("|", $key['probabilitas']);
@@ -177,21 +219,25 @@ if (isset($_GET['id_hasilMD'])) {
 			$_SESSION['rata2_hasil_realMD'] = $rata2MD[2];
 			$_SESSION['rata2_hasil_akurasiMD'] = $rata2MD[3];
 			$_SESSION['tahun_hasilMD'] = $key['tahun_hasil_simulasi'];
-			$_SESSION['tahun_data_realMD'] = $key['tahun_data_real']; 		 
+			$_SESSION['tahun_data_realMD'] = $key['tahun_data_real'];
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!";  		 
 		}
 	} 
-	echo " 
-            <script>
-                document.location.href = 'data-hasil-simulasi.php#collapseOne';
-            </script>   
-        ";
-   
+
+	header("Location: data-hasil-simulasi.php#collapseOne");
+	// echo " 
+	// <script>
+	// document.location.href = 'data-hasil-simulasi.php#collapseOne';
+	// </script>   
+	// ";
+
 }
 
 //Tampil Table Hasil Luka Berat
-if (isset($_GET['id_hasilLB'])) {
-	$_SESSION['id_hasiltampilLB'] = $_GET['id_hasilLB'];
-}
+// if (isset($_GET['id_hasilLB'])) {
+// 	$_SESSION['id_hasiltampilLB'] = $_GET['id_hasilLB'];
+// }
 
 $data_hasilLB = data_hasillukaBerat();
 if (isset($_GET['id_hasilLB'])) {
@@ -199,6 +245,7 @@ if (isset($_GET['id_hasilLB'])) {
 		if($_GET['id_hasilLB'] == $key['id']){
 			$_SESSION['kondisi_hasilLB'] = true;
 			$_SESSION['id_hasilLB'] = $key['id'];
+			$_SESSION['id_hasiltampilLB'] = $key['id'];
 			$_SESSION['id_hasil_categoryLB'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekLB'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probLB'] = explode("|", $key['probabilitas']);
@@ -225,6 +272,7 @@ if (isset($_GET['id_hasilLB'])) {
 		if($_GET['id_hasilLB'] == "jeremy"){
 			$_SESSION['kondisi_hasilLB'] = true;
 			$_SESSION['id_hasilLB'] = $key['id'];
+			$_SESSION['id_hasiltampilLB'] = $key['id'];
 			$_SESSION['id_hasil_categoryLB'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekLB'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probLB'] = explode("|", $key['probabilitas']);
@@ -245,22 +293,26 @@ if (isset($_GET['id_hasilLB'])) {
 			$_SESSION['rata2_hasil_realLB'] = $rata2LB[2];
 			$_SESSION['rata2_hasil_akurasiLB'] = $rata2LB[3];
 			$_SESSION['tahun_hasilLB'] = $key['tahun_hasil_simulasi'];
-			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real'];   		 
+			$_SESSION['tahun_data_realLB'] = $key['tahun_data_real'];
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!";    		 
 		}
 	} 
-	echo " 
-            <script>
-                document.location.href = 'data-hasil-simulasi.php#collapseTwo';
-            </script>   
-        ";
-   
+
+	header("Location: data-hasil-simulasi.php#collapseTwo");
+	// echo " 
+	// <script>
+	// document.location.href = 'data-hasil-simulasi.php#collapseTwo';
+	// </script>   
+	// ";
+
 }
 
 
 //Tampil Table Hasil Luka Ringan
-if (isset($_GET['id_hasilLR'])) {
-	$_SESSION['id_hasiltampilLR'] = $_GET['id_hasilLR'];
-}
+// if (isset($_GET['id_hasilLR'])) {
+// 	$_SESSION['id_hasiltampilLR'] = $_GET['id_hasilLR'];
+// }
 
 $data_hasilLR = data_hasillukaRingan();
 if (isset($_GET['id_hasilLR'])) {
@@ -268,6 +320,7 @@ if (isset($_GET['id_hasilLR'])) {
 		if($_GET['id_hasilLR'] == $key['id']){
 			$_SESSION['kondisi_hasilLR'] = true;
 			$_SESSION['id_hasilLR'] = $key['id'];
+			$_SESSION['id_hasiltampilLR'] = $key['id'];
 			$_SESSION['id_hasil_categoryLR'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekLR'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probLR'] = explode("|", $key['probabilitas']);
@@ -294,6 +347,7 @@ if (isset($_GET['id_hasilLR'])) {
 		if($_GET['id_hasilLR'] == "jeremy"){
 			$_SESSION['kondisi_hasilLR'] = true;
 			$_SESSION['id_hasilLR'] = $key['id'];
+			$_SESSION['id_hasiltampilLR'] = $key['id'];
 			$_SESSION['id_hasil_categoryLR'] = $key['id_kategori'];
 			$_SESSION['convert_hasil_frekLR'] = explode("|", $key['frekuensi']);
 			$_SESSION['convert_hasil_probLR'] = explode("|", $key['probabilitas']);
@@ -314,15 +368,22 @@ if (isset($_GET['id_hasilLR'])) {
 			$_SESSION['rata2_hasil_realLR'] = $rata2LR[2];
 			$_SESSION['rata2_hasil_akurasiLR'] = $rata2LR[3];
 			$_SESSION['tahun_hasilLR'] = $key['tahun_hasil_simulasi'];
-			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real'];    		 
+			$_SESSION['tahun_data_realLR'] = $key['tahun_data_real']; 
+			$_SESSION['alert'] = "on";
+			$_SESSION['pesan'] = "Data Berhasil Dihapus!";
+
 		}
+		
+			
+		
 	} 
-	echo " 
-            <script>
-                document.location.href = 'data-hasil-simulasi.php#collapseThree';
-            </script>   
-        ";
-   
+	 header("Location: data-hasil-simulasi.php#collapseThree");
+	// echo " 
+	// <script>
+	// document.location.href = 'data-hasil-simulasi.php#collapseThree';
+	// </script>   
+	// ";
+
 }
 
 

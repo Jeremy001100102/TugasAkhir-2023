@@ -72,7 +72,7 @@ if(isset($_POST['login'])){
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=1024">
+    <meta name="viewport" content="width=1024">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -86,76 +86,88 @@ if(isset($_POST['login'])){
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-secondary">
 
     <div class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center align-self-center">
 
             <div class="col-xl-10 col-lg-12 col-md-9 ">
 
-                <div class="card o-hidden border-0 shadow-lg mx-auto my-5 w-75">
-                    <div class="card-body p-5">
+                <div class="card o-hidden border-0 shadow-lg mx-auto my-5 w-75 align-self-center">
+                    <div class="card-body p-5 my-1">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
 
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
+                                        <h3 class="text-gray-900 mb-4">Simulasi Monte Carlo Prediksi Jumlah Korban Kecelakaan Lalu Lintas Kota Kupang </h3>
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
                                     <?php if(isset($error))  : ?>
+                                        <?php  echo "
+                                        <script>
+                                        Swal.fire({
+                                          icon: 'error',
+                                          title: 'Gagal!',
+                                          text: ' Username / Password salah!'
 
-                                        <div class="alert alert-danger" role="alert">
-                                          Username / Password salah!
-                                      </div>
-                                  <?php endif ?>
-                                  <form class="user" method="POST">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                        placeholder="Enter Username..."
-                                        name="username">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                        id="exampleInputPassword" placeholder="Password" name="password">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
-                                            <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label>
+                                          });
+                                          </script>
+                                          ";
+                                          ?>
+                                          <div class="alert alert-danger" role="alert">
+                                              Username / Password salah!
+                                          </div>
+                                      <?php endif ?>
+                                      <form class="user" method="POST">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                            placeholder="Enter Username..."
+                                            name="username">
                                         </div>
-                                    </div>
-                                    <button  type="submit" class="btn btn-primary btn-user btn-block" name="login">
-                                        Login
-                                    </button>
-                                </form>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password" name="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                Me</label>
+                                            </div>
+                                        </div>
+                                        <button  type="submit" class="btn btn-primary btn-user btn-block" name="login">
+                                            Login
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
 </body>
 

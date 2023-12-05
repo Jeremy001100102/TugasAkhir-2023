@@ -26,20 +26,29 @@ if (isset($_POST['simpan'])) {
 
     if( tambah($_POST) > 0){
 
-        echo " 
-        <script>
-        alert('Data berhasil ditambahkan');
-        document.location.href = 'input-data.php';
-        </script>   
-        ";
+        $_SESSION['alert'] = "on";
+        $_SESSION['pesan'] = "Data Berhasil Disimpan!";
+        // echo " 
+        // <script>
+        //   document.location.href = 'input-data.php';
+        //   </script>   
+        //   ";
+        header("Location: input-data.php");
+        exit;
+        die;
     }else{
-        echo "
-        <script>
-        alert('Data gagal ditambahkan');
-        document.location.href = 'input-data.php';
-        </script>   
-        ";
-    }
+       $_SESSION['alert'] = "off";
+       $_SESSION['pesan'] = "Data Gagal Disimpan!";
+        // echo "
+        // <script>
+        // alert('Data gagal ditambahkan');
+        // document.location.href = 'input-data.php';
+        // </script>   
+        // ";
+       header("Location: input-data.php");
+       exit;
+       die;
+   }
 
 
 }
@@ -184,10 +193,43 @@ aria-hidden="true">
 </div>
 </div>
 
+<?php   
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "on") {
+ echo "
+ <script>
+ Swal.fire({
+    title: 'Berhasil!',
+    text: '{$_SESSION['pesan']}',
+    icon: 'success'
+    });
+
+    </script>
+    ";
+
+    unset($_SESSION['alert']);
+} 
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
+    echo "
+    <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal!',
+      text: '{$_SESSION['pesan']}'
+
+      });
+      </script>
+      ";
+      unset($_SESSION['alert']);
+  }
+
+  ?>
 <?php require "tampil.php" ?>
 <?php require "layout/footer.php" ?> 
 
-<script>
+
+
+
+  <script>
 
 
 
@@ -196,13 +238,8 @@ aria-hidden="true">
         // $('[data-toggle="popover"]').popover();
       // Ambil referensi ke elemen tombol
 
-        function alertInput(){
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-                )
-        }
+
+
 
 
 //validation form input dan update data
@@ -236,7 +273,7 @@ aria-hidden="true">
           }
       });
 
- 
+
 
 
         $("#checkMD, #checkLB, #checkLR").change(function() {

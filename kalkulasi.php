@@ -1,4 +1,5 @@
 <?php
+ob_start(); 
 session_start();
 if (!isset($_SESSION['login'])) {
 	header("Location: login.php");
@@ -168,6 +169,9 @@ if (isset($_GET['id_hitungLR'])) {
 	$_SESSION['kumu'] = null;
 	$_SESSION['prob'] = null;
 	$_SESSION['link'] = null;
+	$_SESSION['aktif_acak_MD'] = null;
+	$_SESSION['aktif_acak_LB'] = null;
+	$_SESSION['aktif_acak_LR'] = null;
 
 	echo " 
 		<script>
@@ -177,4 +181,40 @@ if (isset($_GET['id_hitungLR'])) {
 
  endif; ?>
 
+
+<?php   
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "on") {
+ echo "
+ <script>
+ Swal.fire({
+    title: 'Berhasil!',
+    text: '{$_SESSION['pesan']}',
+    icon: 'success'
+    });
+
+    </script>
+    ";
+
+    unset($_SESSION['alert']);
+} 
+if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
+    echo "
+    <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal!',
+      text: '{$_SESSION['pesan']}'
+
+      });
+      </script>
+      ";
+      unset($_SESSION['alert']);
+  }
+
+
+
+  ?>
+
 <?php require "layout/footer.php" ?>
+<?php 	ob_end_flush(); ?>
+
