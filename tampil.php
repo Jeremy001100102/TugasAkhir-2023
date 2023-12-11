@@ -1,21 +1,45 @@
 <?php 
 
+
 $dataMeninggal = dataMeninggal();
 $datalukaBerat = datalukaBerat();
 $datalukaRingan = datalukaRingan();
 
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $cekMD = $_POST['cekMD'];
-//     $cekLB = $_POST['cekLB'];
-//     $cekLR = $_POST['cekLR'];
+if (isset($_POST['cekMD']) || isset($_SESSION['aktif_cek_MD']) === true) {
+	if ($_SESSION['cek_MD'] == 1) {
+		$_SESSION['aktif_cek_MD'] = true;
+	}else{
+		$_SESSION['aktif_cek_MD'] = false;
+	}
+    
+    $_SESSION['cek_MD'] = isset($_POST['cekMD']) ? $_POST['cekMD'] : $_SESSION['cek_MD'];
+}
 
-//     $_SESSION['cekMD'] = $cekMD;
-//     $_SESSION['cekLB'] = $cekLB;
-//     $_SESSION['cekLR'] = $cekLR;
+if (isset($_POST['cekLB']) || isset($_SESSION['aktif_cek_LB']) === true) {
+	if ($_SESSION['cek_LB'] == 1) {
+		$_SESSION['aktif_cek_LB'] = true;
+	}else{
+		$_SESSION['aktif_cek_LB'] = false;
+	}
+   
+    $_SESSION['cek_LB'] = isset($_POST['cekLB']) ? $_POST['cekLB'] : $_SESSION['cek_LB'];    
+}
 
-//     $countdataCek = fn() => $cekMD + $cekLB + $cekLR;
-// }
+
+if (isset($_POST['cekLR']) || isset($_SESSION['aktif_cek_LR']) === true) {
+    if ($_SESSION['cek_LR'] == 1) {
+		$_SESSION['aktif_cek_LR'] = true;
+	}else{
+		$_SESSION['aktif_cek_LR'] = false;
+	}
+
+     $_SESSION['cek_LR'] = isset($_POST['cekLR']) ? $_POST['cekLR'] : $_SESSION['cek_LR'];  
+}
+
+
+
+
 
 
 
@@ -52,8 +76,8 @@ $datalukaRingan = datalukaRingan();
 									<?php if(isset($_SESSION['kondisiMD'])) : ?>
 
 										<div class="form-check d-inline me-2">
-											<input class="form-check-input" type="checkbox" value="" id="checkMD" <?php //isset($_SESSION['cekMD']) && $_SESSION['cekMD'] == 1 ? "checked" : "" ?>>
-											<label class="form-check-label" for="checkMD">Pilih Data Simulasi			
+											<input class="form-check-input" type="checkbox"  id="checkMD" <?= isset($_SESSION['aktif_cek_MD'] ) && $_SESSION['aktif_cek_MD'] === true ? "checked" : "";  ?>>
+											<label class="form-check-label" for="checkMD">Pilih Data Simulasi		
 											</label>
 										</div>
 										
@@ -129,7 +153,7 @@ $datalukaRingan = datalukaRingan();
 										<div class="col-8 text-end">
 											<?php if(isset($_SESSION['kondisiLB'])) : ?>
 												<div class="form-check d-inline me-2">
-													<input class="form-check-input" type="checkbox" value="" id="checkLB" <?php //isset($_SESSION['cekLB']) && $_SESSION['cekLB'] == 1 ? "checked" : "" ?>>
+													<input class="form-check-input" type="checkbox" value="" id="checkLB" <?= isset($_SESSION['aktif_cek_LB'] ) && $_SESSION['aktif_cek_LB'] === true ? "checked" : "";  ?>>
 													<label class="form-check-label" for="checkLB">Pilih Data Simulasi 			
 													</label>
 												</div>
@@ -206,7 +230,7 @@ $datalukaRingan = datalukaRingan();
 												<div class="col-8 text-end">
 													<?php if(isset($_SESSION['kondisiLR'])) : ?>
 														<div class="form-check d-inline me-2">
-															<input class="form-check-input" type="checkbox" value="" id="checkLR" <?php //isset($_SESSION['cekLR']) && $_SESSION['cekLR'] == 1 ? "checked" : "" ?>>
+															<input class="form-check-input" type="checkbox" value="" id="checkLR" <?= isset($_SESSION['aktif_cek_LR'] ) && $_SESSION['aktif_cek_LR'] === true ? "checked" : "";  ?>>
 															<label class="form-check-label" for="checkLR">Pilih Data Simulasi			
 															</label>
 														</div>

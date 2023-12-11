@@ -65,7 +65,7 @@ if (isset($_POST['simpan'])) {
     </div>
     <div class="col-8 text-end">
       <a class="btn btn-sm btn-primary shadow-sm disabled popover-dismiss" title="Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!" id="tombolHitung" href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
-       echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data</a>
+       echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data <span id="mySpan">0</span> / 3</a>
 
        <a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-input-dataAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
 
@@ -228,7 +228,7 @@ if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
 
 
@@ -277,9 +277,9 @@ if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
 
 
         $("#checkMD, #checkLB, #checkLR").change(function() {
-            let cekMD = $(this).is(':checked') ? 1 : 0;
-            let cekLB = $(this).is(':checked') ? 1 : 0;
-            let cekLR = $(this).is(':checked') ? 1 : 0;
+             cekMD = $("#checkMD").is(':checked') ? 1 : 0;
+             cekLB = $("#checkLB").is(':checked') ? 1 : 0;
+             cekLR = $("#checkLR").is(':checked') ? 1 : 0;
 
 
 
@@ -288,7 +288,9 @@ if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
                 url: "input-data.php",
                 data: { cekMD: cekMD, cekLB : cekLB, cekLR : cekLR},
                 success: function(data) {
-                    console.log(data);
+                    console.log(cekMD+cekLB+cekLR);
+                    
+                    $("#mySpan").text(cekMD+cekLB+cekLR);
                 }
             });
         });

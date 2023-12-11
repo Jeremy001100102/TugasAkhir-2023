@@ -172,6 +172,9 @@ if (isset($_GET['id_hitungLR'])) {
 	$_SESSION['aktif_acak_MD'] = null;
 	$_SESSION['aktif_acak_LB'] = null;
 	$_SESSION['aktif_acak_LR'] = null;
+	$_SESSION['aktif_cek_MD'] = null;
+	$_SESSION['aktif_cek_LB'] = null;
+	$_SESSION['aktif_cek_LR'] = null;
 
 	echo " 
 		<script>
