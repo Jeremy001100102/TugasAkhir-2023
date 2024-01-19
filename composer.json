@@ -1,0 +1,11 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.2",
+        "maennchen/zipstream-php": "2.4.0",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "spipu/html2pdf": "^5.2",
+        "spatie/browsershot": "^3.60",
+        "phpoffice/phpexcel": "^1.8",
+        "dompdf/dompdf": "^2.0"
+    }
+}
