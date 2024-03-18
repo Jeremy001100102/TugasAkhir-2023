@@ -10,8 +10,8 @@ if (isset($_GET['id_hapusAll'])) {
 		$_SESSION['alert'] = "on";
         $_SESSION['pesan'] = "Data Berhasil Dihapus Semua!";
         header("Location: input-data.php#collapseOne#collapseTwo#collapseThree");
-        exit;
-        
+       
+        exit();
 		// echo " 
 		// <script>
 		// document.location.href = 'input-data.php#collapseOne#collapseTwo#collapseThree';
@@ -69,8 +69,7 @@ if (isset($_GET['id_hapusMD'])) {
 		alert('Data gagal dihapus');
 		document.location.href = 'input-data.php#collapseOne';
 		</script>	
-		";
-		
+		";		
 	}	
 }
 

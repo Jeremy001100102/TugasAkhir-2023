@@ -35,7 +35,7 @@ if (isset($_POST['simpanManual'])) {
         //   ";
         header("Location: input-data.php");
         exit;
-        die;
+        
     }else{
 
      $_SESSION['alert'] = "off";
@@ -48,7 +48,7 @@ if (isset($_POST['simpanManual'])) {
         // ";
      header("Location: input-data.php");
      exit;
-     die;
+
  }
 
 
@@ -63,33 +63,35 @@ if (isset($_POST['simpanImport'])) {
 
   if( importData($file_data) > 0){
 
-        $_SESSION['alert'] = "on";
-        $_SESSION['pesan'] = "Data Berhasil Disimpan!";
+    $_SESSION['alert'] = "on";
+    $_SESSION['pesan'] = "Data Berhasil Disimpan!";
         // echo " 
         // <script>
         //   document.location.href = 'input-data.php';
         //   </script>   
         //   ";
-        header("Location: input-data.php");
-        exit;
-        die;
-    }else{
+    header("Location: tables.php?id_import=jeremy");
+    
+}else{
 
-     $_SESSION['alert'] = "off";
-     $_SESSION['pesan'] = "Data Gagal Disimpan!";
+ $_SESSION['alert'] = "off";
+ $_SESSION['pesan'] = "Data Gagal Disimpan!";
         // echo "
         // <script>
         // alert('Data gagal ditambahkan');
         // document.location.href = 'input-data.php';
         // </script>   
         // ";
-     header("Location: input-data.php");
-     exit;
-     die;
+ header("Location: input-data.php");
+ exit;
 
- }
 
 }
+
+}
+
+
+$data_per_kategori = tahunPrediksi();
 
 ?>
 
@@ -103,25 +105,84 @@ if (isset($_POST['simpanImport'])) {
         <h3 class="d-inline">INPUT DATA</h3>
     </div>
     <div class="col-8 text-end">
-      <a class="btn btn-sm btn-primary shadow-sm disabled popover-dismiss" title="Anda Belum Melakukan Pemilihan Data Simulasi DIBAWAH INI!" id="tombolHitung" href="<?php if(isset($_SESSION['id_updatetampilMD']) && isset($_SESSION['id_updatetampilLB']) && isset($_SESSION['id_updatetampilLR'])) {
-         echo "kalkulasi.php?id_hitungMD={$_SESSION['id_updateMD']}&id_hitungLB={$_SESSION['id_updateLB']}&id_hitungLR={$_SESSION['id_updateLR']}&frek=jeremy";}?>"  ><i class="fa-solid fa-calculator"></i> Kalkulasi Data <span id="mySpan">0</span> / 3</a>
+        <div class="dropdown-center d-inline">
+            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa-solid fa-calculator"></i>
+                Kalkulasi Data
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                     <h6 class="dropdown-header text-center">Tahun Uji</h6>
+                    <h6 class="dropdown-header text-center">Tahun | MD LB LR</h6>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <div  class="style-dropdown">
+                    <?php for ($i=0; $i < $jumlah_semua_kategori['jumlah']; $i++) : ?>
+                        <?php $batas_data_history = 10;?>
+                        <?php if ($i >= $batas_data_history) : ?>
+                           <?php 
 
-         <a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-input-dataAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+                           $id_dataMD = "tidak ada";
+                           $id_dataLB = "tidak ada";
+                           $id_dataLR = "tidak ada";
 
-         <a href="#" class="btn btn-sm btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
-     </div>
- </div>
-
-
- <?php  require "import.php"; ?>
-
- <!-- <?php require "tampil.php" ?> -->
+                           ?>
 
 
- <!-- Modal Hapus Semua Input Data-->
- <div class="modal fade" id="hapus-input-dataAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
- aria-hidden="true">
- <div class="modal-dialog" role="document">
+                           <?php  for ($j=0; $j < count($data_per_kategori[$i]) ; $j++) {
+
+
+                            $tahun = $data_per_kategori[$i][$j]['tahun'];
+
+                            if($data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia"){
+                                $id_dataMD = $data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+                            }else if ($data_per_kategori[$i][$j]['nama'] == "Luka Berat") {
+                                $id_dataLB = $data_per_kategori[$i][$j]['nama'] == "Luka Berat" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+
+                            }else{
+                               $id_dataLR = $data_per_kategori[$i][$j]['nama'] == "Luka Ringan" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+                           }
+
+
+
+                       }    ?>
+
+
+                       <li class="ms-3"><a href="kalkulasi.php?frek=jeremy&id_frekMD=<?=$id_dataMD?>&id_frekLB=<?= $id_dataLB ?>&id_frekLR=<?=$id_dataLR?>" class="dropdown-item <?= $id_dataMD == "tidak ada" || $id_dataLB == "tidak ada" || $id_dataLR == "tidak ada" ? "disabled" : "" ?>"><?= $tahun?> <?= $id_dataMD == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-3'></i>" : "<i class='fa-solid fa-square-check ms-3'></i>"?> <?= $id_dataLB == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?> <?= $id_dataLR == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?></a>
+                       </li>
+
+                       <?php if($i ==  $jumlah_semua_kategori['jumlah']-1) :?>
+                         <li><hr class="dropdown-divider"></li>
+                           <li>
+                            <h6 class="dropdown-header text-center">Tahun Prediksi</h6>
+                        </li>
+                         <li><hr class="dropdown-divider"></li>
+                        <li>
+                           <a href="kalkulasi.php?frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
+                       </li>
+                   <?php  endif ?>
+
+               <?php endif ?>
+           <?php endfor; ?>
+       </div>
+   </ul>
+</div>
+
+<a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-input-dataAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
+
+<a href="#" class="btn btn-sm btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#tambah-data" data-backdrop="static" data-keyboard="false"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+</div>
+</div>
+
+
+<?php  require "import.php"; ?>
+
+<!-- <?php require "tampil.php" ?> -->
+
+
+<!-- Modal Hapus Semua Input Data-->
+<div class="modal fade" id="hapus-input-dataAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin hapus?</h5>

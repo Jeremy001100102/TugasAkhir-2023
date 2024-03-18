@@ -16,9 +16,9 @@ if (isset($_GET['id_MD'])) {
 }
 
 $dataMD = dataMeninggal();
-if (isset($_GET['id_MD'])) {
+if (isset($_GET['id_MD']) || isset($_GET['id_import'])) {
 	foreach ($dataMD as $key) {
-		if($_GET['id_MD'] == $key['id']){
+		if(isset($_GET['id_MD']) && $_GET['id_MD'] == $key['id'] || isset($_GET['id_import']) == 'jeremy'){
 			$id = $key['id'];
 			$_SESSION['kondisiMD'] = true;
 			$_SESSION['id_updateMD'] = $key['id'];
@@ -44,7 +44,7 @@ if (isset($_GET['id_MD'])) {
 			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
 		}
 
-		if($_GET['id_MD'] == "jeremy"){
+		if(isset($_GET['id_MD']) && $_GET['id_MD'] == "jeremy"){
 			$id = $key['id'];
 			$_SESSION['kondisiMD'] = true;
 			$_SESSION['id_updateMD'] = $key['id'];
@@ -62,8 +62,16 @@ if (isset($_GET['id_MD'])) {
 			$_SESSION['pesan'] = "Data Berhasil Dihapus!";
 		}
 	} 
+	
+	
+	if (isset($_GET['id_import'])) {
+		goto LB;
+	}
 
-	header("Location: input-data.php#collapseOne");
+		header("Location: input-data.php#collapseOne");	
+	
+
+	
 	// echo " 
     //         <script>
     //             document.location.href = 'input-data.php#collapseOne';
@@ -78,10 +86,12 @@ if (isset($_GET['id_LB'])) {
 	$_SESSION['id_updatetampilLB'] = $_GET['id_LB'];
 }
 
+LB:
+
 $dataLB = datalukaBerat();
-if (isset($_GET['id_LB'])) {
+if (isset($_GET['id_LB']) || isset($_GET['id_import'])) {
 	foreach ($dataLB as $key) {
-		if($_GET['id_LB'] == $key['id']){
+		if(isset($_GET['id_LB']) && $_GET['id_LB'] == $key['id'] || isset($_GET['id_import']) == 'jeremy'){
 			$id = $key['id'];
 			$_SESSION['kondisiLB'] = true;
 			$_SESSION['id_updateLB'] = $key['id'];
@@ -107,7 +117,7 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
 		}
 
-		if($_GET['id_LB'] == "jeremy"){
+		if(isset($_GET['id_LB']) && $_GET['id_LB'] == "jeremy"){
 			$id = $key['id'];
 			$_SESSION['kondisiLB'] = true;
 			$_SESSION['id_updateLB'] = $key['id'];
@@ -125,6 +135,10 @@ if (isset($_GET['id_LB'])) {
 			$_SESSION['pesan'] = "Data Berhasil Dihapus!";
 		}
 	} 
+
+	if (isset($_GET['id_import'])) {
+		goto LR;	
+	}
 
 	header("Location: input-data.php#collapseTwo");
 	// echo " 
@@ -141,10 +155,12 @@ if (isset($_GET['id_LR'])) {
 	$_SESSION['id_updatetampilLR'] = $_GET['id_LR'];
 }
 
+LR:
+
 $dataLR = datalukaRingan();
-if (isset($_GET['id_LR'])) {
+if (isset($_GET['id_LR']) || isset($_GET['id_import'])) {
 	foreach ($dataLR as $key) {
-		if($_GET['id_LR'] == $key['id']){
+		if(isset($_GET['id_LR']) && $_GET['id_LR'] == $key['id'] || isset($_GET['id_import']) == 'jeremy'){
 			$id = $key['id'];
 			$_SESSION['kondisiLR'] = true;
 			$_SESSION['id_updateLR'] = $key['id'];
@@ -170,7 +186,7 @@ if (isset($_GET['id_LR'])) {
 			$_SESSION['pesan'] = "Data Berhasil Diupdate!"; 
 		}
 
-		if($_GET['id_LR'] == "jeremy"){
+		if(isset($_GET['id_LR']) && $_GET['id_LR'] == "jeremy"){
 			$id = $key['id'];
 			$_SESSION['kondisiLR'] = true;
 			$_SESSION['id_updateLR'] = $key['id'];
@@ -189,6 +205,11 @@ if (isset($_GET['id_LR'])) {
 		}
 	} 
 
+
+	if (isset($_GET['id_import'])) {
+		header("Location: input-data.php#collapseOne#collapseTwo#collapseThree");
+		exit();
+	}
 	header("Location: input-data.php#collapseThree");
 	// echo " 
     //         <script>

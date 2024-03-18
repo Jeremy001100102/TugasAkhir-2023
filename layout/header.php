@@ -1,7 +1,7 @@
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,8 +39,16 @@
           overflow-y: auto;
       }
 
-      .sb{
-        margin-bottom: -15px;
+      .no-overflow {
+        position: static;
+    }
+    .scrollable-dropdown {
+    max-height: calc(100% - 30px); /* 30px adalah tinggi dari dropdown header */
+    overflow-y: auto;
+}
+
+    .sb{
+        margin-bottom: -25px;
     }
 
     .musimKemarau{
@@ -66,8 +74,8 @@
 
 <body id="page-top">
 
-   <!-- Page Wrapper -->
-   <div id="wrapper">
+ <!-- Page Wrapper -->
+ <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -165,22 +173,22 @@
                     <!-- Nav Item - Tables -->
                     <li class="nav-item sb <?php echo isset($_GET['hs']) ? 'active' : ''; ?> ">
                         <a class="nav-link" href="kalkulasi.php?hs=jeremy">
-                         <i class="fa-solid fa-square-poll-horizontal"></i> 
-                         <span>Hasil Simulasi</span></a>
-                     </li>
+                           <i class="fa-solid fa-square-poll-horizontal"></i> 
+                           <span>Hasil Simulasi</span></a>
+                       </li>
 
-                     <!-- Nav Item - Tables -->
-                     <li class="nav-item <?php echo isset($_GET['rs']) ? 'active' : ''; ?> ">
+                       <!-- Nav Item - Tables -->
+                       <li class="nav-item <?php echo isset($_GET['rs']) ? 'active' : ''; ?> ">
                         <a class="nav-link" href="kalkulasi.php?rs=jeremy">
-                         <i class="fa-solid fa-arrow-rotate-left"></i> 
-                         <span>Reset</span></a>
-                     </li>
+                           <i class="fa-solid fa-arrow-rotate-left"></i> 
+                           <span>Reset</span></a>
+                       </li>
 
-                     <!-- Divider -->
-                     <hr class="sidebar-divider d-none d-md-block">
+                       <!-- Divider -->
+                       <hr class="sidebar-divider d-none d-md-block">
 
-                     <!-- Sidebar Toggler (Sidebar) -->
-                     <div class="text-center d-none d-md-inline">
+                       <!-- Sidebar Toggler (Sidebar) -->
+                       <div class="text-center d-none d-md-inline">
                         <button class="rounded-circle border-0" id="sidebarToggle"></button>
                     </div>
                 </ul>

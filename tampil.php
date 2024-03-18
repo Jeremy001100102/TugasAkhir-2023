@@ -61,11 +61,11 @@ if (isset($_POST['cekLR']) || isset($_SESSION['aktif_cek_LR']) === true) {
 						<div class="position-relative">
 							<div class="row">
 								<div class="col-4">
-									<div class="dropdown d-inline">
+									<div class="dropdown dropend d-inline">
 										<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 											Tahun
 										</button>
-										<ul class="dropdown-menu style-dropdown">
+										<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 											<?php foreach ($dataMeninggal as $key) : ?>
 												<li><a class="dropdown-item <?=  isset($_SESSION['tahun_MD']) && $_SESSION['tahun_MD'] == $key['tahun'] ? "active" : "" ?>" href="tables.php?id_MD=<?= $key['id'] ?>"><?= $key['tahun'] ?></a>
 												</li>
@@ -138,11 +138,11 @@ if (isset($_POST['cekLR']) || isset($_SESSION['aktif_cek_LR']) === true) {
 						<div class="position-relative">
 							<div class="row">
 								<div class="col-4">
-									<div class="dropdown d-inline">
+									<div class="dropdown dropend d-inline">
 										<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 											Tahun
 										</button>
-										<ul class="dropdown-menu style-dropdown">
+										<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 											<?php foreach ($datalukaBerat as $key) : ?>
 												<li><a class="dropdown-item <?=  isset($_SESSION['tahun_LB']) && $_SESSION['tahun_LB'] == $key['tahun'] ? "active" : "" ?>" href="tables.php?id_LB=<?= $key['id'] ?>"><?= $key['tahun'] ?></a>
 												</li>
@@ -216,11 +216,11 @@ if (isset($_POST['cekLR']) || isset($_SESSION['aktif_cek_LR']) === true) {
 						<div class="position-relative">
 							<div class="row">
 								<div class="col-4">
-									<div class="dropdown d-inline">
+									<div class="dropdown dropend d-inline">
 										<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 											Tahun
 										</button>
-										<ul class="dropdown-menu style-dropdown">
+										<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 											<?php foreach ($datalukaRingan as $key) : ?>
 												<li><a class="dropdown-item <?=  isset($_SESSION['tahun_LR']) && $_SESSION['tahun_LR'] == $key['tahun'] ? "active" : "" ?>" href="tables.php?id_LR=<?= $key['id'] ?>"><?= $key['tahun'] ?></a>
 												</li>
