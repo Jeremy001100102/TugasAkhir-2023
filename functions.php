@@ -16,6 +16,7 @@ while ($data = mysqli_fetch_assoc($ambil_tahun)) {
 
 
 
+
 //data kecelakaan
 $data_kecelakaan = mysqli_query($conn, "SELECT * FROM data_kecelakaan");
 $rows = [];
@@ -104,18 +105,17 @@ while ($jData = mysqli_fetch_assoc($jumlah_data)) {
 function tahunPrediksi(){
     global $conn, $data_tahun_prediksi;
 
-    $ambil_data = mysqli_query($conn, "SELECT data_kategori.nama, data_kecelakaan.* FROM data_kategori INNER JOIN data_kecelakaan ON data_kategori.id = data_kecelakaan.id_kategori ORDER BY data_kecelakaan.tahun ASC, data_kecelakaan.id_kategori ASC");
-
-
-    
+    $ambil_data = mysqli_query($conn, "SELECT data_kategori.nama, data_kecelakaan.* FROM data_kategori INNER JOIN data_kecelakaan ON data_kategori.id = data_kecelakaan.id_kategori ORDER BY data_kecelakaan.tahun ASC, data_kecelakaan.id_kategori ASC");    
 
     $data_tahun = [];
     while($data = mysqli_fetch_assoc($ambil_data)){
+
 
         for ($i=0; $i < count($data_tahun_prediksi) ; $i++) { 
             if($data['tahun'] == $data_tahun_prediksi[$i]['tahun']){
                 $tahun = $data_tahun_prediksi[$i]['tahun'];
                 $data_tahun[$i][] = $data;
+                
             }
         }
     }
@@ -124,10 +124,6 @@ function tahunPrediksi(){
 
 
 }
-
-
-
-
 
 
 

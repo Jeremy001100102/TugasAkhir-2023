@@ -36,7 +36,10 @@
 <!-- Custom scripts for all pages-->
 <script src="./js/sb-admin-2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<!-- <script src="./bootstrap-5.2.3/dist/js/bootstrap.js"></script> -->
 
+
+</body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -59,6 +62,12 @@
                 }
             }
         };
+
+
+        $('.icon').click(function() {
+            $(this).find('i').toggleClass('fa-solid fa-caret-down fa-solid fa-caret-up')
+        });
+
 </script>
 
 

@@ -8,7 +8,7 @@ if (!isset($_SESSION['login'])) {
 require_once "functions.php";
 
 
-
+ 
 //data Meninggal Dunia
 $dataMD = dataMeninggal();
 if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
@@ -16,15 +16,23 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 	foreach ($dataMD as $key) {
 		if(isset($_GET['id_frekMD']) && $_GET['id_frekMD'] == $key['id'] || isset($_GET['id_prediksi'])){
 			
+			$_SESSION['frek_MD'] = [];
+
 			if (isset($_GET['id_frekMD'])) {
 					$tahun_MD = $key['tahun'];
 					$id_kategori = $key['id_kategori'];
+					$id = $_GET['id_frekMD'];
+					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+
+					for ($d=0; $d < count($bulan); $d++) { 
+						$data = mysqli_fetch_assoc($ambilData);
+						$_SESSION['frek_MD'][$bulan[$d]] = $data['data_bulan'];
+					}
 			}
 
 			if (isset($_GET['id_prediksi'])) {
 					$tahun_MD = $_GET['id_prediksi'];
 					$id_kategori = 1;
-
 			}
 			
 
@@ -34,7 +42,7 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 			while($key_data = mysqli_fetch_assoc($data_MD)){
 				$data_idMD[] = $key_data;
 			}
-					
+				
 
 			$_SESSION['dataMD_bulan'] = [];
 			$_SESSION['tahunMD_bulan'] = [];
@@ -42,7 +50,9 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 			for ($i=0; $i < count($data_idMD); $i++) { 
 				for ($j=0; $j < count($bulan); $j++) {
 					$id = $data_idMD[$i]['id'];
-					$ambil_id = mysqli_query($conn, " SELECT id FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id;");
+					$ambil_id = mysqli_query($conn, "SELECT id FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id;");
+
+
 
 					$id_unik = [];
 					while($datab = mysqli_fetch_assoc($ambil_id)){
@@ -50,7 +60,9 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 					}
 
 					$data_MD = mysqli_query($conn, "SELECT id_data_kecelakaan, data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id AND id = $id_unik[$j]");
+
 					$databaru[$i][$bulan[$j]] = mysqli_fetch_assoc($data_MD);
+					
 					$_SESSION['dataMD_bulan'][$i][$bulan[$j]] = $databaru[$i][$bulan[$j]];
 				}
 
@@ -59,6 +71,8 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 		}
 	}
 }
+
+
 
 //data Luka Berat
 $dataLB = datalukaBerat();
@@ -107,7 +121,7 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 	}
 }
 
-//data Meninggal Dunia
+//data luka ringan
 $dataLR = datalukaRingan();
 if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 	$_SESSION['link'] = "aktif";

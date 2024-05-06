@@ -128,7 +128,7 @@ $data_per_kategori = tahunPrediksi();
                            ?>
 
 
-                           <?php  for ($j=0; $j < count($data_per_kategori[$i]) ; $j++) {
+                           <?php  for ($j=0; $j < count($data_per_kategori[$i]); $j++) {
 
 
                             $tahun = $data_per_kategori[$i][$j]['tahun'];
@@ -175,8 +175,6 @@ $data_per_kategori = tahunPrediksi();
 
 
 <?php  require "import.php"; ?>
-
-<!-- <?php require "tampil.php" ?> -->
 
 
 <!-- Modal Hapus Semua Input Data-->
@@ -269,40 +267,42 @@ if (isset($_SESSION['alert']) && $_SESSION['alert'] === "off") {
 
 
 
+
+
 //button aktif
     // Mendengarkan perubahan pada checkbox
-        $("#checkMD, #checkLB, #checkLR").change(function() {
-    // Memeriksa status checkbox
-            if ($("#checkMD").is(':checked') && $("#checkLB").is(':checked') && $("#checkLR").is(':checked')) {
-      // Mengaktifkan tombol "Hitung" atau menghapus class "disable"
-              $("#tombolHitung").removeClass("disabled");
-          } else {
-      // Menonaktifkan tombol "Hitung" atau menambahkan class "disable"
-              $("#tombolHitung").addClass("disabled");
-          }
-      });
+    //     $("#checkMD, #checkLB, #checkLR").change(function() {
+    // // Memeriksa status checkbox
+    //         if ($("#checkMD").is(':checked') && $("#checkLB").is(':checked') && $("#checkLR").is(':checked')) {
+    //   // Mengaktifkan tombol "Hitung" atau menghapus class "disable"
+    //           $("#tombolHitung").removeClass("disabled");
+    //       } else {
+    //   // Menonaktifkan tombol "Hitung" atau menambahkan class "disable"
+    //           $("#tombolHitung").addClass("disabled");
+    //       }
+    //   });
 
 
 
 
-        $("#checkMD, #checkLB, #checkLR").change(function() {
-           cekMD = $("#checkMD").is(':checked') ? 1 : 0;
-           cekLB = $("#checkLB").is(':checked') ? 1 : 0;
-           cekLR = $("#checkLR").is(':checked') ? 1 : 0;
+    //     $("#checkMD, #checkLB, #checkLR").change(function() {
+    //        cekMD = $("#checkMD").is(':checked') ? 1 : 0;
+    //        cekLB = $("#checkLB").is(':checked') ? 1 : 0;
+    //        cekLR = $("#checkLR").is(':checked') ? 1 : 0;
 
 
 
-           $.ajax({
-            type: "POST",
-            url: "input-data.php",
-            data: { cekMD: cekMD, cekLB : cekLB, cekLR : cekLR},
-            success: function(data) {
-                console.log(cekMD+cekLB+cekLR);
+    //        $.ajax({
+    //         type: "POST",
+    //         url: "input-data.php",
+    //         data: { cekMD: cekMD, cekLB : cekLB, cekLR : cekLR},
+    //         success: function(data) {
+    //             console.log(cekMD+cekLB+cekLR);
 
-                $("#mySpan").text(cekMD+cekLB+cekLR);
-            }
-        });
-       });
+    //             $("#mySpan").text(cekMD+cekLB+cekLR);
+    //         }
+    //     });
+    //    });
 
         
         
