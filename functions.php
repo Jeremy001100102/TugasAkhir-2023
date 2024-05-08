@@ -4,6 +4,9 @@ $conn = mysqli_connect("localhost", "root", "", "simulasi_monte_carlo2");
 
 $bulan = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
+$musimKemarau = ["Mei", "Juni", "Juli", "Agustus", "September", "Oktober"];
+$musimHujan = ["November", "Desember", "Januari","Februari", "Maret", "April"];
+
 //kategori kecelakaan
 $kategori = mysqli_query($conn, "SELECT * FROM data_kategori");
 

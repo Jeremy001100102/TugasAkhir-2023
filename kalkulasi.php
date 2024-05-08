@@ -80,9 +80,18 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 	$_SESSION['link'] = "aktif";
 	foreach ($dataLB as $key) {
 		if(isset($_GET['id_frekLB']) && $_GET['id_frekLB'] == $key['id'] || isset($_GET['id_prediksi'])){
+			$_SESSION['frek_LB'] = [];
+
 			if (isset($_GET['id_frekLB'])) {
 					$tahun_LB = $key['tahun'];
 					$id_kategori = $key['id_kategori'];
+					$id = $_GET['id_frekLB'];
+					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+
+					for ($d=0; $d < count($bulan); $d++) { 
+						$data = mysqli_fetch_assoc($ambilData);
+						$_SESSION['frek_LB'][$bulan[$d]] = $data['data_bulan'];
+					}
 			}
 
 			if (isset($_GET['id_prediksi'])) {
@@ -127,9 +136,18 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 	$_SESSION['link'] = "aktif";
 	foreach ($dataLR as $key) {
 		if(isset($_GET['id_frekLR']) && $_GET['id_frekLR'] == $key['id'] || isset($_GET['id_prediksi'])){
+			$_SESSION['frek_LR'] = [];
+
 			if (isset($_GET['id_frekLR'])) {
 					$tahun_LR = $key['tahun'];
 					$id_kategori = $key['id_kategori'];
+					$id = $_GET['id_frekLR'];
+					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+
+					for ($d=0; $d < count($bulan); $d++) { 
+						$data = mysqli_fetch_assoc($ambilData);
+						$_SESSION['frek_LR'][$bulan[$d]] = $data['data_bulan'];
+					}
 			}
 
 			if (isset($_GET['id_prediksi'])) {

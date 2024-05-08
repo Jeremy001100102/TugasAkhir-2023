@@ -47,13 +47,13 @@ function angkaAcak_MD($a = a_MD, $c= c_MD, $m= m_MD, $zi= zi_MD){
 
 //Luka Berat
 //rumus zi + 1 = (a.zi + c) mod m
-define("a_LB", 60); //konstanta pengali
-define("c_LB", 12); //konstanta pergeseran
-define("m_LB", 99); //konstanta modulus
+define("a_LB", 600); //konstanta pengali
+define("c_LB", 122); //konstanta pergeseran
+define("m_LB", 999); //konstanta modulus
 define("zi_LB", 76);
 
 $_SESSION['angkaAcakLB'] = [];
-function angkaAcak_LB($a = 60, $c=12, $m=99, $zi=76){
+function angkaAcak_LB($a = a_LB, $c= c_LB, $m=m_LB, $zi=zi_LB){
 	global $bulan;
 	//Angka Acak Luka Berat
 	$angka_acakLB = [];
@@ -70,13 +70,13 @@ function angkaAcak_LB($a = 60, $c=12, $m=99, $zi=76){
 
 //Luka Ringan
 //rumus zi + 1 = (a.zi + c) mod m
-define("a_LR", 85); //konstanta pengali
-define("c_LR", 94); //konstanta pergeseran
-define("m_LR", 99); //konstanta modulus
-define("zi_LR", 58);
+define("a_LR", 855); //konstanta pengali
+define("c_LR", 657); //konstanta pergeseran
+define("m_LR", 999); //konstanta modulus
+define("zi_LR", 21);
 
 $_SESSION['angkaAcakLR'] = [];
-function angkaAcak_LR($a = 85, $c=94, $m=99, $zi=58){
+function angkaAcak_LR($a = a_LR, $c=c_LR, $m=m_LR, $zi=zi_LR){
 	global $bulan;
 	//Angka Acak Luka Ringan
 	$angka_acakLR = [];
