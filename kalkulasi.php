@@ -8,31 +8,33 @@ if (!isset($_SESSION['login'])) {
 require_once "functions.php";
 
 
- 
+
 //data Meninggal Dunia
 $dataMD = dataMeninggal();
 if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 	$_SESSION['link'] = "aktif";
 	foreach ($dataMD as $key) {
 		if(isset($_GET['id_frekMD']) && $_GET['id_frekMD'] == $key['id'] || isset($_GET['id_prediksi'])){
-			
+			$_SESSION['cek_prediksi'] = "off";
 			$_SESSION['frek_MD'] = [];
-
+			$_SESSION['tahun_uji'] = 0;
+			$_SESSION['tahun_uji_MD'] = $key['tahun'];
 			if (isset($_GET['id_frekMD'])) {
-					$tahun_MD = $key['tahun'];
-					$id_kategori = $key['id_kategori'];
-					$id = $_GET['id_frekMD'];
-					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+				$tahun_MD = $key['tahun'];
+				$id_kategori = $key['id_kategori'];
+				$id = $_GET['id_frekMD'];
+				$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
 
-					for ($d=0; $d < count($bulan); $d++) { 
-						$data = mysqli_fetch_assoc($ambilData);
-						$_SESSION['frek_MD'][$bulan[$d]] = $data['data_bulan'];
-					}
+				for ($d=0; $d < count($bulan); $d++) { 
+					$data = mysqli_fetch_assoc($ambilData);
+					$_SESSION['frek_MD'][$bulan[$d]] = $data['data_bulan'];
+				}
 			}
 
 			if (isset($_GET['id_prediksi'])) {
-					$tahun_MD = $_GET['id_prediksi'];
-					$id_kategori = 1;
+				$tahun_MD = $_GET['id_prediksi'];
+				$id_kategori = 1;
+				$_SESSION['cek_prediksi'] = "on";
 			}
 			
 
@@ -42,7 +44,7 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 			while($key_data = mysqli_fetch_assoc($data_MD)){
 				$data_idMD[] = $key_data;
 			}
-				
+
 
 			$_SESSION['dataMD_bulan'] = [];
 			$_SESSION['tahunMD_bulan'] = [];
@@ -66,7 +68,7 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 					$_SESSION['dataMD_bulan'][$i][$bulan[$j]] = $databaru[$i][$bulan[$j]];
 				}
 
-					$_SESSION['tahunMD_bulan'][$i] = $data_idMD[$i]['tahun'];
+				$_SESSION['tahunMD_bulan'][$i] = $data_idMD[$i]['tahun'];
 			} 		
 		}
 	}
@@ -81,22 +83,23 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 	foreach ($dataLB as $key) {
 		if(isset($_GET['id_frekLB']) && $_GET['id_frekLB'] == $key['id'] || isset($_GET['id_prediksi'])){
 			$_SESSION['frek_LB'] = [];
-
+			$_SESSION['tahun_uji_LB'] = 0;
+			$_SESSION['tahun_uji_LB'] = $key['tahun'];
 			if (isset($_GET['id_frekLB'])) {
-					$tahun_LB = $key['tahun'];
-					$id_kategori = $key['id_kategori'];
-					$id = $_GET['id_frekLB'];
-					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+				$tahun_LB = $key['tahun'];
+				$id_kategori = $key['id_kategori'];
+				$id = $_GET['id_frekLB'];
+				$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
 
-					for ($d=0; $d < count($bulan); $d++) { 
-						$data = mysqli_fetch_assoc($ambilData);
-						$_SESSION['frek_LB'][$bulan[$d]] = $data['data_bulan'];
-					}
+				for ($d=0; $d < count($bulan); $d++) { 
+					$data = mysqli_fetch_assoc($ambilData);
+					$_SESSION['frek_LB'][$bulan[$d]] = $data['data_bulan'];
+				}
 			}
 
 			if (isset($_GET['id_prediksi'])) {
-					$tahun_LB = $_GET['id_prediksi'];
-					$id_kategori = 2;
+				$tahun_LB = $_GET['id_prediksi'];
+				$id_kategori = 2;
 			}
 
 			//ambil data dari tabel data_kecelakaan
@@ -105,7 +108,7 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 			while($key_data = mysqli_fetch_assoc($data_LB)){
 				$data_idLB[] = $key_data;
 			}
-					
+
 
 			$_SESSION['dataLB_bulan'] = [];
 			$_SESSION['tahunLB_bulan'] = [];
@@ -124,7 +127,7 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 					$_SESSION['dataLB_bulan'][$i][$bulan[$j]] = $databaru[$i][$bulan[$j]];
 				}
 
-					$_SESSION['tahunLB_bulan'][$i] = $data_idLB[$i]['tahun'];
+				$_SESSION['tahunLB_bulan'][$i] = $data_idLB[$i]['tahun'];
 			} 		
 		}
 	}
@@ -137,22 +140,23 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 	foreach ($dataLR as $key) {
 		if(isset($_GET['id_frekLR']) && $_GET['id_frekLR'] == $key['id'] || isset($_GET['id_prediksi'])){
 			$_SESSION['frek_LR'] = [];
-
+			$_SESSION['tahun_uji_LR'] = 0;
+			$_SESSION['tahun_uji_LR'] = $key['tahun'];
 			if (isset($_GET['id_frekLR'])) {
-					$tahun_LR = $key['tahun'];
-					$id_kategori = $key['id_kategori'];
-					$id = $_GET['id_frekLR'];
-					$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
+				$tahun_LR = $key['tahun'];
+				$id_kategori = $key['id_kategori'];
+				$id = $_GET['id_frekLR'];
+				$ambilData = mysqli_query($conn, "SELECT data_bulan FROM data_detail_kecelakaan WHERE id_data_kecelakaan = $id");
 
-					for ($d=0; $d < count($bulan); $d++) { 
-						$data = mysqli_fetch_assoc($ambilData);
-						$_SESSION['frek_LR'][$bulan[$d]] = $data['data_bulan'];
-					}
+				for ($d=0; $d < count($bulan); $d++) { 
+					$data = mysqli_fetch_assoc($ambilData);
+					$_SESSION['frek_LR'][$bulan[$d]] = $data['data_bulan'];
+				}
 			}
 
 			if (isset($_GET['id_prediksi'])) {
-					$tahun_LR = $_GET['id_prediksi'];
-					$id_kategori = 3;
+				$tahun_LR = $_GET['id_prediksi'];
+				$id_kategori = 3;
 			}
 
 			//ambil data dari tabel data_kecelakaan
@@ -161,7 +165,7 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 			while($key_data = mysqli_fetch_assoc($data_LR)){
 				$data_idLR[] = $key_data;
 			}
-					
+
 
 			$_SESSION['dataLR_bulan'] = [];
 			$_SESSION['tahunLR_bulan'] = [];
@@ -180,7 +184,7 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 					$_SESSION['dataLR_bulan'][$i][$bulan[$j]] = $databaru[$i][$bulan[$j]];
 				}
 
-					$_SESSION['tahunLR_bulan'][$i] = $data_idLR[$i]['tahun'];
+				$_SESSION['tahunLR_bulan'][$i] = $data_idLR[$i]['tahun'];
 			} 		
 		}
 	}
@@ -272,7 +276,11 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 	<div class="col-6">
 		<h3>Hasil Simulasi</h3>
 	</div>
-	<?php 	require "hasil-simulasi.php" ?>
+	<?php if (isset($_SESSION['cek_prediksi']) && $_SESSION['cek_prediksi'] === "on"): ?>
+		<?php 	require "hasil-simulasi-prediksi.php" ?>
+	<?php else :?>
+		<?php 	require "hasil-simulasi.php" ?>
+	<?php endif ?>
 	<?php $_SESSION['acak'] = true; ?>
 <?php  elseif(isset($_GET['hs']) && !isset($_SESSION['link'])) : ?>
 <div class="alert alert-warning" role="alert">

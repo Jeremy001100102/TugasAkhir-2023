@@ -611,7 +611,7 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 									<th class="col-2">Bulan</i></th>
 									<th class="col-2">Angka Acak</th>
 									<th class="col-2">Hasil Simulasi</th>
-									<th class="col-2">Data Real</th>
+									<th class="col-2">Data Real <?= $_SESSION['tahun_uji_MD']; ?> </th>
 									<th class="col-4">Tingkat Akuarasi</th>
 								</tr>
 							</thead>
@@ -1161,7 +1161,7 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 									<th class="col-2">Bulan</i></th>
 									<th class="col-2">Angka Acak</th>
 									<th class="col-2">Hasil Simulasi</th>
-									<th class="col-2">Data Real</th>
+									<th class="col-2">Data Real <?= $_SESSION['tahun_uji_LB']; ?></th>
 									<th class="col-4">Tingkat Akuarasi</th>
 								</tr>
 							</thead>
@@ -1708,7 +1708,7 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 									<th class="col-2">Bulan</i></th>
 									<th class="col-2">Angka Acak</th>
 									<th class="col-2">Hasil Simulasi</th>
-									<th class="col-2">Data Real</th>
+									<th class="col-2">Data Real <?= $_SESSION['tahun_uji_LR']; ?></th>
 									<th class="col-4">Tingkat Akuarasi</th>
 								</tr>
 							</thead>
