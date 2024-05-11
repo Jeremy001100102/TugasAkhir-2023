@@ -147,7 +147,7 @@ $data_per_kategori = tahunPrediksi();
                        }    ?>
 
 
-                       <li class="ms-3"><a href="kalkulasi.php?frek=jeremy&id_frekMD=<?=$id_dataMD?>&id_frekLB=<?= $id_dataLB ?>&id_frekLR=<?=$id_dataLR?>" class="dropdown-item <?= $id_dataMD == "tidak ada" || $id_dataLB == "tidak ada" || $id_dataLR == "tidak ada" ? "disabled" : "" ?>"><?= $tahun?> <?= $id_dataMD == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-3'></i>" : "<i class='fa-solid fa-square-check ms-3'></i>"?> <?= $id_dataLB == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?> <?= $id_dataLR == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?></a>
+                       <li class="ms-3"><a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_frekMD=<?=$id_dataMD?>&id_frekLB=<?= $id_dataLB ?>&id_frekLR=<?=$id_dataLR?>" class="dropdown-item <?= $id_dataMD == "tidak ada" || $id_dataLB == "tidak ada" || $id_dataLR == "tidak ada" ? "disabled" : "" ?>"><?= $tahun?> <?= $id_dataMD == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-3'></i>" : "<i class='fa-solid fa-square-check ms-3'></i>"?> <?= $id_dataLB == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?> <?= $id_dataLR == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?></a>
                        </li>
 
                        <?php if($i ==  $jumlah_semua_kategori['jumlah']-1) :?>
@@ -157,7 +157,7 @@ $data_per_kategori = tahunPrediksi();
                         </li>
                          <li><hr class="dropdown-divider"></li>
                         <li>
-                           <a href="kalkulasi.php?frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
+                           <a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
                        </li>
                    <?php  endif ?>
 

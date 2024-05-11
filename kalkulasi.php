@@ -5,6 +5,20 @@ if (!isset($_SESSION['login'])) {
 	header("Location: login.php");
 }
 
+if(isset($_GET['reset'])) : 
+	$_SESSION['angka_acak'] = null;
+	$_SESSION['interval'] = null;
+	$_SESSION['kumu'] = null;
+	$_SESSION['prob'] = null;
+	$_SESSION['aktif_acak_MD'] = null;
+	$_SESSION['aktif_acak_LB'] = null;
+	$_SESSION['aktif_acak_LR'] = null;
+	$_SESSION['aktif_cek_MD'] = null;
+	$_SESSION['aktif_cek_LB'] = null;
+	$_SESSION['aktif_cek_LR'] = null;
+
+endif;
+
 require_once "functions.php";
 
 
@@ -325,6 +339,7 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 	";
 
 endif; ?>
+
 
 
 <?php   
