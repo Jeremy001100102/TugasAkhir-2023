@@ -379,96 +379,109 @@ function hapusAll(){
 //     return mysqli_affected_rows($conn);   
 // }
 
-// function simpanHasil($data){
-//     global $conn;
+function simpanHasil($data){
+    global $conn;
 
-//     //Meninggal Dunia
-//     $id_kategoriMD = $data['id_kategoriMD'];
-//     $frekuensiMD = implode("|", $data['frekuensiMD']);
-//     $probabilitasMD = implode("|", $data['probabilitasMD']);
-//     $kumulatifMD = implode("|", $data['kumuMD']);
-//     $intervalMD = implode("|", $data['intervalMD']);
-//     $angka_acakMD = implode("|", $data['angka_acakMD']);
-//     $hasil_simulasiMD = implode("|" , $data['hasil_simulasiMD']);
-//     $tahun_hasilMD = $data['tahun_data_realMD'];
-//     $data_realMD = implode("|", $data['data_realMD']);
-//     $tahun_data_realMD = $data['tahun_data_realMD'];
-//     $tingkat_akurasiMD = implode("|", $data['akurasiMD']);
-//     $totalArrMD = [];
-//     $totalArrMD [] = $data['totalFrekMD'];
-//     $totalArrMD [] = $data['totalProbMD'];
-//     $totalArrMD [] = $data['totalhasilMD'];
-//     $totalArrMD [] = $data['total_dataRealMD'];    
-//     $totalMD = implode("|", $totalArrMD);
-//     $rata2_ArrMD = [];
-//     $rata2_ArrMD [] = $data['rata2_frekMD'];
-//     $rata2_ArrMD [] = $data['rata2_hasilMD'];
-//     $rata2_ArrMD [] = $data['rata2_datarealMD'];
-//     $rata2_ArrMD [] = $data['rata2_presentaseMD'];
-//     $rata2MD = implode("|", $rata2_ArrMD);
-//     $tahun_data_mentahMD =  $data['tahun_datamentahMD'];
+    //Meninggal Dunia
+    $id_kategori_MD = $data['id_kategori_MD'];
+    $tahun_hasilS_MD = $data['tahun_hasilS_MD'];
+    $angka_acak_MD = implode("|", $data['angka_acak_MD']);
+    $hasil_simulasi_MD = implode("|" , $data['hasil_simulasi_MD']);
+    $data_real_MD = implode("|", $data['data_real_MD']);
+    $tingkat_akurasi_MD = implode("|", $data['akurasi_MD']);
+    $totalArrMD = [];
+    $totalArrMD [] = $data['total_hasilS_MD'];
+    $totalArrMD [] = $data['total_dataR_MD'];
+    $totalArrMD [] = $data['akurasi_tahun_MD'];
+    $totalArrMD [] = $data['total_hasilS_Kemarau_MD'];
+    $totalArrMD [] = $data['total_dataR_Kemarau_MD'];
+    $totalArrMD [] = $data['akurasi_Kemarau_MD'];
+    $totalArrMD [] = $data['total_hasilS_Hujan_MD'];
+    $totalArrMD [] = $data['total_dataR_Hujan_MD'];
+    $totalArrMD [] = $data['akurasi_Hujan_MD'];
+    $totalMD = implode("|", $totalArrMD);
+    $rata2_ArrMD = [];
+    $rata2_ArrMD [] = $data['rata2_hasilS_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_MD'];
+    $rata2_ArrMD [] = $data['rata2_hasilS_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_hasilS_Hujan_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_Hujan_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_Hujan_MD'];
+    $rata2MD = implode("|", $rata2_ArrMD);
 
-//      //Luka Berat
-//     $id_kategoriLB = $data['id_kategoriLB'];
-//     $frekuensiLB = implode("|", $data['frekuensiLB']);
-//     $probabilitasLB = implode("|", $data['probabilitasLB']);
-//     $kumulatifLB = implode("|", $data['kumuLB']);
-//     $intervalLB = implode("|", $data['intervalLB']);
-//     $angka_acakLB = implode("|", $data['angka_acakLB']);
-//     $hasil_simulasiLB = implode("|" , $data['hasil_simulasiLB']);
-//     $tahun_hasilLB = $data['tahun_data_realLB'];
-//     $data_realLB = implode("|", $data['data_realLB']);
-//     $tahun_data_realLB = $data['tahun_data_realLB'];
-//     $tingkat_akurasiLB = implode("|", $data['akurasiLB']);
-//     $totalArrLB = [];
-//     $totalArrLB [] = $data['totalFrekLB'];
-//     $totalArrLB [] = $data['totalProbLB'];
-//     $totalArrLB [] = $data['totalhasilLB'];
-//     $totalArrLB [] = $data['total_dataRealLB'];    
-//     $totalLB = implode("|", $totalArrLB);
-//     $rata2_ArrLB = [];
-//     $rata2_ArrLB [] = $data['rata2_frekLB'];
-//     $rata2_ArrLB [] = $data['rata2_hasilLB'];
-//     $rata2_ArrLB [] = $data['rata2_datarealLB'];
-//     $rata2_ArrLB [] = $data['rata2_presentaseLB'];
-//     $rata2LB = implode("|", $rata2_ArrLB);
-//     $tahun_data_mentahLB =  $data['tahun_datamentahLB'];
+     //Luka Berat
+    $id_kategori_LB = $data['id_kategori_LB'];
+    $tahun_hasilS_LB = $data['tahun_hasilS_LB'];
+    $angka_acak_LB = implode("|", $data['angka_acak_LB']);
+    $hasil_simulasi_LB = implode("|" , $data['hasil_simulasi_LB']);
+    $data_real_LB = implode("|", $data['data_real_LB']);
+    $tingkat_akurasi_LB = implode("|", $data['akurasi_LB']);
+    $totalArrLB = [];
+    $totalArrLB [] = $data['total_hasilS_LB'];
+    $totalArrLB [] = $data['total_dataR_LB'];
+    $totalArrLB [] = $data['akurasi_tahun_LB'];
+    $totalArrLB [] = $data['total_hasilS_Kemarau_LB'];
+    $totalArrLB [] = $data['total_dataR_Kemarau_LB'];
+    $totalArrLB [] = $data['akurasi_Kemarau_LB'];
+    $totalArrLB [] = $data['total_hasilS_Hujan_LB'];
+    $totalArrLB [] = $data['total_dataR_Hujan_LB'];
+    $totalArrLB [] = $data['akurasi_Hujan_LB'];
+    $totalLB = implode("|", $totalArrLB);
+    $rata2_ArrLB = [];
+    $rata2_ArrLB [] = $data['rata2_hasilS_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_LB'];
+    $rata2_ArrLB [] = $data['rata2_hasilS_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_hasilS_Hujan_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_Hujan_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_Hujan_LB'];
+    $rata2LB = implode("|", $rata2_ArrLB);
 
-//     //Luka Ringan
-//     $id_kategoriLR = $data['id_kategoriLR'];
-//     $frekuensiLR = implode("|", $data['frekuensiLR']);
-//     $probabilitasLR = implode("|", $data['probabilitasLR']);
-//     $kumulatifLR = implode("|", $data['kumuLR']);
-//     $intervalLR = implode("|", $data['intervalLR']);
-//     $angka_acakLR = implode("|", $data['angka_acakLR']);
-//     $hasil_simulasiLR = implode("|" , $data['hasil_simulasiLR']);
-//     $tahun_hasilLR = $data['tahun_data_realLR'];
-//     $data_realLR = implode("|", $data['data_realLR']);
-//     $tahun_data_realLR = $data['tahun_data_realLR'];
-//     $tingkat_akurasiLR = implode("|", $data['akurasiLR']);
-//     $totalArrLR = [];
-//     $totalArrLR [] = $data['totalFrekLR'];
-//     $totalArrLR [] = $data['totalProbLR'];
-//     $totalArrLR [] = $data['totalhasilLR'];
-//     $totalArrLR [] = $data['total_dataRealLR'];    
-//     $totalLR = implode("|", $totalArrLR);
-//     $rata2_ArrLR = [];
-//     $rata2_ArrLR [] = $data['rata2_frekLR'];
-//     $rata2_ArrLR [] = $data['rata2_hasilLR'];
-//     $rata2_ArrLR [] = $data['rata2_datarealLR'];
-//     $rata2_ArrLR [] = $data['rata2_presentaseLR'];
-//     $rata2LR = implode("|", $rata2_ArrLR);
-//     $tahun_data_mentahLR =  $data['tahun_datamentahLR'];
+     //Luka Ringan
+    $id_kategori_LR = $data['id_kategori_LR'];
+    $tahun_hasilS_LR = $data['tahun_hasilS_LR'];
+    $angka_acak_LR = implode("|", $data['angka_acak_LR']);
+    $hasil_simulasi_LR = implode("|" , $data['hasil_simulasi_LR']);
+    $data_real_LR = implode("|", $data['data_real_LR']);
+    $tingkat_akurasi_LR = implode("|", $data['akurasi_LR']);
+    $totalArrLR = [];
+    $totalArrLR [] = $data['total_hasilS_LR'];
+    $totalArrLR [] = $data['total_dataR_LR'];
+    $totalArrLR [] = $data['akurasi_tahun_LR'];
+    $totalArrLR [] = $data['total_hasilS_Kemarau_LR'];
+    $totalArrLR [] = $data['total_dataR_Kemarau_LR'];
+    $totalArrLR [] = $data['akurasi_Kemarau_LR'];
+    $totalArrLR [] = $data['total_hasilS_Hujan_LR'];
+    $totalArrLR [] = $data['total_dataR_Hujan_LR'];
+    $totalArrLR [] = $data['akurasi_Hujan_LR'];
+    $totalLR = implode("|", $totalArrLR);
+    $rata2_ArrLR = [];
+    $rata2_ArrLR [] = $data['rata2_hasilS_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_LR'];
+    $rata2_ArrLR [] = $data['rata2_hasilS_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_hasilS_Hujan_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_Hujan_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_Hujan_LR'];
+    $rata2LR = implode("|", $rata2_ArrLR);
+    
 
+   
 
+    $query = "INSERT INTO data_hasil_simulasi VALUES ('', '$id_kategori_MD', '$tahun_hasilS_MD', '$angka_acak_MD', '$hasil_simulasi_MD', '$data_real_MD', '$tingkat_akurasi_MD', '$totalMD', '$rata2MD'),
+       ('', '$id_kategori_LB', '$tahun_hasilS_LB', '$angka_acak_LB', '$hasil_simulasi_LB', '$data_real_LB', '$tingkat_akurasi_LB', '$totalLB', '$rata2LB'),
+       ('', '$id_kategori_LR', '$tahun_hasilS_LR', '$angka_acak_LR', '$hasil_simulasi_LR', '$data_real_LR', '$tingkat_akurasi_LR', '$totalLR', '$rata2LR')";
 
-//     $query = "INSERT INTO hasil_simulasi VALUES ('', '$id_kategoriMD', '$frekuensiMD', '$probabilitasMD', '$kumulatifMD', '$intervalMD', '$angka_acakMD', '$hasil_simulasiMD', '$tahun_hasilMD', '$data_realMD', '$tahun_data_realMD', '$tingkat_akurasiMD', '$totalMD', '$rata2MD', '$tahun_data_mentahMD'),
-//        ('', '$id_kategoriLB', '$frekuensiLB', '$probabilitasLB', '$kumulatifLB', '$intervalLB', '$angka_acakLB', '$hasil_simulasiLB', '$tahun_hasilLB', '$data_realLB', '$tahun_data_realLB', '$tingkat_akurasiLB', '$totalLB', '$rata2LB', '$tahun_data_mentahLB'),
-//        ('', '$id_kategoriLR', '$frekuensiLR', '$probabilitasLR', '$kumulatifLR', '$intervalLR', '$angka_acakLR', '$hasil_simulasiLR', '$tahun_hasilLR', '$data_realLR', '$tahun_data_realLR', '$tingkat_akurasiLR', '$totalLR', '$rata2LR', '$tahun_data_mentahLR')";
-
-//     mysqli_query($conn, $query);
-//     return mysqli_affected_rows($conn);
-// }
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
 
 function register($data){
     global $conn;

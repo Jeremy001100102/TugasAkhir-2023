@@ -585,12 +585,122 @@ $_SESSION['rata2_akurasi_tahun_LR'] = (int) round($_SESSION['jumlah_akuarasi_LR'
 $_SESSION['rata2_akurasi_Kemarau_LR'] = (int) round($_SESSION['jumlah_akuarasi_Kemarau_LR'] / count($musimKemarau));
 $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Hujan_LR'] / count($musimHujan));
 
-
-
+if(isset($_POST['simpan'])){
+	if( simpanHasil($_POST) > 0){
+		$_SESSION['alert'] = "on";
+		$_SESSION['pesan'] = "Data Berhasil Disimpan!";
+		header("Location: kalkulasi.php?hs=jeremy");
+		exit;
+		// echo " 
+		// <script>
+		// document.location.href = 'kalkulasi.php?hs=jeremy';
+		// </script>   
+		// ";
+	}else{
+		echo "
+		<script>
+		alert('Data gagal disimpan');
+		document.location.href = 'kalkulasi.php?hs=jeremy';
+		</script>   
+		";
+	}
+	
+}
 
 ?>
 
+<div class="col-6 text-end">
+	<form action="" method="POST">
 
+		<!-- Meninggal Dunia -->
+		<input type="hidden" name="id_kategori_MD" value="<?= 1;?>">
+		<input type="hidden" name="tahun_hasilS_MD" value="<?=  $_SESSION['tahun_uji_MD'];?>">
+		<?php for ($i=0; $i < count($bulan) ; $i++) : ?>	
+			<input type="hidden" name="angka_acak_MD[]" value="<?=  $_SESSION['angkaAcakMD'][$bulan[$i]] ?>">
+			<input type="hidden" name="hasil_simulasi_MD[]" value="<?= $_SESSION['hasilS_MD'][$bulan[$i]] ?>"> 
+			<input type="hidden" name="data_real_MD[]" value="<?= $_SESSION['frek_MD'][$bulan[$i]]; ?>">
+			<input type="hidden" name="akurasi_MD[]" value="<?= "{$_SESSION['akurasiMD'][$bulan[$i]]}%" ?>">
+		<?php endfor ?>
+		<input type="hidden" name="total_hasilS_MD" value="<?= $_SESSION['total_hasilS_MD']; ?>">
+		<input type="hidden" name="total_dataR_MD" value="<?= $_SESSION['total_dataR_MD']; ?>">
+		<input type="hidden" name="akurasi_tahun_MD" value="<?= "{$_SESSION['akurasi_tahun_MD']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Kemarau_MD" value="<?= $_SESSION['total_hasilS_Kemarau_MD']; ?>">
+		<input type="hidden" name="total_dataR_Kemarau_MD" value="<?= $_SESSION['total_dataR_Kemarau_MD']; ?>">
+		<input type="hidden" name="akurasi_Kemarau_MD" value="<?= "{$_SESSION['akurasi_Kemarau_MD']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Hujan_MD" value="<?= $_SESSION['total_hasilS_Hujan_MD']; ?>">
+		<input type="hidden" name="total_dataR_Hujan_MD" value="<?= $_SESSION['total_dataR_Hujan_MD']; ?>">
+		<input type="hidden" name="akurasi_Hujan_MD" value="<?= "{$_SESSION['akurasi_Hujan_MD']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_MD" value="<?= $_SESSION['rata2_total_hasilS_MD']; ?>">
+		<input type="hidden" name="rata2_data_real_MD" value="<?= $_SESSION['rata2_total_dataR_MD']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_MD" value="<?= "{$_SESSION['rata2_akurasi_tahun_MD']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_Kemarau_MD" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_MD']; ?>">
+		<input type="hidden" name="rata2_data_real_Kemarau_MD" value="<?= $_SESSION['rata2_total_dataR_Kemarau_MD']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Kemarau_MD" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_MD']}%"; ?>>">
+		<input type="hidden" name="rata2_hasilS_Hujan_MD" value="<?= $_SESSION['rata2_total_hasilS_Hujan_MD']; ?>">
+		<input type="hidden" name="rata2_data_real_Hujan_MD" value="<?= $_SESSION['rata2_total_dataR_Hujan_MD']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Hujan_MD" value="<?= "{$_SESSION['rata2_akurasi_Hujan_MD']}%"; ?>>">
+
+		<!-- Luka Berat -->
+		<input type="hidden" name="id_kategori_LB" value="<?= 2;?>">
+		<input type="hidden" name="tahun_hasilS_LB" value="<?=  $_SESSION['tahun_uji_LB'];?>">
+		<?php for ($i=0; $i < count($bulan) ; $i++) : ?>	
+			<input type="hidden" name="angka_acak_LB[]" value="<?=  $_SESSION['angkaAcakLB'][$bulan[$i]] ?>">
+			<input type="hidden" name="hasil_simulasi_LB[]" value="<?= $_SESSION['hasilS_LB'][$bulan[$i]] ?>"> 
+			<input type="hidden" name="data_real_LB[]" value="<?= $_SESSION['frek_LB'][$bulan[$i]]; ?>">
+			<input type="hidden" name="akurasi_LB[]" value="<?= "{$_SESSION['akurasiLB'][$bulan[$i]]}%" ?>">
+		<?php endfor ?>
+		<input type="hidden" name="total_hasilS_LB" value="<?= $_SESSION['total_hasilS_LB']; ?>">
+		<input type="hidden" name="total_dataR_LB" value="<?= $_SESSION['total_dataR_LB']; ?>">
+		<input type="hidden" name="akurasi_tahun_LB" value="<?= "{$_SESSION['akurasi_tahun_LB']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Kemarau_LB" value="<?= $_SESSION['total_hasilS_Kemarau_LB']; ?>">
+		<input type="hidden" name="total_dataR_Kemarau_LB" value="<?= $_SESSION['total_dataR_Kemarau_LB']; ?>">
+		<input type="hidden" name="akurasi_Kemarau_LB" value="<?= "{$_SESSION['akurasi_Kemarau_LB']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Hujan_LB" value="<?= $_SESSION['total_hasilS_Hujan_LB']; ?>">
+		<input type="hidden" name="total_dataR_Hujan_LB" value="<?= $_SESSION['total_dataR_Hujan_LB']; ?>">
+		<input type="hidden" name="akurasi_Hujan_LB" value="<?= "{$_SESSION['akurasi_Hujan_LB']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_LB" value="<?= $_SESSION['rata2_total_hasilS_LB']; ?>">
+		<input type="hidden" name="rata2_data_real_LB" value="<?= $_SESSION['rata2_total_dataR_LB']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_LB" value="<?= "{$_SESSION['rata2_akurasi_tahun_LB']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_Kemarau_LB" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_LB']; ?>">
+		<input type="hidden" name="rata2_data_real_Kemarau_LB" value="<?= $_SESSION['rata2_total_dataR_Kemarau_LB']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Kemarau_LB" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LB']}%"; ?>>">
+		<input type="hidden" name="rata2_hasilS_Hujan_LB" value="<?= $_SESSION['rata2_total_hasilS_Hujan_LB']; ?>">
+		<input type="hidden" name="rata2_data_real_Hujan_LB" value="<?= $_SESSION['rata2_total_dataR_Hujan_LB']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Hujan_LB" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LB']}%"; ?>>">
+
+		<!-- Luka Ringan -->
+		<input type="hidden" name="id_kategori_LR" value="<?= 3;?>">
+		<input type="hidden" name="tahun_hasilS_LR" value="<?=  $_SESSION['tahun_uji_LR'];?>">
+		<?php for ($i=0; $i < count($bulan) ; $i++) : ?>	
+			<input type="hidden" name="angka_acak_LR[]" value="<?=  $_SESSION['angkaAcakLR'][$bulan[$i]] ?>">
+			<input type="hidden" name="hasil_simulasi_LR[]" value="<?= $_SESSION['hasilS_LR'][$bulan[$i]] ?>"> 
+			<input type="hidden" name="data_real_LR[]" value="<?= $_SESSION['frek_LR'][$bulan[$i]]; ?>">
+			<input type="hidden" name="akurasi_LR[]" value="<?= "{$_SESSION['akurasiLR'][$bulan[$i]]}%" ?>">
+		<?php endfor ?>
+		<input type="hidden" name="total_hasilS_LR" value="<?= $_SESSION['total_hasilS_LR']; ?>">
+		<input type="hidden" name="total_dataR_LR" value="<?= $_SESSION['total_dataR_LR']; ?>">
+		<input type="hidden" name="akurasi_tahun_LR" value="<?= "{$_SESSION['akurasi_tahun_LR']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Kemarau_LR" value="<?= $_SESSION['total_hasilS_Kemarau_LR']; ?>">
+		<input type="hidden" name="total_dataR_Kemarau_LR" value="<?= $_SESSION['total_dataR_Kemarau_LR']; ?>">
+		<input type="hidden" name="akurasi_Kemarau_LR" value="<?= "{$_SESSION['akurasi_Kemarau_LR']}%"; ?>">
+		<input type="hidden" name="total_hasilS_Hujan_LR" value="<?= $_SESSION['total_hasilS_Hujan_LR']; ?>">
+		<input type="hidden" name="total_dataR_Hujan_LR" value="<?= $_SESSION['total_dataR_Hujan_LR']; ?>">
+		<input type="hidden" name="akurasi_Hujan_LR" value="<?= "{$_SESSION['akurasi_Hujan_LR']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_LR" value="<?= $_SESSION['rata2_total_hasilS_LR']; ?>">
+		<input type="hidden" name="rata2_data_real_LR" value="<?= $_SESSION['rata2_total_dataR_LR']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_LR" value="<?= "{$_SESSION['rata2_akurasi_tahun_LR']}%"; ?>">
+		<input type="hidden" name="rata2_hasilS_Kemarau_LR" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_LR']; ?>">
+		<input type="hidden" name="rata2_data_real_Kemarau_LR" value="<?= $_SESSION['rata2_total_dataR_Kemarau_LR']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Kemarau_LR" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LR']}%"; ?>>">
+		<input type="hidden" name="rata2_hasilS_Hujan_LR" value="<?= $_SESSION['rata2_total_hasilS_Hujan_LR']; ?>">
+		<input type="hidden" name="rata2_data_real_Hujan_LR" value="<?= $_SESSION['rata2_total_dataR_Hujan_LR']; ?>"> 
+		<input type="hidden" name="rata2_akurasi_Hujan_LR" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LR']}%"; ?>>">
+
+
+		<button name="simpan" class="btn btn-sm btn-primary"><i class="fa-solid fa-floppy-disk"></i><strong>  Simpan Hasil Simulasi</strong></button>
+
+	</form>
+</div>
 
 <div class="position-relative mt-4">
 	<div class="accordion w-100 position-absolute top-0 start-50 translate-middle-x" id="accordionExample">
@@ -706,7 +816,8 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 										<th class="col-2 text-center"><?= $_SESSION['angkaAcakMD']['Maret'] ?></th>
 										<th class="col-2 text-center"><?= $_SESSION['hasilS_MD']['Maret'] ?></th>	
 										<th class="col-2 text-center"><?= $_SESSION['frek_MD']['Maret']?></th>
-										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Maret']}%" ?></th>								</tr>
+										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Maret']}%" ?></th>	
+									</tr>
 										<tr class="text-center collapse accordion-collapse"  id="MDr3" data-bs-parent=".table" >
 											<th>No</th>
 											<th>Bulan</th>
@@ -744,7 +855,8 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 										<th class="col-2 text-center"><?= $_SESSION['angkaAcakMD']['April'] ?></th>
 										<th class="col-2 text-center"><?= $_SESSION['hasilS_MD']['April'] ?></th>	
 										<th class="col-2 text-center"><?= $_SESSION['frek_MD']['April']?></th>
-										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['April']}%" ?></th>							</tr>
+										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['April']}%" ?></th>
+									</tr>
 										<tr class="text-center collapse accordion-collapse"  id="MDr4" data-bs-parent=".table" >
 											<th>No</th>
 											<th>Bulan</th>
@@ -782,7 +894,8 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 										<th class="col-2 text-center"><?= $_SESSION['angkaAcakMD']['Mei'] ?></th>
 										<th class="col-2 text-center"><?= $_SESSION['hasilS_MD']['Mei'] ?></th>	
 										<th class="col-2 text-center"><?= $_SESSION['frek_MD']['Mei']?></th>
-										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Mei']}%" ?></th>				</tr>
+										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Mei']}%" ?></th>
+									</tr>
 										<tr class="text-center collapse accordion-collapse"  id="MDr5" data-bs-parent=".table" >
 											<th>No</th>
 											<th>Bulan</th>
@@ -820,7 +933,8 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 										<th class="col-2 text-center"><?= $_SESSION['angkaAcakMD']['Juni'] ?></th>
 										<th class="col-2 text-center"><?= $_SESSION['hasilS_MD']['Juni'] ?></th>	
 										<th class="col-2 text-center"><?= $_SESSION['frek_MD']['Juni']?></th>
-										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Juni']}%" ?></th>				</tr>
+										<th colspan="2" class="col-4 text-center"><?= "{$_SESSION['akurasiMD']['Juni']}%" ?></th>
+									</tr>
 										<tr class="text-center collapse accordion-collapse"  id="MDr6" data-bs-parent=".table" >
 											<th>No</th>
 											<th>Bulan</th>
@@ -1144,6 +1258,7 @@ $_SESSION['rata2_akurasi_Hujan_LR'] = (int) round($_SESSION['jumlah_akuarasi_Huj
 </div>
 </div>
 </div>
+
 <div class="accordion-item">
 	<h2 class="accordion-header" id="headingTwo">
 		<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
