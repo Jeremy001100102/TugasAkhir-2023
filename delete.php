@@ -36,12 +36,12 @@ if (isset($_GET['id_hapus-hasilAll'])) {
         $_SESSION['pesan'] = "Data Berhasil Dihapus Semua!";
         header("Location: data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree");
         exit;
-		// echo " 
-		// <script>
-		// alert('Data berhasil dihapus');
-		// document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
-		// </script>	
-		// ";
+		echo " 
+		<script>
+		alert('Data berhasil dihapus');
+		document.location.href = 'data-hasil-simulasi.php#collapseOne#collapseTwo#collapseThree';
+		</script>	
+		";
 	}else{
 		echo "
 		<script>

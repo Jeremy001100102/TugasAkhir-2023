@@ -635,10 +635,10 @@ if(isset($_POST['simpan'])){
 		<input type="hidden" name="rata2_akurasi_MD" value="<?= "{$_SESSION['rata2_akurasi_tahun_MD']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Kemarau_MD" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_MD']; ?>">
 		<input type="hidden" name="rata2_data_real_Kemarau_MD" value="<?= $_SESSION['rata2_total_dataR_Kemarau_MD']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Kemarau_MD" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_MD']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Kemarau_MD" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_MD']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Hujan_MD" value="<?= $_SESSION['rata2_total_hasilS_Hujan_MD']; ?>">
 		<input type="hidden" name="rata2_data_real_Hujan_MD" value="<?= $_SESSION['rata2_total_dataR_Hujan_MD']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Hujan_MD" value="<?= "{$_SESSION['rata2_akurasi_Hujan_MD']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Hujan_MD" value="<?= "{$_SESSION['rata2_akurasi_Hujan_MD']}%"; ?>">
 
 		<!-- Luka Berat -->
 		<input type="hidden" name="id_kategori_LB" value="<?= 2;?>">
@@ -663,10 +663,10 @@ if(isset($_POST['simpan'])){
 		<input type="hidden" name="rata2_akurasi_LB" value="<?= "{$_SESSION['rata2_akurasi_tahun_LB']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Kemarau_LB" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_LB']; ?>">
 		<input type="hidden" name="rata2_data_real_Kemarau_LB" value="<?= $_SESSION['rata2_total_dataR_Kemarau_LB']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Kemarau_LB" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LB']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Kemarau_LB" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LB']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Hujan_LB" value="<?= $_SESSION['rata2_total_hasilS_Hujan_LB']; ?>">
 		<input type="hidden" name="rata2_data_real_Hujan_LB" value="<?= $_SESSION['rata2_total_dataR_Hujan_LB']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Hujan_LB" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LB']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Hujan_LB" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LB']}%"; ?>">
 
 		<!-- Luka Ringan -->
 		<input type="hidden" name="id_kategori_LR" value="<?= 3;?>">
@@ -691,10 +691,10 @@ if(isset($_POST['simpan'])){
 		<input type="hidden" name="rata2_akurasi_LR" value="<?= "{$_SESSION['rata2_akurasi_tahun_LR']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Kemarau_LR" value="<?= $_SESSION['rata2_total_hasilS_Kemarau_LR']; ?>">
 		<input type="hidden" name="rata2_data_real_Kemarau_LR" value="<?= $_SESSION['rata2_total_dataR_Kemarau_LR']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Kemarau_LR" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LR']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Kemarau_LR" value="<?= "{$_SESSION['rata2_akurasi_Kemarau_LR']}%"; ?>">
 		<input type="hidden" name="rata2_hasilS_Hujan_LR" value="<?= $_SESSION['rata2_total_hasilS_Hujan_LR']; ?>">
 		<input type="hidden" name="rata2_data_real_Hujan_LR" value="<?= $_SESSION['rata2_total_dataR_Hujan_LR']; ?>"> 
-		<input type="hidden" name="rata2_akurasi_Hujan_LR" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LR']}%"; ?>>">
+		<input type="hidden" name="rata2_akurasi_Hujan_LR" value="<?= "{$_SESSION['rata2_akurasi_Hujan_LR']}%"; ?>">
 
 
 		<button name="simpan" class="btn btn-sm btn-primary"><i class="fa-solid fa-floppy-disk"></i><strong>  Simpan Hasil Simulasi</strong></button>

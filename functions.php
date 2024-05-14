@@ -50,59 +50,66 @@ while ($jData = mysqli_fetch_assoc($jumlah_data)) {
     $countData [] = $jData;
 }
 
+//jumlah data tabel data_hasil_simulasi
+$jumlah_data = mysqli_query($conn, "
+    SELECT kategori.nama, COUNT(data.id_kategori) AS jumlah FROM data_kategori as kategori LEFT JOIN data_kecelakaan AS data ON (data.id_kategori = kategori.id) GROUP BY kategori.nama;");
+$countData = [];
+while ($jData = mysqli_fetch_assoc($jumlah_data)) {
+    $countData [] = $jData;
+}
 
-//ambil id unik data_detail
+
     
 //jumlah data tabel hasil_simulasi
-// $jumlah_dataHS = mysqli_query($conn, " SELECT kategori.nama, COUNT(data.id_kategori) AS jumlah FROM kategori_korban_kecelakaan AS kategori LEFT JOIN hasil_simulasi AS data ON (data.id_kategori = kategori.id) GROUP BY kategori.nama");
-// $count_dataHS = [];
-// while ($jData = mysqli_fetch_assoc($jumlah_dataHS)) {
-//     $count_dataHS [] = $jData;
-// }
+$jumlah_dataHS = mysqli_query($conn, " SELECT kategori.nama, COUNT(data.id_kategori) AS jumlah FROM data_kategori AS kategori LEFT JOIN data_hasil_simulasi AS data ON (data.id_kategori = kategori.id) GROUP BY kategori.nama");
+$count_dataHS = [];
+while ($jData = mysqli_fetch_assoc($jumlah_dataHS)) {
+    $count_dataHS [] = $jData;
+}
 
 
 //Data Hasil Meninggal
-// function data_hasilMeninggal(){
-//     global $conn;
-//     $dataM = mysqli_query($conn, "
-//          SELECT * FROM hasil_simulasi WHERE id_kategori = 1 GROUP BY tahun_hasil_simulasi");
+function data_hasilMeninggal(){
+    global $conn;
+    $dataM = mysqli_query($conn, "
+         SELECT * FROM data_hasil_simulasi WHERE id_kategori = 1 GROUP BY tahun_hasil_simulasi");
 
-//     $dataMeninggal = [];
-//     while($data = mysqli_fetch_assoc($dataM)){
-//         $dataMeninggal [] = $data;
-//     }
+    $dataMeninggal = [];
+    while($data = mysqli_fetch_assoc($dataM)){
+        $dataMeninggal [] = $data;
+    }
 
-//     return $dataMeninggal;
-// }
+    return $dataMeninggal;
+}
 
 //Data Hasil Luka Berat
-// function data_hasillukaBerat(){
-//     global $conn;
-//     $dataLB = mysqli_query($conn, "
-//          SELECT * FROM hasil_simulasi WHERE id_kategori = 2 GROUP BY tahun_hasil_simulasi");
+function data_hasillukaBerat(){
+    global $conn;
+    $dataLB = mysqli_query($conn, "
+         SELECT * FROM data_hasil_simulasi WHERE id_kategori = 2 GROUP BY tahun_hasil_simulasi");
 
-//     $datalukaBerat = [];
-//     while($data = mysqli_fetch_assoc($dataLB)){
-//         $datalukaBerat [] = $data;
-//     }
+    $datalukaBerat = [];
+    while($data = mysqli_fetch_assoc($dataLB)){
+        $datalukaBerat [] = $data;
+    }
 
-//     return $datalukaBerat;
-// }
+    return $datalukaBerat;
+}
 
 //Data Hasil Luka Ringan
-// function data_hasillukaRingan(){
-//     global $conn;
-//     $dataLR = mysqli_query($conn, "
-//          SELECT * FROM hasil_simulasi WHERE id_kategori = 3 GROUP BY tahun_hasil_simulasi");
+function data_hasillukaRingan(){
+    global $conn;
+    $dataLR = mysqli_query($conn, "
+         SELECT * FROM data_hasil_simulasi WHERE id_kategori = 3 GROUP BY tahun_hasil_simulasi");
 
-//     $datalukaRingan = [];
-//     while($data = mysqli_fetch_assoc($dataLR)){
-//         $datalukaRingan [] = $data;
-//     }
+    $datalukaRingan = [];
+    while($data = mysqli_fetch_assoc($dataLR)){
+        $datalukaRingan [] = $data;
+    }
 
-//     return $datalukaRingan;
+    return $datalukaRingan;
 
-// }
+}
 
 
 function tahunPrediksi(){
@@ -364,20 +371,20 @@ function hapusAll(){
 }
 
 //hapus tabel hasil simulasi
-// function hapusHS($id){
-//     global $conn;
+function hapusHS($id){
+    global $conn;
 
-//     mysqli_query($conn, "DELETE FROM hasil_simulasi WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM data_hasil_simulasi WHERE id = $id");
 
-//     return mysqli_affected_rows($conn);
-// }
+    return mysqli_affected_rows($conn);
+}
 
 //hapus semua input data
-// function hapus_hasilAll(){
-//     global $conn;
-//     mysqli_query($conn, "TRUNCATE hasil_simulasi");    
-//     return mysqli_affected_rows($conn);   
-// }
+function hapus_hasilAll(){
+    global $conn;
+    mysqli_query($conn, "TRUNCATE data_hasil_simulasi");    
+    return mysqli_affected_rows($conn);   
+}
 
 function simpanHasil($data){
     global $conn;
