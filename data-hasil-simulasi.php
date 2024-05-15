@@ -45,9 +45,9 @@ $datalukaRingan = data_hasillukaRingan();
 										<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 											Tahun
 										</button>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 											<?php foreach ($dataMeninggal as $key) : ?>
-												<li><a class="dropdown-item" href="tables.php?id_hasilMD=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
+												<li><a class="dropdown-item <?=  isset($_SESSION['tahun_hasilMD']) && $_SESSION['tahun_hasilMD'] == $key['tahun_hasil_simulasi'] ? "active" : "" ?>" href="tables.php?id_hasilMD=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
 											<?php endforeach; ?>
 										</ul>
 									</div>
@@ -155,9 +155,9 @@ $datalukaRingan = data_hasillukaRingan();
 												<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 													Tahun
 												</button>
-												<ul class="dropdown-menu">
+												<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 													<?php foreach ($datalukaBerat as $key) : ?>
-														<li><a class="dropdown-item" href="tables.php?id_hasilLB=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
+														<li><a class="dropdown-item <?=  isset($_SESSION['tahun_hasilLB']) && $_SESSION['tahun_hasilLB'] == $key['tahun_hasil_simulasi'] ? "active" : "" ?>" href="tables.php?id_hasilLB=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
 													<?php endforeach; ?>
 												</ul>
 											</div>
@@ -262,9 +262,9 @@ $datalukaRingan = data_hasillukaRingan();
 														<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 															Tahun
 														</button>
-														<ul class="dropdown-menu">
+														<ul class="dropdown-menu style-dropdown dropdown-menu-dark">
 															<?php foreach ($datalukaRingan as $key) : ?>
-																<li><a class="dropdown-item" href="tables.php?id_hasilLR=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
+																<li><a class="dropdown-item <?=  isset($_SESSION['tahun_hasilLR']) && $_SESSION['tahun_hasilLR'] == $key['tahun_hasil_simulasi'] ? "active" : "" ?>" href="tables.php?id_hasilLR=<?= $key['id'] ?>"><?= $key['tahun_hasil_simulasi'] ?></a></li>
 															<?php endforeach; ?>
 														</ul>
 													</div>
