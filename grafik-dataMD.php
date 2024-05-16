@@ -48,6 +48,8 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
   let max_sumbuyMD = <?= json_encode($max_sumbuY_MD); ?>;
   let tahun_hasilMD = <?= json_encode($tahun_data_hasilMD); ?>;
   let tahun_realMD = <?= json_encode($tahun_data_realMD); ?>;
+
+  yReal_Kemarau_MD = [10,4, 8 ,9 ,7]; 
   const xValuesMD = ["Januari","Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]; 
 
   const ctxMD = document.getElementById('grafikHasilMD').getContext("2d");
@@ -142,5 +144,6 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
       // }      
     }
   });
+  console.log(chartMD);
 </script>
 <?php   endif; ?>
