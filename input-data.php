@@ -38,18 +38,18 @@ if (isset($_POST['simpanManual'])) {
         
     }else{
 
-     $_SESSION['alert'] = "off";
-     $_SESSION['pesan'] = "Data Gagal Disimpan!";
+       $_SESSION['alert'] = "off";
+       $_SESSION['pesan'] = "Data Gagal Disimpan!";
         // echo "
         // <script>
         // alert('Data gagal ditambahkan');
         // document.location.href = 'input-data.php';
         // </script>   
         // ";
-     header("Location: input-data.php");
-     exit;
+       header("Location: input-data.php");
+       exit;
 
- }
+   }
 
 
 }
@@ -74,16 +74,16 @@ if (isset($_POST['simpanImport'])) {
     
 }else{
 
- $_SESSION['alert'] = "off";
- $_SESSION['pesan'] = "Data Gagal Disimpan!";
+   $_SESSION['alert'] = "off";
+   $_SESSION['pesan'] = "Data Gagal Disimpan!";
         // echo "
         // <script>
         // alert('Data gagal ditambahkan');
         // document.location.href = 'input-data.php';
         // </script>   
         // ";
- header("Location: input-data.php");
- exit;
+   header("Location: input-data.php");
+   exit;
 
 
 }
@@ -92,6 +92,7 @@ if (isset($_POST['simpanImport'])) {
 
 
 $data_per_kategori = tahunPrediksi();
+
 
 ?>
 
@@ -106,65 +107,64 @@ $data_per_kategori = tahunPrediksi();
     </div>
     <div class="col-8 text-end">
         <div class="dropdown-center d-inline">
-            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa-solid fa-calculator"></i>
+            <button class="btn btn-sm btn-primary dropdown-toggle <?= $jumlah_semua_kategori['jumlah'] ==  0 ? "disabled" : "" ;?>" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><i class="fa-solid fa-calculator"></i>
                 Kalkulasi Data
             </button>
             <ul class="dropdown-menu">
                 <li>
-                     <h6 class="dropdown-header text-center">Tahun Uji</h6>
-                    <h6 class="dropdown-header text-center">Tahun | MD LB LR</h6>
+                   <h6 class="dropdown-header text-center">Tahun Uji</h6>
+                   <h6 class="dropdown-header text-center">Tahun | MD LB LR</h6>
+               </li>
+               <li><hr class="dropdown-divider"></li>
+               <div  class="style-dropdown">
+                <?php for ($i=0; $i < $jumlah_semua_kategori['jumlah']; $i++) : ?>
+                    <?php if ($i >= $batas_data_history) : ?>
+                     <?php 
+
+                     $id_dataMD = "tidak ada";
+                     $id_dataLB = "tidak ada";
+                     $id_dataLR = "tidak ada";
+
+                     ?>
+
+
+                     <?php  for ($j=0; $j < count($data_per_kategori[$i]); $j++) {
+
+
+                        $tahun = $data_per_kategori[$i][$j]['tahun'];
+
+                        if($data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia"){
+                            $id_dataMD = $data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+                        }else if ($data_per_kategori[$i][$j]['nama'] == "Luka Berat") {
+                            $id_dataLB = $data_per_kategori[$i][$j]['nama'] == "Luka Berat" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+
+                        }else{
+                         $id_dataLR = $data_per_kategori[$i][$j]['nama'] == "Luka Ringan" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
+                     }
+
+
+
+                 }    ?>
+
+
+                 <li class="ms-3"><a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_frekMD=<?=$id_dataMD?>&id_frekLB=<?= $id_dataLB ?>&id_frekLR=<?=$id_dataLR?>" class="dropdown-item <?= $id_dataMD == "tidak ada" || $id_dataLB == "tidak ada" || $id_dataLR == "tidak ada" ? "disabled" : "" ?>"><?= $tahun?> <?= $id_dataMD == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-3'></i>" : "<i class='fa-solid fa-square-check ms-3'></i>"?> <?= $id_dataLB == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?> <?= $id_dataLR == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?></a>
+                 </li>
+
+                 <?php if($i ==  $jumlah_semua_kategori['jumlah']-1) :?>
+                   <li><hr class="dropdown-divider"></li>
+                   <li>
+                    <h6 class="dropdown-header text-center">Tahun Prediksi</h6>
                 </li>
                 <li><hr class="dropdown-divider"></li>
-                <div  class="style-dropdown">
-                    <?php for ($i=0; $i < $jumlah_semua_kategori['jumlah']; $i++) : ?>
-                        <?php $batas_data_history = 10;?>
-                        <?php if ($i >= $batas_data_history) : ?>
-                           <?php 
+                <li>
+                 <a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
+             </li>
+         <?php  endif ?>
 
-                           $id_dataMD = "tidak ada";
-                           $id_dataLB = "tidak ada";
-                           $id_dataLR = "tidak ada";
-
-                           ?>
-
-
-                           <?php  for ($j=0; $j < count($data_per_kategori[$i]); $j++) {
-
-
-                            $tahun = $data_per_kategori[$i][$j]['tahun'];
-
-                            if($data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia"){
-                                $id_dataMD = $data_per_kategori[$i][$j]['nama'] == "Meninggal Dunia" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
-                            }else if ($data_per_kategori[$i][$j]['nama'] == "Luka Berat") {
-                                $id_dataLB = $data_per_kategori[$i][$j]['nama'] == "Luka Berat" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
-
-                            }else{
-                               $id_dataLR = $data_per_kategori[$i][$j]['nama'] == "Luka Ringan" ? $data_per_kategori[$i][$j]['id'] : "tidak ada";
-                           }
-
-
-
-                       }    ?>
-
-
-                       <li class="ms-3"><a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_frekMD=<?=$id_dataMD?>&id_frekLB=<?= $id_dataLB ?>&id_frekLR=<?=$id_dataLR?>" class="dropdown-item <?= $id_dataMD == "tidak ada" || $id_dataLB == "tidak ada" || $id_dataLR == "tidak ada" ? "disabled" : "" ?>"><?= $tahun?> <?= $id_dataMD == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-3'></i>" : "<i class='fa-solid fa-square-check ms-3'></i>"?> <?= $id_dataLB == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?> <?= $id_dataLR == "tidak ada" ? "<i class='fa-solid fa-square-xmark ms-1'></i>" : "<i class='fa-solid fa-square-check ms-1'></i>"?></a>
-                       </li>
-
-                       <?php if($i ==  $jumlah_semua_kategori['jumlah']-1) :?>
-                         <li><hr class="dropdown-divider"></li>
-                           <li>
-                            <h6 class="dropdown-header text-center">Tahun Prediksi</h6>
-                        </li>
-                         <li><hr class="dropdown-divider"></li>
-                        <li>
-                           <a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
-                       </li>
-                   <?php  endif ?>
-
-               <?php endif ?>
-           <?php endfor; ?>
-       </div>
-   </ul>
+     <?php endif ?>
+ <?php endfor; ?>
+</div>
+</ul>
 </div>
 
 <a href="#" class="btn btn-sm btn-danger shadow-sm" data-toggle="modal" data-target="#hapus-input-dataAll" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-trash-can"></i> Hapus Semua Data</a>
@@ -202,9 +202,9 @@ aria-hidden="true">
 
 <?php   
 if (isset($_SESSION['alert']) && $_SESSION['alert'] === "on") {
-   echo "
-   <script>
-   Swal.fire({
+ echo "
+ <script>
+ Swal.fire({
     title: 'Berhasil!',
     text: '{$_SESSION['pesan']}',
     icon: 'success'

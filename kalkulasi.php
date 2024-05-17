@@ -31,7 +31,7 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 		if(isset($_GET['id_frekMD']) && $_GET['id_frekMD'] == $key['id'] || isset($_GET['id_prediksi'])){
 			$_SESSION['cek_prediksi'] = "off";
 			$_SESSION['frek_MD'] = [];
-			$_SESSION['tahun_uji'] = 0;
+			$_SESSION['tahun_uji'] = null;
 			$_SESSION['tahun_uji_MD'] = $key['tahun'];
 			if (isset($_GET['id_frekMD'])) {
 				$tahun_MD = $key['tahun'];
@@ -45,7 +45,9 @@ if (isset($_GET['id_frekMD']) || isset($_GET['id_prediksi'])) {
 				}
 			}
 
+
 			if (isset($_GET['id_prediksi'])) {
+				$_SESSION['tahun_Prediksi_MD'] = $_GET['id_prediksi'];;
 				$tahun_MD = $_GET['id_prediksi'];
 				$id_kategori = 1;
 				$_SESSION['cek_prediksi'] = "on";
@@ -112,6 +114,7 @@ if (isset($_GET['id_frekLB']) || isset($_GET['id_prediksi'])) {
 			}
 
 			if (isset($_GET['id_prediksi'])) {
+				$_SESSION['tahun_Prediksi_LB'] = $_GET['id_prediksi']; 
 				$tahun_LB = $_GET['id_prediksi'];
 				$id_kategori = 2;
 			}
@@ -169,6 +172,7 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 			}
 
 			if (isset($_GET['id_prediksi'])) {
+				$_SESSION['tahun_Prediksi_LR'] = $_GET['id_prediksi']; 
 				$tahun_LR = $_GET['id_prediksi'];
 				$id_kategori = 3;
 			}

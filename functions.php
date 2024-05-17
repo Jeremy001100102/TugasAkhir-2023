@@ -10,6 +10,21 @@ $musimHujan = ["November", "Desember", "Januari","Februari", "Maret", "April"];
 //kategori kecelakaan
 $kategori = mysqli_query($conn, "SELECT * FROM data_kategori");
 
+//jumlah data irisan tahun >= 10
+$countYears = mysqli_query($conn, "SELECT COUNT(DISTINCT dk1.tahun) AS jumlah_tahun
+   FROM data_kecelakaan dk1
+   INNER JOIN data_kecelakaan dk2 ON dk1.tahun = dk2.tahun
+   INNER JOIN data_kecelakaan dk3 ON dk1.tahun = dk3.tahun
+   WHERE dk1.id_kategori = 1
+   AND dk2.id_kategori = 2
+   AND dk3.id_kategori = 3
+   AND dk1.tahun >= (SELECT MIN(tahun) + 10 FROM data_kecelakaan WHERE id_kategori = 1)
+   AND dk2.tahun >= (SELECT MIN(tahun) + 10 FROM data_kecelakaan WHERE id_kategori = 2)
+   AND dk3.tahun >= (SELECT MIN(tahun) + 10 FROM data_kecelakaan WHERE id_kategori = 3)");
+$jumlah_irisan_tahun = mysqli_fetch_assoc($countYears);
+$jumlah_irisan_tahun = intval($jumlah_irisan_tahun['jumlah_tahun']);
+
+
 //data tahun prediksi
 $ambil_tahun = mysqli_query($conn, "SELECT DISTINCT tahun FROM data_kecelakaan");
 $data_tahun_prediksi = [];
@@ -17,7 +32,7 @@ while ($data = mysqli_fetch_assoc($ambil_tahun)) {
     $data_tahun_prediksi[] = $data;    
 }
 
-
+//jumlah data masa_lalu
 
 
 //data kecelakaan
@@ -47,6 +62,8 @@ while($rows_data_hasil = mysqli_fetch_assoc($data_hasil_simulasi_MC)){
 $data_kategori = mysqli_query($conn, "SELECT count(DISTINCT tahun) as 'jumlah' FROM data_kecelakaan");
 $jumlah_semua_kategori = mysqli_fetch_assoc($data_kategori);
 
+
+$batas_data_history = $jumlah_semua_kategori['jumlah'] - $jumlah_irisan_tahun; 
 
 //jumlah data tabel data_kecelaakaan
 $jumlah_data = mysqli_query($conn, "
@@ -79,7 +96,7 @@ function data_hasilMeninggal(){
     global $conn; 
 
     $dataM = mysqli_query($conn, "
-       SELECT * FROM data_hasil_simulasi WHERE id_kategori = 1 GROUP BY tahun_hasil_simulasi");
+     SELECT * FROM data_hasil_simulasi WHERE id_kategori = 1 GROUP BY tahun_hasil_simulasi");
 
     $dataMeninggal = [];
     while($data = mysqli_fetch_assoc($dataM)){
@@ -93,7 +110,7 @@ function data_hasilMeninggal(){
 function data_hasillukaBerat(){
     global $conn;
     $dataLB = mysqli_query($conn, "
-       SELECT * FROM data_hasil_simulasi WHERE id_kategori = 2 GROUP BY tahun_hasil_simulasi");
+     SELECT * FROM data_hasil_simulasi WHERE id_kategori = 2 GROUP BY tahun_hasil_simulasi");
 
     $datalukaBerat = [];
     while($data = mysqli_fetch_assoc($dataLB)){
@@ -107,7 +124,7 @@ function data_hasillukaBerat(){
 function data_hasillukaRingan(){
     global $conn;
     $dataLR = mysqli_query($conn, "
-       SELECT * FROM data_hasil_simulasi WHERE id_kategori = 3 GROUP BY tahun_hasil_simulasi");
+     SELECT * FROM data_hasil_simulasi WHERE id_kategori = 3 GROUP BY tahun_hasil_simulasi");
 
     $datalukaRingan = [];
     while($data = mysqli_fetch_assoc($dataLR)){
@@ -148,7 +165,7 @@ function tahunPrediksi(){
 function dataMeninggal(){
     global $conn;
     $dataM = mysqli_query($conn, "
-     SELECT * FROM data_kecelakaan WHERE id_kategori = 1 GROUP BY tahun");
+       SELECT * FROM data_kecelakaan WHERE id_kategori = 1 GROUP BY tahun");
 
     $dataMeninggal = [];
     while($data = mysqli_fetch_assoc($dataM)){
@@ -163,7 +180,7 @@ function dataMeninggal(){
 function datalukaBerat(){
     global $conn;
     $dataLB = mysqli_query($conn, "
-     SELECT * FROM data_kecelakaan WHERE id_kategori = 2 GROUP BY tahun");
+       SELECT * FROM data_kecelakaan WHERE id_kategori = 2 GROUP BY tahun");
 
     $datalukaBerat = [];
     while($data = mysqli_fetch_assoc($dataLB)){
@@ -178,7 +195,7 @@ function datalukaBerat(){
 function datalukaRingan(){
     global $conn;
     $dataLR = mysqli_query($conn, "
-     SELECT * FROM data_kecelakaan WHERE id_kategori = 3 GROUP BY tahun");
+       SELECT * FROM data_kecelakaan WHERE id_kategori = 3 GROUP BY tahun");
 
     $datalukaRingan = [];
     while($data = mysqli_fetch_assoc($dataLR)){
@@ -199,10 +216,10 @@ function tambah($data) {
 
 //cek apakah data yang dimasukkan sama
   foreach ($rows as $value) {
-     if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
-        $id = $value['id'];
-        mysqli_query($conn, "DELETE FROM data_kecelakaan WHERE id = '$id'");
-    }
+   if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
+    $id = $value['id'];
+    mysqli_query($conn, "DELETE FROM data_kecelakaan WHERE id = '$id'");
+}
 }
 
 $query = "INSERT INTO data_kecelakaan VALUES ('', '$kategori', '$tahun')";
@@ -248,12 +265,12 @@ function importData($file_data) {
         if($sheetData[0][3] == "MD"){
 
 
-         $kategori = 1;   
-         $tahun = $sheetName;
+           $kategori = 1;   
+           $tahun = $sheetName;
 
          //cek apakah data yang dimasukkan sama
-         foreach ($rows as $value) {
-             if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
+           foreach ($rows as $value) {
+               if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
                 $id = $value['id'];
                 mysqli_query($conn, "DELETE FROM data_kecelakaan WHERE id = '$id'");
             }
@@ -273,12 +290,12 @@ function importData($file_data) {
     }
 
     if($sheetData[0][4] == "LB"){
-     $kategori = 2;   
-     $tahun = $sheetName;
+       $kategori = 2;   
+       $tahun = $sheetName;
 
      //cek apakah data yang dimasukkan sama
-     foreach ($rows as $value) {
-         if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
+       foreach ($rows as $value) {
+           if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
             $id = $value['id'];
             mysqli_query($conn, "DELETE FROM data_kecelakaan WHERE id = '$id'");
         }
@@ -298,12 +315,12 @@ function importData($file_data) {
 }
 
 if($sheetData[0][5] == "LR"){
- $kategori = 3;   
- $tahun = $sheetName;    
+   $kategori = 3;   
+   $tahun = $sheetName;    
 
  //cek apakah data yang dimasukkan sama
- foreach ($rows as $value) {
-     if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
+   foreach ($rows as $value) {
+       if($value['id_kategori'] == $kategori && $value['tahun'] == $tahun){
         $id = $value['id'];
         mysqli_query($conn, "DELETE FROM data_kecelakaan WHERE id = '$id'");
     }
@@ -403,112 +420,112 @@ function simpanHasil($data){
     foreach ($rows_data_hasil_simulasi as $value) {
         for ($i=0; $i < count($kategori) ; $i++) { 
             if($value['id_kategori'] == $kategori[$i] && $value['tahun_hasil_simulasi'] == $tahun[$i]){
-            $id = $value['id'];
-            mysqli_query($conn, "DELETE FROM data_hasil_simulasi WHERE id = '$id'");
-        }
+                $id = $value['id'];
+                mysqli_query($conn, "DELETE FROM data_hasil_simulasi WHERE id = '$id'");
+            }
 
+        }
     }
-}
 
     //Meninggal Dunia
-$id_kategori_MD = $data['id_kategori_MD'];
-$tahun_hasilS_MD = $data['tahun_hasilS_MD'];
-$angka_acak_MD = implode("|", $data['angka_acak_MD']);
-$hasil_simulasi_MD = implode("|" , $data['hasil_simulasi_MD']);
-$data_real_MD = implode("|", $data['data_real_MD']);
-$tingkat_akurasi_MD = implode("|", $data['akurasi_MD']);
-$totalArrMD = [];
-$totalArrMD [] = $data['total_hasilS_MD'];
-$totalArrMD [] = $data['total_dataR_MD'];
-$totalArrMD [] = $data['akurasi_tahun_MD'];
-$totalArrMD [] = $data['total_hasilS_Kemarau_MD'];
-$totalArrMD [] = $data['total_dataR_Kemarau_MD'];
-$totalArrMD [] = $data['akurasi_Kemarau_MD'];
-$totalArrMD [] = $data['total_hasilS_Hujan_MD'];
-$totalArrMD [] = $data['total_dataR_Hujan_MD'];
-$totalArrMD [] = $data['akurasi_Hujan_MD'];
-$totalMD = implode("|", $totalArrMD);
-$rata2_ArrMD = [];
-$rata2_ArrMD [] = $data['rata2_hasilS_MD'];
-$rata2_ArrMD [] = $data['rata2_data_real_MD'];
-$rata2_ArrMD [] = $data['rata2_akurasi_MD'];
-$rata2_ArrMD [] = $data['rata2_hasilS_Kemarau_MD'];
-$rata2_ArrMD [] = $data['rata2_data_real_Kemarau_MD'];
-$rata2_ArrMD [] = $data['rata2_akurasi_Kemarau_MD'];
-$rata2_ArrMD [] = $data['rata2_hasilS_Hujan_MD'];
-$rata2_ArrMD [] = $data['rata2_data_real_Hujan_MD'];
-$rata2_ArrMD [] = $data['rata2_akurasi_Hujan_MD'];
-$rata2MD = implode("|", $rata2_ArrMD);
+    $id_kategori_MD = $data['id_kategori_MD'];
+    $tahun_hasilS_MD = $data['tahun_hasilS_MD'];
+    $angka_acak_MD = implode("|", $data['angka_acak_MD']);
+    $hasil_simulasi_MD = implode("|" , $data['hasil_simulasi_MD']);
+    $data_real_MD = implode("|", $data['data_real_MD']);
+    $tingkat_akurasi_MD = implode("|", $data['akurasi_MD']);
+    $totalArrMD = [];
+    $totalArrMD [] = $data['total_hasilS_MD'];
+    $totalArrMD [] = $data['total_dataR_MD'];
+    $totalArrMD [] = $data['akurasi_tahun_MD'];
+    $totalArrMD [] = $data['total_hasilS_Kemarau_MD'];
+    $totalArrMD [] = $data['total_dataR_Kemarau_MD'];
+    $totalArrMD [] = $data['akurasi_Kemarau_MD'];
+    $totalArrMD [] = $data['total_hasilS_Hujan_MD'];
+    $totalArrMD [] = $data['total_dataR_Hujan_MD'];
+    $totalArrMD [] = $data['akurasi_Hujan_MD'];
+    $totalMD = implode("|", $totalArrMD);
+    $rata2_ArrMD = [];
+    $rata2_ArrMD [] = $data['rata2_hasilS_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_MD'];
+    $rata2_ArrMD [] = $data['rata2_hasilS_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_Kemarau_MD'];
+    $rata2_ArrMD [] = $data['rata2_hasilS_Hujan_MD'];
+    $rata2_ArrMD [] = $data['rata2_data_real_Hujan_MD'];
+    $rata2_ArrMD [] = $data['rata2_akurasi_Hujan_MD'];
+    $rata2MD = implode("|", $rata2_ArrMD);
 
      //Luka Berat
-$id_kategori_LB = $data['id_kategori_LB'];
-$tahun_hasilS_LB = $data['tahun_hasilS_LB'];
-$angka_acak_LB = implode("|", $data['angka_acak_LB']);
-$hasil_simulasi_LB = implode("|" , $data['hasil_simulasi_LB']);
-$data_real_LB = implode("|", $data['data_real_LB']);
-$tingkat_akurasi_LB = implode("|", $data['akurasi_LB']);
-$totalArrLB = [];
-$totalArrLB [] = $data['total_hasilS_LB'];
-$totalArrLB [] = $data['total_dataR_LB'];
-$totalArrLB [] = $data['akurasi_tahun_LB'];
-$totalArrLB [] = $data['total_hasilS_Kemarau_LB'];
-$totalArrLB [] = $data['total_dataR_Kemarau_LB'];
-$totalArrLB [] = $data['akurasi_Kemarau_LB'];
-$totalArrLB [] = $data['total_hasilS_Hujan_LB'];
-$totalArrLB [] = $data['total_dataR_Hujan_LB'];
-$totalArrLB [] = $data['akurasi_Hujan_LB'];
-$totalLB = implode("|", $totalArrLB);
-$rata2_ArrLB = [];
-$rata2_ArrLB [] = $data['rata2_hasilS_LB'];
-$rata2_ArrLB [] = $data['rata2_data_real_LB'];
-$rata2_ArrLB [] = $data['rata2_akurasi_LB'];
-$rata2_ArrLB [] = $data['rata2_hasilS_Kemarau_LB'];
-$rata2_ArrLB [] = $data['rata2_data_real_Kemarau_LB'];
-$rata2_ArrLB [] = $data['rata2_akurasi_Kemarau_LB'];
-$rata2_ArrLB [] = $data['rata2_hasilS_Hujan_LB'];
-$rata2_ArrLB [] = $data['rata2_data_real_Hujan_LB'];
-$rata2_ArrLB [] = $data['rata2_akurasi_Hujan_LB'];
-$rata2LB = implode("|", $rata2_ArrLB);
+    $id_kategori_LB = $data['id_kategori_LB'];
+    $tahun_hasilS_LB = $data['tahun_hasilS_LB'];
+    $angka_acak_LB = implode("|", $data['angka_acak_LB']);
+    $hasil_simulasi_LB = implode("|" , $data['hasil_simulasi_LB']);
+    $data_real_LB = implode("|", $data['data_real_LB']);
+    $tingkat_akurasi_LB = implode("|", $data['akurasi_LB']);
+    $totalArrLB = [];
+    $totalArrLB [] = $data['total_hasilS_LB'];
+    $totalArrLB [] = $data['total_dataR_LB'];
+    $totalArrLB [] = $data['akurasi_tahun_LB'];
+    $totalArrLB [] = $data['total_hasilS_Kemarau_LB'];
+    $totalArrLB [] = $data['total_dataR_Kemarau_LB'];
+    $totalArrLB [] = $data['akurasi_Kemarau_LB'];
+    $totalArrLB [] = $data['total_hasilS_Hujan_LB'];
+    $totalArrLB [] = $data['total_dataR_Hujan_LB'];
+    $totalArrLB [] = $data['akurasi_Hujan_LB'];
+    $totalLB = implode("|", $totalArrLB);
+    $rata2_ArrLB = [];
+    $rata2_ArrLB [] = $data['rata2_hasilS_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_LB'];
+    $rata2_ArrLB [] = $data['rata2_hasilS_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_Kemarau_LB'];
+    $rata2_ArrLB [] = $data['rata2_hasilS_Hujan_LB'];
+    $rata2_ArrLB [] = $data['rata2_data_real_Hujan_LB'];
+    $rata2_ArrLB [] = $data['rata2_akurasi_Hujan_LB'];
+    $rata2LB = implode("|", $rata2_ArrLB);
 
      //Luka Ringan
-$id_kategori_LR = $data['id_kategori_LR'];
-$tahun_hasilS_LR = $data['tahun_hasilS_LR'];
-$angka_acak_LR = implode("|", $data['angka_acak_LR']);
-$hasil_simulasi_LR = implode("|" , $data['hasil_simulasi_LR']);
-$data_real_LR = implode("|", $data['data_real_LR']);
-$tingkat_akurasi_LR = implode("|", $data['akurasi_LR']);
-$totalArrLR = [];
-$totalArrLR [] = $data['total_hasilS_LR'];
-$totalArrLR [] = $data['total_dataR_LR'];
-$totalArrLR [] = $data['akurasi_tahun_LR'];
-$totalArrLR [] = $data['total_hasilS_Kemarau_LR'];
-$totalArrLR [] = $data['total_dataR_Kemarau_LR'];
-$totalArrLR [] = $data['akurasi_Kemarau_LR'];
-$totalArrLR [] = $data['total_hasilS_Hujan_LR'];
-$totalArrLR [] = $data['total_dataR_Hujan_LR'];
-$totalArrLR [] = $data['akurasi_Hujan_LR'];
-$totalLR = implode("|", $totalArrLR);
-$rata2_ArrLR = [];
-$rata2_ArrLR [] = $data['rata2_hasilS_LR'];
-$rata2_ArrLR [] = $data['rata2_data_real_LR'];
-$rata2_ArrLR [] = $data['rata2_akurasi_LR'];
-$rata2_ArrLR [] = $data['rata2_hasilS_Kemarau_LR'];
-$rata2_ArrLR [] = $data['rata2_data_real_Kemarau_LR'];
-$rata2_ArrLR [] = $data['rata2_akurasi_Kemarau_LR'];
-$rata2_ArrLR [] = $data['rata2_hasilS_Hujan_LR'];
-$rata2_ArrLR [] = $data['rata2_data_real_Hujan_LR'];
-$rata2_ArrLR [] = $data['rata2_akurasi_Hujan_LR'];
-$rata2LR = implode("|", $rata2_ArrLR);
+    $id_kategori_LR = $data['id_kategori_LR'];
+    $tahun_hasilS_LR = $data['tahun_hasilS_LR'];
+    $angka_acak_LR = implode("|", $data['angka_acak_LR']);
+    $hasil_simulasi_LR = implode("|" , $data['hasil_simulasi_LR']);
+    $data_real_LR = implode("|", $data['data_real_LR']);
+    $tingkat_akurasi_LR = implode("|", $data['akurasi_LR']);
+    $totalArrLR = [];
+    $totalArrLR [] = $data['total_hasilS_LR'];
+    $totalArrLR [] = $data['total_dataR_LR'];
+    $totalArrLR [] = $data['akurasi_tahun_LR'];
+    $totalArrLR [] = $data['total_hasilS_Kemarau_LR'];
+    $totalArrLR [] = $data['total_dataR_Kemarau_LR'];
+    $totalArrLR [] = $data['akurasi_Kemarau_LR'];
+    $totalArrLR [] = $data['total_hasilS_Hujan_LR'];
+    $totalArrLR [] = $data['total_dataR_Hujan_LR'];
+    $totalArrLR [] = $data['akurasi_Hujan_LR'];
+    $totalLR = implode("|", $totalArrLR);
+    $rata2_ArrLR = [];
+    $rata2_ArrLR [] = $data['rata2_hasilS_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_LR'];
+    $rata2_ArrLR [] = $data['rata2_hasilS_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_Kemarau_LR'];
+    $rata2_ArrLR [] = $data['rata2_hasilS_Hujan_LR'];
+    $rata2_ArrLR [] = $data['rata2_data_real_Hujan_LR'];
+    $rata2_ArrLR [] = $data['rata2_akurasi_Hujan_LR'];
+    $rata2LR = implode("|", $rata2_ArrLR);
 
 
 
 
-$query = "INSERT INTO data_hasil_simulasi VALUES ('', '$id_kategori_MD', '$tahun_hasilS_MD', '$angka_acak_MD', '$hasil_simulasi_MD', '$data_real_MD', '$tingkat_akurasi_MD', '$totalMD', '$rata2MD'),
-('', '$id_kategori_LB', '$tahun_hasilS_LB', '$angka_acak_LB', '$hasil_simulasi_LB', '$data_real_LB', '$tingkat_akurasi_LB', '$totalLB', '$rata2LB'),
-('', '$id_kategori_LR', '$tahun_hasilS_LR', '$angka_acak_LR', '$hasil_simulasi_LR', '$data_real_LR', '$tingkat_akurasi_LR', '$totalLR', '$rata2LR')";
+    $query = "INSERT INTO data_hasil_simulasi VALUES ('', '$id_kategori_MD', '$tahun_hasilS_MD', '$angka_acak_MD', '$hasil_simulasi_MD', '$data_real_MD', '$tingkat_akurasi_MD', '$totalMD', '$rata2MD'),
+    ('', '$id_kategori_LB', '$tahun_hasilS_LB', '$angka_acak_LB', '$hasil_simulasi_LB', '$data_real_LB', '$tingkat_akurasi_LB', '$totalLB', '$rata2LB'),
+    ('', '$id_kategori_LR', '$tahun_hasilS_LR', '$angka_acak_LR', '$hasil_simulasi_LR', '$data_real_LR', '$tingkat_akurasi_LR', '$totalLR', '$rata2LR')";
 
-mysqli_query($conn, $query);
-return mysqli_affected_rows($conn);
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
 }
 
 function register($data){
