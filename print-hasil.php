@@ -45,7 +45,7 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 	</head>
 	<body>
 		<table class="table table-bordered">
-			<caption class="caption-top text-center mb-2">Data Hasil Simulasi Meninggal Dunia <?=  $_SESSION['tahun_hasilMD']; ?></caption>
+			<caption class="caption-top text-center mb-2">Data Hasil Simulasi Meninggal Dunia <?= $_SESSION['tahun_uji_MD']; ?></caption>
 			<caption>								
 				<ul style="list-style-type:square;">
 					<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
@@ -57,8 +57,8 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 							<th>No</th>
 							<th>Bulan</th>
 							<th>Angka Acak</th>
-							<th>Hasil Simulasi <?= $_SESSION['tahun_hasilMD'] ?></th>
-							<th>Data Real <?= $_SESSION['tahun_hasilMD'] ?></th>
+							<th>Hasil Simulasi <?= $_SESSION['tahun_uji_MD']; ?></th>
+							<th>Data Real <?= $_SESSION['tahun_uji_MD']; ?></th>
 							<th>Tingkat Akurasi</th>
 						</tr>
 					</thead>
@@ -67,43 +67,43 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 						<tr class="text-center">
 							<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?> ><?= $no++; ?></th>
 								<td class="text-start"><?=  $bulan[$i]; ?></td>
-								<td> <?= $_SESSION['convert_hasil_acakMD'][$i] ?></td>
-								<td> <?= $_SESSION['convert_hasil_MD'][$i] ?></td>
-								<td>  <?= $_SESSION['convert_hasil_datarealMD'][$i]; ?></td>
-								<td> <?= $_SESSION['convert_hasil_akurasiMD'][$i]; ?></td>	
+								<td> <?= $_SESSION['angkaAcakMD'][$bulan[$i]] ?> </td>
+								<td> <?= $_SESSION['hasilS_MD'][$bulan[$i]] ?></td>
+								<td>  <?= $_SESSION['frek_MD'][$bulan[$i]]; ?></td>
+								<td> <?= "{$_SESSION['akurasiMD'][$bulan[$i]]}%" ?></td>	
 							</tr>
 						<?php endfor ?>
 						<tr class="text-center">
 							<th colspan="3" rowspan="3" style=" vertical-align: middle !important;">Total</th>
-							<td><?= $_SESSION['total_hasil_simMD']; ?></td>
-							<td><?= $_SESSION['total_data_realMD']; ?></td>
-							<td><?= "{$_SESSION['total_data_akurasiMD']}" ?></td>		
+							<td><?= $_SESSION['total_hasilS_MD']; ?></td>
+							<td><?= $_SESSION['total_dataR_MD']; ?></td>
+							<td><?= "{$_SESSION['akurasi_tahun_MD']}%"; ?></td>		
 						</tr>
 						<tr class="text-center">
-							<td class="musimKemarau"><?= $_SESSION['total_hasil_kemarau_simMD']?></td>
-							<td><?= $_SESSION['total_data_kemarau_realMD']; ?></td>
-							<td><?= "{$_SESSION['total_data_kemarau_akurasiMD']}"; ?></td>
+							<td class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_MD']; ?></td>
+							<td><?= $_SESSION['total_dataR_Kemarau_MD']; ?></td>
+							<td><?= "{$_SESSION['akurasi_Kemarau_MD']}%"; ?></td>
 						</tr>
 						<tr class="text-center">
-							<td class="musimHujan"><?= $_SESSION['total_hasil_hujan_simMD']?></td>
-							<td><?= $_SESSION['total_data_hujan_realMD']; ?></td>
-							<td><?= "{$_SESSION['total_data_hujan_akurasiMD']}"; ?></td>
+							<td class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_MD']; ?></td>
+							<td><?= $_SESSION['total_dataR_Hujan_MD']; ?></td>
+							<td><?= "{$_SESSION['akurasi_Hujan_MD']}%"; ?></td>
 						</tr>
 						<tr class="text-center">
 							<th class="text-center" colspan="3" rowspan="3"  style=" vertical-align: middle !important;">Rata-rata</th>
-							<td><?= $_SESSION['rata2_hasil_simMD']; ?></td>
-							<td><?= $_SESSION['rata2_hasil_realMD']; ?></td>
-							<td> <?= "{$_SESSION['rata2_hasil_akurasiMD']}"; ?></td>
+							<td><?= $_SESSION['rata2_total_hasilS_MD']; ?></td>
+							<td><?= $_SESSION['rata2_total_dataR_MD']; ?></td>
+							<td><?= "{$_SESSION['rata2_akurasi_tahun_MD']}%"; ?></td>
 						</tr>
 						<tr class="text-center">
-							<td class="musimKemarau"><?= $_SESSION['rata2_hasil_kemarau_simMD']; ?></td>
-							<td><?= $_SESSION['rata2_hasil_kemarau_realMD'] ?></td>
-							<td><?= "{$_SESSION['rata2_hasil_kemarau_akurasiMD']}"; ?></td>
+							<td class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_MD']; ?></td>
+							<td><?= $_SESSION['rata2_total_dataR_Kemarau_MD']; ?></td>
+							<td><?= "{$_SESSION['rata2_akurasi_Kemarau_MD']}%"; ?></td>
 						</tr>
 						<tr class="text-center">
-							<td class="musimHujan"><?= $_SESSION['rata2_hasil_hujan_simMD']; ?></td>
-							<td><?= $_SESSION['rata2_hasil_hujan_realMD'] ?></td>
-							<td><?= "{$_SESSION['rata2_hasil_hujan_akurasiMD']}"; ?></td>
+							<td class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_MD'];?></td>
+							<td><?= $_SESSION['rata2_total_dataR_Hujan_MD'];?></td>
+							<td><?= "{$_SESSION['rata2_akurasi_Hujan_MD']}%";?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -148,7 +148,7 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 			</head>
 			<body>
 				<table class="table table-bordered">
-					<caption class="caption-top text-center mb-2">Data Hasil Simulasi Luka Berat <?=  $_SESSION['tahun_hasilLB']; ?></caption>
+					<caption class="caption-top text-center mb-2">Data Hasil Simulasi Luka Berat <?= $_SESSION['tahun_uji_LB']; ?></caption>
 					<caption>								
 						<ul style="list-style-type:square;">
 							<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
@@ -156,12 +156,11 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 								</ul> 
 							</caption>
 							<thead>
-								<tr class="text-center">
-									<th>No</th>
+								<tr class="text-center">	
 									<th>Bulan</th>
 									<th>Angka Acak</th>
-									<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLB'] ?></th>
-									<th>Data Real <?= $_SESSION['tahun_hasilLB'] ?></th>
+									<th>Hasil Simulasi <?= $_SESSION['tahun_uji_LB']; ?></th>
+									<th>Data Real <?= $_SESSION['tahun_uji_LB']; ?></th>
 									<th>Tingkat Akurasi</th>
 								</tr>
 							</thead>
@@ -170,43 +169,43 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 								<tr class="text-center">
 									<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?> ><?= $no++; ?></th>
 										<td class="text-start"><?=  $bulan[$i]; ?></td>
-										<td> <?= $_SESSION['convert_hasil_acakLB'][$i] ?></td>
-										<td> <?= $_SESSION['convert_hasil_LB'][$i] ?></td>
-										<td>  <?= $_SESSION['convert_hasil_datarealLB'][$i]; ?></td>
-										<td> <?= $_SESSION['convert_hasil_akurasiLB'][$i]; ?></td>	
+										<td> <?= $_SESSION['angkaAcakLB'][$bulan[$i]] ?> </td>
+										<td> <?= $_SESSION['hasilS_LB'][$bulan[$i]] ?></td>
+										<td>  <?= $_SESSION['frek_LB'][$bulan[$i]]; ?></td>
+										<td> <?= "{$_SESSION['akurasiLB'][$bulan[$i]]}%" ?></td>	
 									</tr>
 								<?php endfor ?>
 								<tr class="text-center">
 									<th colspan="3" rowspan="3" style=" vertical-align: middle !important;">Total</th>
-									<td><?= $_SESSION['total_hasil_simLB']; ?></td>
-									<td><?= $_SESSION['total_data_realLB']; ?></td>
-									<td><?= "{$_SESSION['total_data_akurasiLB']}" ?></td>		
+									<td><?= $_SESSION['total_hasilS_LB']; ?></td>
+									<td><?= $_SESSION['total_dataR_LB']; ?></td>
+									<td><?= "{$_SESSION['akurasi_tahun_LB']}%"; ?></td>		
 								</tr>
 								<tr class="text-center">
-									<td class="musimKemarau"><?= $_SESSION['total_hasil_kemarau_simLB']?></td>
-									<td><?= $_SESSION['total_data_kemarau_realLB']; ?></td>
-									<td><?= "{$_SESSION['total_data_kemarau_akurasiLB']}"; ?></td>
+									<td class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LB']; ?></td>
+									<td><?= $_SESSION['total_dataR_Kemarau_LB']; ?></td>
+									<td><?= "{$_SESSION['akurasi_Kemarau_LB']}%"; ?></td>
 								</tr>
 								<tr class="text-center">
-									<td class="musimHujan"><?= $_SESSION['total_hasil_hujan_simLB']?></td>
-									<td><?= $_SESSION['total_data_hujan_realLB']; ?></td>
-									<td><?= "{$_SESSION['total_data_hujan_akurasiLB']}"; ?></td>
+									<td class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LB']; ?></td>
+									<td><?= $_SESSION['total_dataR_Hujan_LB']; ?></td>
+									<td><?= "{$_SESSION['akurasi_Hujan_LB']}%"; ?></td>
 								</tr>
 								<tr class="text-center">
 									<th class="text-center" colspan="3" rowspan="3"  style=" vertical-align: middle !important;">Rata-rata</th>
-									<td><?= $_SESSION['rata2_hasil_simLB']; ?></td>
-									<td><?= $_SESSION['rata2_hasil_realLB']; ?></td>
-									<td> <?= "{$_SESSION['rata2_hasil_akurasiLB']}"; ?></td>
+									<td><?= $_SESSION['rata2_total_hasilS_LB']; ?></td>
+									<td><?= $_SESSION['rata2_total_dataR_LB']; ?></td>
+									<td><?= "{$_SESSION['rata2_akurasi_tahun_LB']}%"; ?></td>
 								</tr>
 								<tr class="text-center">
-									<td class="musimKemarau"><?= $_SESSION['rata2_hasil_kemarau_simLB']; ?></td>
-									<td><?= $_SESSION['rata2_hasil_kemarau_realLB'] ?></td>
-									<td><?= "{$_SESSION['rata2_hasil_kemarau_akurasiLB']}"; ?></td>
+									<td class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_LB']; ?></td>
+									<td><?= $_SESSION['rata2_total_dataR_Kemarau_LB']; ?></td>
+									<td><?= "{$_SESSION['rata2_akurasi_Kemarau_LB']}%"; ?></td>
 								</tr>
 								<tr class="text-center">
-									<td class="musimHujan"><?= $_SESSION['rata2_hasil_hujan_simLB']; ?></td>
-									<td><?= $_SESSION['rata2_hasil_hujan_realLB'] ?></td>
-									<td><?= "{$_SESSION['rata2_hasil_hujan_akurasiLB']}"; ?></td>
+									<td class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_LB'];?></td>
+									<td><?= $_SESSION['rata2_total_dataR_Hujan_LB'];?></td>
+									<td><?= "{$_SESSION['rata2_akurasi_Hujan_LB']}%";?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -252,7 +251,7 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 					</head>
 					<body>
 						<table class="table table-bordered">
-							<caption class="caption-top text-center mb-2">Data Hasil Simulasi Luka Ringan <?=  $_SESSION['tahun_hasilLR']; ?></caption>
+							<caption class="caption-top text-center mb-2">Data Hasil Simulasi Luka Ringan <?= $_SESSION['tahun_uji_LR']; ?></caption>
 							<caption>								
 								<ul style="list-style-type:square;">
 									<li style="color: blue;"><span style="color: gray;">Musim Hujan<span></li>
@@ -260,12 +259,11 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 										</ul> 
 									</caption>
 									<thead>
-										<tr class="text-center">
-											<th>No</th>
+										<tr>	
 											<th>Bulan</th>
 											<th>Angka Acak</th>
-											<th>Hasil Simulasi <?= $_SESSION['tahun_hasilLR'] ?></th>
-											<th>Data Real <?= $_SESSION['tahun_hasilLR'] ?></th>
+											<th>Hasil Simulasi <?= $_SESSION['tahun_uji_LR']; ?></th>
+											<th>Data Real <?= $_SESSION['tahun_uji_LR']; ?></th>
 											<th>Tingkat Akurasi</th>
 										</tr>
 									</thead>
@@ -274,43 +272,43 @@ $musim_hujan = ["Januari","Februari", "Maret","November", "Desember"];
 										<tr class="text-center">
 											<th <?= $no >= 5 && $no <= 10 ?"style='border-left-color:red' " : "style='border-left-color:blue'"?> ><?= $no++; ?></th>
 												<td class="text-start"><?=  $bulan[$i]; ?></td>
-												<td> <?= $_SESSION['convert_hasil_acakLR'][$i] ?></td>
-												<td> <?= $_SESSION['convert_hasil_LR'][$i] ?></td>
-												<td>  <?= $_SESSION['convert_hasil_datarealLR'][$i]; ?></td>
-												<td> <?= $_SESSION['convert_hasil_akurasiLR'][$i]; ?></td>	
+												<td> <?= $_SESSION['angkaAcakLR'][$bulan[$i]] ?> </td>
+												<td> <?= $_SESSION['hasilS_LR'][$bulan[$i]] ?></td>
+												<td>  <?= $_SESSION['frek_LR'][$bulan[$i]]; ?></td>
+												<td> <?= "{$_SESSION['akurasiLR'][$bulan[$i]]}%" ?></td>	
 											</tr>
 										<?php endfor ?>
 										<tr class="text-center">
 											<th colspan="3" rowspan="3" style=" vertical-align: middle !important;">Total</th>
-											<td><?= $_SESSION['total_hasil_simLR']; ?></td>
-											<td><?= $_SESSION['total_data_realLR']; ?></td>
-											<td><?= "{$_SESSION['total_data_akurasiLR']}" ?></td>		
+											<td><?= $_SESSION['total_hasilS_LR']; ?></td>
+											<td><?= $_SESSION['total_dataR_LR']; ?></td>
+											<td><?= "{$_SESSION['akurasi_tahun_LR']}%"; ?></td>		
 										</tr>
 										<tr class="text-center">
-											<td class="musimKemarau"><?= $_SESSION['total_hasil_kemarau_simLR']?></td>
-											<td><?= $_SESSION['total_data_kemarau_realLR']; ?></td>
-											<td><?= "{$_SESSION['total_data_kemarau_akurasiLR']}"; ?></td>
+											<td class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LR']; ?></td>
+											<td><?= $_SESSION['total_dataR_Kemarau_LR']; ?></td>
+											<td><?= "{$_SESSION['akurasi_Kemarau_LR']}%"; ?></td>
 										</tr>
 										<tr class="text-center">
-											<td class="musimHujan"><?= $_SESSION['total_hasil_hujan_simLR']?></td>
-											<td><?= $_SESSION['total_data_hujan_realLR']; ?></td>
-											<td><?= "{$_SESSION['total_data_hujan_akurasiLR']}"; ?></td>
+											<td class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LR']; ?></td>
+											<td><?= $_SESSION['total_dataR_Hujan_LR']; ?></td>
+											<td><?= "{$_SESSION['akurasi_Hujan_LR']}%"; ?></td>
 										</tr>
 										<tr class="text-center">
 											<th class="text-center" colspan="3" rowspan="3"  style=" vertical-align: middle !important;">Rata-rata</th>
-											<td><?= $_SESSION['rata2_hasil_simLR']; ?></td>
-											<td><?= $_SESSION['rata2_hasil_realLR']; ?></td>
-											<td> <?= "{$_SESSION['rata2_hasil_akurasiLR']}"; ?></td>
+											<td><?= $_SESSION['rata2_total_hasilS_LR']; ?></td>
+											<td><?= $_SESSION['rata2_total_dataR_LR']; ?></td>
+											<td><?= "{$_SESSION['rata2_akurasi_tahun_LR']}%"; ?></td>
 										</tr>
 										<tr class="text-center">
-											<td class="musimKemarau"><?= $_SESSION['rata2_hasil_kemarau_simLR']; ?></td>
-											<td><?= $_SESSION['rata2_hasil_kemarau_realLR'] ?></td>
-											<td><?= "{$_SESSION['rata2_hasil_kemarau_akurasiLR']}"; ?></td>
+											<td class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_LR']; ?></td>
+											<td><?= $_SESSION['rata2_total_dataR_Kemarau_LR']; ?></td>
+											<td><?= "{$_SESSION['rata2_akurasi_Kemarau_LR']}%"; ?></td>
 										</tr>
 										<tr class="text-center">
-											<td class="musimHujan"><?= $_SESSION['rata2_hasil_hujan_simLR']; ?></td>
-											<td><?= $_SESSION['rata2_hasil_hujan_realLR'] ?></td>
-											<td><?= "{$_SESSION['rata2_hasil_hujan_akurasiLR']}"; ?></td>
+											<td class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_LR'];?></td>
+											<td><?= $_SESSION['rata2_total_dataR_Hujan_LR'];?></td>
+											<td><?= "{$_SESSION['rata2_akurasi_Hujan_LR']}%";?></td>
 										</tr>
 									</tbody>
 								</table>

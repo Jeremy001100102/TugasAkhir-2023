@@ -2382,3 +2382,4 @@ if(isset($_POST['simpan'])){
 </div>
 </div>
 </div>
+<?php require "export-hasil.php" ?>
