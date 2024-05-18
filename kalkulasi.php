@@ -290,10 +290,6 @@ if (isset($_GET['id_frekLR']) || isset($_GET['id_prediksi'])) {
 <?php endif ?>
 
 <?php if(isset($_GET['hs']) && isset($_SESSION['angka_acak'])) : ?>
-<div class="row">
-	<div class="col-6">
-		<h3>Hasil Simulasi</h3>
-	</div>
 	<?php if (isset($_SESSION['cek_prediksi']) && $_SESSION['cek_prediksi'] === "on"): ?>
 		<?php 	require "hasil-simulasi-prediksi.php" ?>
 	<?php else :?>

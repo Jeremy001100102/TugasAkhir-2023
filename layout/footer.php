@@ -65,11 +65,29 @@
                 }
             }
         };
-
+// document.addEventListener('DOMContentLoaded', function () {
+//     const iconUtama = document.querySelector('.icon_utama');
+//     if (iconUtama) {
+//         iconUtama.click();
+//     }
+// });
 
         $('.icon').click(function() {
             $(this).find('i').toggleClass('fa-solid fa-caret-down fa-solid fa-caret-up')
         });
+
+        $('.icon_utama').click(function() {
+            $(this).find('i').toggleClass('fa-solid fa-minus fa-solid fa-plus')
+            $('.icon').find('i').toggleClass('fa-solid fa-caret-down fa-solid fa-caret-up')
+        });
+
+    //      $('.icon_utama').click(function() {
+    //     $(this).find('i').toggleClass('fa-solid fa-minus fa-solid fa-plus');
+    //     $('.icon').find('i').toggleClass('fa-solid fa-caret-down fa-solid fa-caret-up');
+        
+    //     // Sembunyikan elemen #MDr1 secara default
+    //     $('.MD_All').removeClass('show');
+    // });
 
 </script>
 

@@ -261,10 +261,7 @@ function importData($file_data) {
 
 
     // Misalnya, tampilkan data dari setiap lembar kerja
-
         if($sheetData[0][3] == "MD"){
-
-
            $kategori = 1;   
            $tahun = $sheetName;
 
