@@ -2012,4 +2012,5 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 </div>
 </div>
 </div>
+<?php require "export-hasil-prediksi.php" ?>
 
