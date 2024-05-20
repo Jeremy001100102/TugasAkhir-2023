@@ -40,6 +40,7 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
 
 <?php if (isset($_SESSION['grafik_hasil_MD'])) : ?>
 <script>
+
   let yHasilMD = <?=  json_encode($data_hasilMD); ?>;
   let yRealMD = <?=   json_encode($data_realMD); ?>;
   let max_sumbuyMD = <?= json_encode($max_sumbuY_MD); ?>;
@@ -77,15 +78,13 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
           display: true,
           ticks: {
             beginAtZero: true,
-            max: max_sumbuyMD,
             min: 0
           }
         }],
         xAxes: [{
          id: 'x-axis-1'
-
        }]
-      },
+      }
      //  annotation: {
      //    drawTime: "afterDraw",
      //    annotations: [{
@@ -141,6 +140,10 @@ if (isset($_SESSION['grafik_hasil_MD'])) {
       // }      
     }
   });
-  console.log(chartMD);
+
+    
+
+       
+  
 </script>
 <?php   endif; ?>

@@ -26,7 +26,7 @@ $jumlah_irisan_tahun = intval($jumlah_irisan_tahun['jumlah_tahun']);
 
 
 //data tahun prediksi
-$ambil_tahun = mysqli_query($conn, "SELECT DISTINCT tahun FROM data_kecelakaan");
+$ambil_tahun = mysqli_query($conn, "SELECT DISTINCT tahun FROM data_kecelakaan ORDER BY tahun ASC");
 $data_tahun_prediksi = [];
 while ($data = mysqli_fetch_assoc($ambil_tahun)) {
     $data_tahun_prediksi[] = $data;    

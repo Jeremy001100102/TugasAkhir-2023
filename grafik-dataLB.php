@@ -79,7 +79,6 @@ if (isset($_SESSION['grafik_hasil_LB'])) {
           display: true,
           ticks: {
             beginAtZero: true,
-            max: max_sumbuyLB,
             min: 0
           }
         }],
@@ -87,7 +86,7 @@ if (isset($_SESSION['grafik_hasil_LB'])) {
          id: 'x-axis-1'
 
        }]
-      },
+      }
      //  annotation: {
      //    drawTime: "afterDraw",
      //    annotations: [{

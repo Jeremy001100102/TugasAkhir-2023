@@ -93,7 +93,6 @@ if (isset($_POST['simpanImport'])) {
 
 $data_per_kategori = tahunPrediksi();
 
-
 ?>
 
 
@@ -157,7 +156,8 @@ $data_per_kategori = tahunPrediksi();
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                 <a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>   
+                 <a href="kalkulasi.php?reset=jeremy&frek=jeremy&id_prediksi=<?=++$tahun?>" class="dropdown-item text-center"><?= $tahun?></a>
+
              </li>
          <?php  endif ?>
 

@@ -18,7 +18,6 @@ for ($i=0; $i < count($bulan); $i++) {
 		$inter_minMD_Februari[$j] = $dataexplode[0];
 		$inter_maxMD_Februari[$j] = isset($dataexplode[1]) ? $dataexplode[1] : $inter_maxMD_Februari[$j-1];
 
-
 		$dataexplode = explode("-", $_SESSION['interval_MD_Maret'][$j]);
 		$inter_minMD_Maret[$j] = $dataexplode[0];
 		$inter_maxMD_Maret[$j] = isset($dataexplode[1]) ? $dataexplode[1] : $inter_maxMD_Maret[$j-1];
@@ -607,6 +606,7 @@ if(isset($_POST['simpan'])){
 	
 }
 
+
 ?>
 <div class="row">
 	<div class="col-6">
@@ -724,7 +724,7 @@ if(isset($_POST['simpan'])){
 							</div>
 							<div class="col-6 text-end">
 								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
-								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikMD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
+								<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafik_MD" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 							</div>							
 						</div>
 						<!-- bulan january -->
@@ -1282,7 +1282,7 @@ if(isset($_POST['simpan'])){
 					</div>
 					<div class="col-6 text-end">
 						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
-						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
+						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafik_LB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 					</div>							
 				</div>
 				<!-- bulan january -->
@@ -1839,7 +1839,7 @@ if(isset($_POST['simpan'])){
 					</div>
 					<div class="col-6 text-end">
 						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#exportdataLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-file-export"></i> Export</a>
-						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
+						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafik_LR" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 					</div>							
 				</div>
 				<!-- bulan january -->
@@ -2382,4 +2382,6 @@ if(isset($_POST['simpan'])){
 </div>
 </div>
 </div>
-<?php require "export-hasil.php" ?>
+
+<?php require "grafik-hasil.php"; ?>
+<?php require "export-hasil.php"; ?>

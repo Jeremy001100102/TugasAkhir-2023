@@ -476,8 +476,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 							<thead>
 								<tr class="table-dark text-center">
 									<th class="col-2">Bulan</i></th>
-									<th class="col-5">Angka Acak</th>
-									<th class="col-5">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_MD']; ?></th>
+									<th class="col-3">Angka Acak</th>
+									<th class="col-7">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_MD']; ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -487,8 +487,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 										<thead>
 											<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr1">
 												<th style="border-left-color:blue;">Januari <i class="fa-solid fa-caret-down"></i></th>
-												<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Januari'] ?></th>
-												<th class="col-5 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Januari'] ?></th>	
+												<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Januari'] ?></th>
+												<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Januari'] ?></th>	
 											</tr>
 											<tr class="text-center collapse accordion-collapse MD_all"  id="MDr1" data-bs-parent=".table" >
 												<th>No</th>
@@ -524,8 +524,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 									<thead>
 										<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr2">
 											<th style="border-left-color:blue">Februari <i class="fa-solid fa-caret-down"></i></th>
-											<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Februari'] ?></th>
-											<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Februari'] ?></th>		
+											<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Februari'] ?></th>
+											<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Februari'] ?></th>		
 										</tr>
 										<tr class="text-center collapse accordion-collapse MD_all"  id="MDr2" data-bs-parent=".table" >
 											<th>No</th>
@@ -561,8 +561,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 								<thead>
 									<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr3">
 										<th style="border-left-color:blue">Maret <i class="fa-solid fa-caret-down"></i></th>
-										<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Maret'] ?></th>
-										<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Maret'] ?></th>	
+										<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Maret'] ?></th>
+										<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Maret'] ?></th>	
 									</tr>
 									<tr class="text-center collapse accordion-collapse MD_all"  id="MDr3" data-bs-parent=".table" >
 										<th>No</th>
@@ -598,8 +598,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 							<thead>
 								<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr4">
 									<th style="border-left-color:blue">April <i class="fa-solid fa-caret-down"></i></th>
-									<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['April'] ?></th>
-									<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['April'] ?></th>	
+									<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['April'] ?></th>
+									<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['April'] ?></th>	
 								</tr>
 								<tr class="text-center collapse accordion-collapse MD_all"  id="MDr4" data-bs-parent=".table" >
 									<th>No</th>
@@ -635,8 +635,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 						<thead>
 							<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr5">
 								<th style="border-left-color:red">Mei <i class="fa-solid fa-caret-down"></i></th>
-								<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Mei'] ?></th>
-								<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Mei'] ?></th>	
+								<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Mei'] ?></th>
+								<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Mei'] ?></th>	
 							</tr>
 							<tr class="text-center collapse accordion-collapse MD_all"  id="MDr5" data-bs-parent=".table" >
 								<th>No</th>
@@ -672,8 +672,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 					<thead>
 						<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr6">
 							<th style="border-left-color:red">Juni <i class="fa-solid fa-caret-down"></i></th>
-							<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Juni'] ?></th>
-							<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Juni'] ?></th>	
+							<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Juni'] ?></th>
+							<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Juni'] ?></th>	
 						</tr>
 						<tr class="text-center collapse accordion-collapse MD_all"  id="MDr6" data-bs-parent=".table" >
 							<th>No</th>
@@ -710,8 +710,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 				<thead>
 					<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr7">
 						<th style="border-left-color:red">Juli <i class="fa-solid fa-caret-down"></i></th>
-						<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Juli'] ?></th>
-						<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Juli'] ?></th>	
+						<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Juli'] ?></th>
+						<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Juli'] ?></th>	
 					</tr>
 					<tr class="text-center collapse accordion-collapse MD_all"  id="MDr7" data-bs-parent=".table" >
 						<th>No</th>
@@ -749,8 +749,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 			<thead>
 				<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr8">
 					<th style="border-left-color:red">Agustus <i class="fa-solid fa-caret-down"></i></th>
-					<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Agustus'] ?></th>
-					<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Agustus'] ?></th>	
+					<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Agustus'] ?></th>
+					<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Agustus'] ?></th>	
 				</tr>
 				<tr class="text-center collapse accordion-collapse MD_all"  id="MDr8" data-bs-parent=".table" >
 					<th>No</th>
@@ -786,8 +786,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 		<thead>
 			<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr9">
 				<th style="border-left-color:red">September <i class="fa-solid fa-caret-down"></i></th>
-				<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['September'] ?></th>
-				<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['September'] ?></th>	
+				<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['September'] ?></th>
+				<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['September'] ?></th>	
 			</tr>			
 			<tr class="text-center collapse accordion-collapse MD_all"  id="MDr9" data-bs-parent=".table" >
 				<th>No</th> 		
@@ -823,8 +823,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr10">
 			<th style="border-left-color:red">Oktober <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Oktober'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Oktober'] ?></th>	
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Oktober'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Oktober'] ?></th>	
 		</tr>
 		<tr class="text-center collapse accordion-collapse MD_all"  id="MDr10" data-bs-parent=".table" >
 			<th>No</th>
@@ -860,8 +860,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr11">
 			<th style="border-left-color:blue">November <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['November'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['November'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['November'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['November'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse MD_all"  id="MDr11" data-bs-parent=".table" >
 			<th>No</th>
@@ -897,8 +897,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#MDr12">
 			<th style="border-left-color:blue">Desember <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakMD']['Desember'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_MD']['Desember'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakMD']['Desember'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_MD']['Desember'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse MD_all"  id="MDr12" data-bs-parent=".table" >
 			<th>No</th>
@@ -928,47 +928,40 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;">Total</th>
-		<th><?= $_SESSION['total_hasilS_MD']; ?></th>		
+		<th colspan="4"><?= $_SESSION['total_hasilS_MD']; ?></th>		
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_MD']; ?></th>			
+		<th colspan="4" class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_MD']; ?></th>			
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_MD']; ?></th>
+		<th colspan="4" class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_MD']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;" class="text-center">Rata-Rata</th>
-		<th><?= $_SESSION['rata2_total_hasilS_MD']; ?></th>
+		<th colspan="4"><?= $_SESSION['rata2_total_hasilS_MD']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_MD']; ?></th>
+		<th class="musimKemarau" colspan="4"><?= $_SESSION['rata2_total_hasilS_Kemarau_MD']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_MD'];?></th>
+		<th class="musimHujan" colspan="4"><?= $_SESSION['rata2_total_hasilS_Hujan_MD'];?></th>
 	</tr>
 
 </tbody>
 </table>
 </tr>
 </tbody>
-
-
-
-
-
 <caption>								
 	<ul style="list-style-type:square;">
 		<li style="color: blue;"><span style="color: gray;">Musim Hujan</span></li>
 		<li style="color: red;"><span style="color: gray;">Musim Kemarau</span></li>
 	</ul> 
 </caption>
-
-
 </table>
 </div>
 </div>
@@ -992,26 +985,101 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 						<a href="#"  class="btn btn-sm btn-dark shadow-sm d-inline" data-toggle="modal" data-target="#grafikLB" data-backdrop="static" data-keyboard="false"><i class="fa-solid fa-chart-pie"></i> Grafik</a>
 					</div>							
 				</div>
-				<table class="table mb-0">
-					<caption class="caption-top text-center">Data Luka Berat</caption>
-					<thead>
-						<tr class="table-dark text-center">
-							<th class="col-2">Bulan</i></th>
-							<th class="col-5">Angka Acak</th>
-							<th class="col-5">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_LB']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
+				<!-- bulan january -->
+						<table class="table mb-0">
+							<caption class="caption-top text-center">Data Luka Berat</caption>
+							<thead>
+								<tr class="table-dark text-center">
+									<th class="col-2">Bulan</i></th>
+									<th class="col-3">Angka Acak</th>
+									<th class="col-7">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_LB']; ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<table class="table table-bordered table-sm accordion mb-0">
+										<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+										<thead>
+											<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr1">
+												<th style="border-left-color:blue;">Januari <i class="fa-solid fa-caret-down"></i></th>
+												<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Januari'] ?></th>
+												<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Januari'] ?></th>	
+											</tr>
+											<tr class="text-center collapse accordion-collapse LB_all"  id="LBr1" data-bs-parent=".table" >
+												<th>No</th>
+												<th>Bulan</th>
+												<th>Frekuensi</th>
+												<th>Probabilitas</th>
+												<th>Kumulatif</th>
+												<th>Interval Angka Acak</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
+											<tr class="text-center collapse accordion-collapse LB_all" id="LBr1" data-bs-parent=".table" >
+												<td><?= $no++; ?></td>
+												<td class="text-justify">Januari <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+												<td><?= $_SESSION['dataLB_bulan'][$i]['Januari']['data_bulan'];  ?></td>
+												<td><?= $_SESSION['prob_LB_Januari'][$i]; ?></td>
+												<td><?= $_SESSION['kumu_Januari_LB'][$i]; ?></td>
+												<td><?= $_SESSION['interval_LB_Januari'][$i]; ?></td>				
+											</tr>
+										<?php endfor; ?>	
+										<tr class="text-center collapse accordion-collapse LB_all" id="LBr1" data-bs-parent=".table">
+											<th colspan="2">Total</th>
+											<td><?= $_SESSION['jumlahFrekuensiLB_Januari']; ?></td>
+											<td><?= $_SESSION['jumlah_prob_Januari_LB'] ?></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<!-- bulan February -->
+								<table class="table table-bordered table-sm accordion mb-0">
+									<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+									<thead>
+										<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr2">
+											<th style="border-left-color:blue">Februari <i class="fa-solid fa-caret-down"></i></th>
+											<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Februari'] ?></th>
+											<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Februari'] ?></th>		
+										</tr>
+										<tr class="text-center collapse accordion-collapse LB_all"  id="LBr2" data-bs-parent=".table" >
+											<th>No</th>
+											<th>Bulan</th>
+											<th>Frekuensi</th>
+											<th>Probabilitas</th>
+											<th>Kumulatif</th>
+											<th>Interval Angka Acak</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
+										<tr class="text-center collapse accordion-collapse LB_all" id="LBr2" data-bs-parent=".table" >
+											<td><?= $no++; ?></td>
+											<td class="text-justify">Februari  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+											<td><?= $_SESSION['dataLB_bulan'][$i]['Februari']['data_bulan'];  ?></td>	
+											<td><?= $_SESSION['prob_LB_Februari'][$i]; ?></td>	
+											<td><?= $_SESSION['kumu_Februari_LB'][$i]; ?></td>
+											<td><?= $_SESSION['interval_LB_Februari'][$i]; ?></td>	
+										</tr>
+									<?php endfor; ?>	
+									<tr class="text-center collapse accordion-collapse LB_all" id="LBr2" data-bs-parent=".table">
+										<th  colspan="2">Total</th>
+										<td><?= $_SESSION['jumlahFrekuensiLB_Februari']; ?></td>
+										<td><?= $_SESSION['jumlah_prob_Februari_LB'] ?></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- bulan Maret -->
 							<table class="table table-bordered table-sm accordion mb-0">
 								<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 								<thead>
-									<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr1">
-										<th style="border-left-color:blue;">Januari <i class="fa-solid fa-caret-down"></i></th>
-										<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Januari'] ?></th>
-										<th class="col-5 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Januari'] ?></th>	
+									<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr3">
+										<th style="border-left-color:blue">Maret <i class="fa-solid fa-caret-down"></i></th>
+										<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Maret'] ?></th>
+										<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Maret'] ?></th>	
 									</tr>
-									<tr class="text-center collapse accordion-collapse LB_all"  id="LBr1" data-bs-parent=".table" >
+									<tr class="text-center collapse accordion-collapse LB_all"  id="LBr3" data-bs-parent=".table" >
 										<th>No</th>
 										<th>Bulan</th>
 										<th>Frekuensi</th>
@@ -1020,36 +1088,35 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 										<th>Interval Angka Acak</th>
 									</tr>
 								</thead>
-								<tbody>	
+								<tbody>
 									<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-									<tr class="text-center collapse accordion-collapse LB_all" id="LBr1" data-bs-parent=".table" >
+									<tr class="text-center collapse accordion-collapse LB_all" id="LBr3" data-bs-parent=".table" >
 										<td><?= $no++; ?></td>
-										<td class="text-justify">Januari <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-										<td><?= $_SESSION['dataLB_bulan'][$i]['Januari']['data_bulan'];  ?></td>
-										<td><?= $_SESSION['prob_LB_Januari'][$i]; ?></td>
-										<td><?= $_SESSION['kumu_Januari_LB'][$i]; ?></td>
-										<td><?= $_SESSION['interval_LB_Januari'][$i]; ?></td>				
+										<td class="text-justify">Maret  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+										<td><?= $_SESSION['dataLB_bulan'][$i]['Maret']['data_bulan'];  ?></td>
+										<td><?= $_SESSION['prob_LB_Maret'][$i]; ?></td>	
+										<td><?= $_SESSION['kumu_Maret_LB'][$i]; ?></td>		
+										<td><?= $_SESSION['interval_LB_Maret'][$i]; ?></td>	
 									</tr>
-
 								<?php endfor; ?>	
-								<tr class="text-center collapse accordion-collapse LB_all" id="LBr1" data-bs-parent=".table">
-									<th colspan="2">Total</th>
-									<td><?= $_SESSION['jumlahFrekuensiLB_Januari']; ?></td>
-									<td><?= $_SESSION['jumlah_prob_Januari_LB'] ?></td>
+								<tr class="text-center collapse accordion-collapse LB_all" id="LBr3" data-bs-parent=".table">
+									<th  colspan="2">Total</th>
+									<td><?= $_SESSION['jumlahFrekuensiLB_Maret']; ?></td>
+									<td><?= $_SESSION['jumlah_prob_Maret_LB'] ?></td>
 								</tr>
 							</tbody>
 						</table>
 
-						<!-- bulan February -->
+						<!-- bulan April -->
 						<table class="table table-bordered table-sm accordion mb-0">
 							<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 							<thead>
-								<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr2">
-									<th style="border-left-color:blue">Februari <i class="fa-solid fa-caret-down"></i></th>
-									<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Februari'] ?></th>
-									<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Februari'] ?></th>		
+								<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr4">
+									<th style="border-left-color:blue">April <i class="fa-solid fa-caret-down"></i></th>
+									<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['April'] ?></th>
+									<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['April'] ?></th>	
 								</tr>
-								<tr class="text-center collapse accordion-collapse LB_all"  id="LBr2" data-bs-parent=".table" >
+								<tr class="text-center collapse accordion-collapse LB_all"  id="LBr4" data-bs-parent=".table" >
 									<th>No</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
@@ -1060,33 +1127,33 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 							</thead>
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-								<tr class="text-center collapse accordion-collapse LB_all" id="LBr2" data-bs-parent=".table" >
+								<tr class="text-center collapse accordion-collapse LB_all" id="LBr4" data-bs-parent=".table" >
 									<td><?= $no++; ?></td>
-									<td class="text-justify">Februari  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-									<td><?= $_SESSION['dataLB_bulan'][$i]['Februari']['data_bulan'];  ?></td>	
-									<td><?= $_SESSION['prob_LB_Februari'][$i]; ?></td>	
-									<td><?= $_SESSION['kumu_Februari_LB'][$i]; ?></td>
-									<td><?= $_SESSION['interval_LB_Februari'][$i]; ?></td>	
+									<td class="text-justify">April  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+									<td><?= $_SESSION['dataLB_bulan'][$i]['April']['data_bulan'];  ?></td>
+									<td><?= $_SESSION['prob_LB_April'][$i];  ?></td>	
+									<td><?= $_SESSION['kumu_April_LB'][$i]; ?></td>
+									<td><?= $_SESSION['interval_LB_April'][$i]; ?></td>		
 								</tr>
 							<?php endfor; ?>	
-							<tr class="text-center collapse accordion-collapse LB_all" id="LBr2" data-bs-parent=".table">
+							<tr class="text-center collapse accordion-collapse LB_all" id="LBr4" data-bs-parent=".table">
 								<th  colspan="2">Total</th>
-								<td><?= $_SESSION['jumlahFrekuensiLB_Februari']; ?></td>
-								<td><?= $_SESSION['jumlah_prob_Februari_LB'] ?></td>
+								<td><?= $_SESSION['jumlahFrekuensiLB_April']; ?></td>
+								<td><?= $_SESSION['jumlah_prob_April_LB'] ?></td>
 							</tr>
 						</tbody>
 					</table>
 
-					<!-- bulan Maret -->
+					<!-- bulan Mei -->
 					<table class="table table-bordered table-sm accordion mb-0">
 						<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 						<thead>
-							<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr3">
-								<th style="border-left-color:blue">Maret <i class="fa-solid fa-caret-down"></i></th>
-								<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Maret'] ?></th>
-								<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Maret'] ?></th>	
+							<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr5">
+								<th style="border-left-color:red">Mei <i class="fa-solid fa-caret-down"></i></th>
+								<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Mei'] ?></th>
+								<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Mei'] ?></th>	
 							</tr>
-							<tr class="text-center collapse accordion-collapse LB_all"  id="LBr3" data-bs-parent=".table" >
+							<tr class="text-center collapse accordion-collapse LB_all"  id="LBr5" data-bs-parent=".table" >
 								<th>No</th>
 								<th>Bulan</th>
 								<th>Frekuensi</th>
@@ -1097,33 +1164,33 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 						</thead>
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-							<tr class="text-center collapse accordion-collapse LB_all" id="LBr3" data-bs-parent=".table" >
+							<tr class="text-center collapse accordion-collapse LB_all" id="LBr5" data-bs-parent=".table" >
 								<td><?= $no++; ?></td>
-								<td class="text-justify">Maret  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-								<td><?= $_SESSION['dataLB_bulan'][$i]['Maret']['data_bulan'];  ?></td>
-								<td><?= $_SESSION['prob_LB_Maret'][$i]; ?></td>	
-								<td><?= $_SESSION['kumu_Maret_LB'][$i]; ?></td>		
-								<td><?= $_SESSION['interval_LB_Maret'][$i]; ?></td>	
+								<td class="text-justify">Mei  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+								<td><?= $_SESSION['dataLB_bulan'][$i]['Mei']['data_bulan'];  ?></td>
+								<td><?= $_SESSION['prob_LB_Mei'][$i];  ?></td>
+								<td><?= $_SESSION['kumu_Mei_LB'][$i]; ?></td>
+								<td><?= $_SESSION['interval_LB_Mei'][$i]; ?></td>							
 							</tr>
 						<?php endfor; ?>	
-						<tr class="text-center collapse accordion-collapse LB_all" id="LBr3" data-bs-parent=".table">
+						<tr class="text-center collapse accordion-collapse LB_all" id="LBr5" data-bs-parent=".table">
 							<th  colspan="2">Total</th>
-							<td><?= $_SESSION['jumlahFrekuensiLB_Maret']; ?></td>
-							<td><?= $_SESSION['jumlah_prob_Maret_LB'] ?></td>
+							<td><?= $_SESSION['jumlahFrekuensiLB_Mei']; ?></td>
+							<td><?= $_SESSION['jumlah_prob_Mei_LB'] ?></td>
 						</tr>
 					</tbody>
 				</table>
 
-				<!-- bulan April -->
+				<!-- bulan Juni -->
 				<table class="table table-bordered table-sm accordion mb-0">
 					<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 					<thead>
-						<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr4">
-							<th style="border-left-color:blue">April <i class="fa-solid fa-caret-down"></i></th>
-							<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['April'] ?></th>
-							<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['April'] ?></th>	
+						<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr6">
+							<th style="border-left-color:red">Juni <i class="fa-solid fa-caret-down"></i></th>
+							<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Juni'] ?></th>
+							<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Juni'] ?></th>	
 						</tr>
-						<tr class="text-center collapse accordion-collapse LB_all"  id="LBr4" data-bs-parent=".table" >
+						<tr class="text-center collapse accordion-collapse LB_all"  id="LBr6" data-bs-parent=".table" >
 							<th>No</th>
 							<th>Bulan</th>
 							<th>Frekuensi</th>
@@ -1134,33 +1201,34 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 					</thead>
 					<tbody>
 						<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-						<tr class="text-center collapse accordion-collapse LB_all" id="LBr4" data-bs-parent=".table" >
+						<tr class="text-center collapse accordion-collapse LB_all" id="LBr6" data-bs-parent=".table" >
 							<td><?= $no++; ?></td>
-							<td class="text-justify">April  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-							<td><?= $_SESSION['dataLB_bulan'][$i]['April']['data_bulan'];  ?></td>
-							<td><?= $_SESSION['prob_LB_April'][$i];  ?></td>	
-							<td><?= $_SESSION['kumu_April_LB'][$i]; ?></td>
-							<td><?= $_SESSION['interval_LB_April'][$i]; ?></td>		
+							<td class="text-justify">Juni  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+							<td><?= $_SESSION['dataLB_bulan'][$i]['Juni']['data_bulan'];  ?></td>
+							<td><?= $_SESSION['prob_LB_Juni'][$i] ?></td>
+							<td><?= $_SESSION['kumu_Juni_LB'][$i]; ?></td>
+							<td><?= $_SESSION['interval_LB_Juni'][$i]; ?></td>			
 						</tr>
 					<?php endfor; ?>	
-					<tr class="text-center collapse accordion-collapse LB_all" id="LBr4" data-bs-parent=".table">
+					<tr class="text-center collapse accordion-collapse LB_all" id="LBr6" data-bs-parent=".table">
 						<th  colspan="2">Total</th>
-						<td><?= $_SESSION['jumlahFrekuensiLB_April']; ?></td>
-						<td><?= $_SESSION['jumlah_prob_April_LB'] ?></td>
+						<td><?= $_SESSION['jumlahFrekuensiLB_Juni']; ?></td>
+						<td><?= $_SESSION['jumlah_prob_Juni_LB'] ?></td>
 					</tr>
 				</tbody>
 			</table>
 
-			<!-- bulan Mei -->
+
+			<!-- bulan Juli -->
 			<table class="table table-bordered table-sm accordion mb-0">
 				<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 				<thead>
-					<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr5">
-						<th style="border-left-color:red">Mei <i class="fa-solid fa-caret-down"></i></th>
-						<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Mei'] ?></th>
-						<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Mei'] ?></th>	
+					<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr7">
+						<th style="border-left-color:red">Juli <i class="fa-solid fa-caret-down"></i></th>
+						<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Juli'] ?></th>
+						<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Juli'] ?></th>	
 					</tr>
-					<tr class="text-center collapse accordion-collapse LB_all"  id="LBr5" data-bs-parent=".table" >
+					<tr class="text-center collapse accordion-collapse LB_all"  id="LBr7" data-bs-parent=".table" >
 						<th>No</th>
 						<th>Bulan</th>
 						<th>Frekuensi</th>
@@ -1171,33 +1239,35 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 				</thead>
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-					<tr class="text-center collapse accordion-collapse LB_all" id="LBr5" data-bs-parent=".table" >
+					<tr class="text-center collapse accordion-collapse LB_all" id="LBr7" data-bs-parent=".table" >
 						<td><?= $no++; ?></td>
-						<td class="text-justify">Mei  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-						<td><?= $_SESSION['dataLB_bulan'][$i]['Mei']['data_bulan'];  ?></td>
-						<td><?= $_SESSION['prob_LB_Mei'][$i];  ?></td>
-						<td><?= $_SESSION['kumu_Mei_LB'][$i]; ?></td>
-						<td><?= $_SESSION['interval_LB_Mei'][$i]; ?></td>							
+						<td class="text-justify">Juli  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+						<td><?= $_SESSION['dataLB_bulan'][$i]['Juli']['data_bulan'];  ?></td>	
+						<td><?= $_SESSION['prob_LB_Juli'][$i]?></td>
+						<td><?= $_SESSION['kumu_Juli_LB'][$i]; ?></td>
+						<td><?= $_SESSION['interval_LB_Juli'][$i]; ?></td>	
 					</tr>
 				<?php endfor; ?>	
-				<tr class="text-center collapse accordion-collapse LB_all" id="LBr5" data-bs-parent=".table">
+				<tr class="text-center collapse accordion-collapse LB_all" id="LBr7" data-bs-parent=".table">
 					<th  colspan="2">Total</th>
-					<td><?= $_SESSION['jumlahFrekuensiLB_Mei']; ?></td>
-					<td><?= $_SESSION['jumlah_prob_Mei_LB'] ?></td>
+					<td><?= $_SESSION['jumlahFrekuensiLB_Juli']; ?></td>
+					<td><?= $_SESSION['jumlah_prob_Juli_LB'] ?></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<!-- bulan Juni -->
+
+		<!-- bulan Agustus -->
 		<table class="table table-bordered table-sm accordion mb-0">
 			<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+
 			<thead>
-				<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr6">
-					<th style="border-left-color:red">Juni <i class="fa-solid fa-caret-down"></i></th>
-					<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Juni'] ?></th>
-					<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Juni'] ?></th>	
+				<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr8">
+					<th style="border-left-color:red">Agustus <i class="fa-solid fa-caret-down"></i></th>
+					<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Agustus'] ?></th>
+					<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Agustus'] ?></th>	
 				</tr>
-				<tr class="text-center collapse accordion-collapse LB_all"  id="LBr6" data-bs-parent=".table" >
+				<tr class="text-center collapse accordion-collapse LB_all"  id="LBr8" data-bs-parent=".table" >
 					<th>No</th>
 					<th>Bulan</th>
 					<th>Frekuensi</th>
@@ -1208,35 +1278,34 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 			</thead>
 			<tbody>
 				<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-				<tr class="text-center collapse accordion-collapse LB_all" id="LBr6" data-bs-parent=".table" >
+				<tr class="text-center collapse accordion-collapse LB_all" id="LBr8" data-bs-parent=".table" >
 					<td><?= $no++; ?></td>
-					<td class="text-justify">Juni  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-					<td><?= $_SESSION['dataLB_bulan'][$i]['Juni']['data_bulan'];  ?></td>
-					<td><?= $_SESSION['prob_LB_Juni'][$i] ?></td>
-					<td><?= $_SESSION['kumu_Juni_LB'][$i]; ?></td>
-					<td><?= $_SESSION['interval_LB_Juni'][$i]; ?></td>			
+					<td class="text-justify">Agustus  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+					<td><?= $_SESSION['dataLB_bulan'][$i]['Agustus']['data_bulan'];  ?></td>
+					<td><?= $_SESSION['prob_LB_Agustus'][$i]; ?></td>
+					<td><?= $_SESSION['kumu_Agustus_LB'][$i]; ?></td>
+					<td><?= $_SESSION['interval_LB_Agustus'][$i]; ?></td>				
 				</tr>
 			<?php endfor; ?>	
-			<tr class="text-center collapse accordion-collapse LB_all" id="LBr6" data-bs-parent=".table">
+			<tr class="text-center collapse accordion-collapse LB_all" id="LBr8" data-bs-parent=".table">
 				<th  colspan="2">Total</th>
-				<td><?= $_SESSION['jumlahFrekuensiLB_Juni']; ?></td>
-				<td><?= $_SESSION['jumlah_prob_Juni_LB'] ?></td>
+				<td><?= $_SESSION['jumlahFrekuensiLB_Agustus']; ?></td>
+				<td><?= $_SESSION['jumlah_prob_Agustus_LB'] ?></td>
 			</tr>
 		</tbody>
 	</table>
 
-
-	<!-- bulan Juli -->
+	<!-- bulan September -->
 	<table class="table table-bordered table-sm accordion mb-0">
 		<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 		<thead>
-			<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr7">
-				<th style="border-left-color:red">Juli <i class="fa-solid fa-caret-down"></i></th>
-				<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Juli'] ?></th>
-				<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Juli'] ?></th>	
-			</tr>
-			<tr class="text-center collapse accordion-collapse LB_all"  id="LBr7" data-bs-parent=".table" >
-				<th>No</th>
+			<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr9">
+				<th style="border-left-color:red">September <i class="fa-solid fa-caret-down"></i></th>
+				<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['September'] ?></th>
+				<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['September'] ?></th>	
+			</tr>			
+			<tr class="text-center collapse accordion-collapse LB_all"  id="LBr9" data-bs-parent=".table" >
+				<th>No</th> 		
 				<th>Bulan</th>
 				<th>Frekuensi</th>
 				<th>Probabilitas</th>
@@ -1246,97 +1315,21 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 		</thead>
 		<tbody>
 			<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-			<tr class="text-center collapse accordion-collapse LB_all" id="LBr7" data-bs-parent=".table" >
+			<tr class="text-center collapse accordion-collapse LB_all" id="LBr9" data-bs-parent=".table" >
 				<td><?= $no++; ?></td>
-				<td class="text-justify">Juli  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-				<td><?= $_SESSION['dataLB_bulan'][$i]['Juli']['data_bulan'];  ?></td>	
-				<td><?= $_SESSION['prob_LB_Juli'][$i]?></td>
-				<td><?= $_SESSION['kumu_Juli_LB'][$i]; ?></td>
-				<td><?= $_SESSION['interval_LB_Juli'][$i]; ?></td>	
+				<td class="text-justify">September  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
+				<td><?= $_SESSION['dataLB_bulan'][$i]['September']['data_bulan'];  ?></td>		
+				<td><?= $_SESSION['prob_LB_September'][$i]; ?></td>
+				<td><?= $_SESSION['kumu_September_LB'][$i]; ?></td>
+				<td><?= $_SESSION['interval_LB_September'][$i]; ?></td>	
 			</tr>
 		<?php endfor; ?>	
-		<tr class="text-center collapse accordion-collapse LB_all" id="LBr7" data-bs-parent=".table">
+		<tr class="text-center collapse accordion-collapse LB_all" id="LBr9" data-bs-parent=".table">
 			<th  colspan="2">Total</th>
-			<td><?= $_SESSION['jumlahFrekuensiLB_Juli']; ?></td>
-			<td><?= $_SESSION['jumlah_prob_Juli_LB'] ?></td>
+			<td><?= $_SESSION['jumlahFrekuensiLB_September']; ?></td>
+			<td><?= $_SESSION['jumlah_prob_September_LB'] ?></td>
 		</tr>
 	</tbody>
-</table>
-
-
-<!-- bulan Agustus -->
-<table class="table table-bordered table-sm accordion mb-0">
-	<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
-
-	<thead>
-		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr8">
-			<th style="border-left-color:red">Agustus <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Agustus'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Agustus'] ?></th>	
-		</tr>
-		<tr class="text-center collapse accordion-collapse LB_all"  id="LBr8" data-bs-parent=".table" >
-			<th>No</th>
-			<th>Bulan</th>
-			<th>Frekuensi</th>
-			<th>Probabilitas</th>
-			<th>Kumulatif</th>
-			<th>Interval Angka Acak</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-		<tr class="text-center collapse accordion-collapse LB_all" id="LBr8" data-bs-parent=".table" >
-			<td><?= $no++; ?></td>
-			<td class="text-justify">Agustus  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-			<td><?= $_SESSION['dataLB_bulan'][$i]['Agustus']['data_bulan'];  ?></td>
-			<td><?= $_SESSION['prob_LB_Agustus'][$i]; ?></td>
-			<td><?= $_SESSION['kumu_Agustus_LB'][$i]; ?></td>
-			<td><?= $_SESSION['interval_LB_Agustus'][$i]; ?></td>				
-		</tr>
-	<?php endfor; ?>	
-	<tr class="text-center collapse accordion-collapse LB_all" id="LBr8" data-bs-parent=".table">
-		<th  colspan="2">Total</th>
-		<td><?= $_SESSION['jumlahFrekuensiLB_Agustus']; ?></td>
-		<td><?= $_SESSION['jumlah_prob_Agustus_LB'] ?></td>
-	</tr>
-</tbody>
-</table>
-
-<!-- bulan September -->
-<table class="table table-bordered table-sm accordion mb-0">
-	<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
-	<thead>
-		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr9">
-			<th style="border-left-color:red">September <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['September'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['September'] ?></th>	
-		</tr>			
-		<tr class="text-center collapse accordion-collapse LB_all"  id="LBr9" data-bs-parent=".table" >
-			<th>No</th> 		
-			<th>Bulan</th>
-			<th>Frekuensi</th>
-			<th>Probabilitas</th>
-			<th>Kumulatif</th>
-			<th>Interval Angka Acak</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLB_bulan']) ; $i++) : ?>
-		<tr class="text-center collapse accordion-collapse LB_all" id="LBr9" data-bs-parent=".table" >
-			<td><?= $no++; ?></td>
-			<td class="text-justify">September  <?= $_SESSION['tahunLB_bulan'][$i]; ?></td>
-			<td><?= $_SESSION['dataLB_bulan'][$i]['September']['data_bulan'];  ?></td>		
-			<td><?= $_SESSION['prob_LB_September'][$i]; ?></td>
-			<td><?= $_SESSION['kumu_September_LB'][$i]; ?></td>
-			<td><?= $_SESSION['interval_LB_September'][$i]; ?></td>	
-		</tr>
-	<?php endfor; ?>	
-	<tr class="text-center collapse accordion-collapse LB_all" id="LBr9" data-bs-parent=".table">
-		<th  colspan="2">Total</th>
-		<td><?= $_SESSION['jumlahFrekuensiLB_September']; ?></td>
-		<td><?= $_SESSION['jumlah_prob_September_LB'] ?></td>
-	</tr>
-</tbody>
 </table>
 
 <!-- bulan Oktober -->
@@ -1345,8 +1338,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr10">
 			<th style="border-left-color:red">Oktober <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Oktober'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Oktober'] ?></th>	
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Oktober'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Oktober'] ?></th>	
 		</tr>
 		<tr class="text-center collapse accordion-collapse LB_all"  id="LBr10" data-bs-parent=".table" >
 			<th>No</th>
@@ -1382,8 +1375,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr11">
 			<th style="border-left-color:blue">November <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['November'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['November'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['November'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['November'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse LB_all"  id="LBr11" data-bs-parent=".table" >
 			<th>No</th>
@@ -1419,8 +1412,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LBr12">
 			<th style="border-left-color:blue">Desember <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLB']['Desember'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LB']['Desember'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLB']['Desember'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LB']['Desember'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse LB_all"  id="LBr12" data-bs-parent=".table" >
 			<th>No</th>
@@ -1450,28 +1443,28 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;">Total</th>
-		<th><?= $_SESSION['total_hasilS_LB']; ?></th>		
+		<th colspan="4"><?= $_SESSION['total_hasilS_LB']; ?></th>		
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LB']; ?></th>			
+		<th colspan="4" class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LB']; ?></th>			
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LB']; ?></th>
+		<th colspan="4" class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LB']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;" class="text-center">Rata-Rata</th>
-		<th><?= $_SESSION['rata2_total_hasilS_LB']; ?></th>
+		<th colspan="4"><?= $_SESSION['rata2_total_hasilS_LB']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_LB']; ?></th>
+		<th class="musimKemarau" colspan="4"><?= $_SESSION['rata2_total_hasilS_Kemarau_LB']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_LB'];?></th>
+		<th class="musimHujan" colspan="4"><?= $_SESSION['rata2_total_hasilS_Hujan_LB'];?></th>
 	</tr>
 
 </tbody>
@@ -1484,10 +1477,7 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 		<li style="color: red;"><span style="color: gray;">Musim Kemarau</span></li>
 	</ul> 
 </caption>
-
-
 </table>
-
 </div>
 </div>
 </div>
@@ -1511,26 +1501,100 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 					</div>							
 				</div>
 				<!-- bulan january -->
-				<table class="table mb-0">
-					<caption class="caption-top text-center">Data Luka Ringan</caption>
-					<thead>
-						<tr class="table-dark text-center">
-							<th class="col-2">Bulan</i></th>
-							<th class="col-5">Angka Acak</th>
-							<th class="col-5">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_LR']; ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
+						<table class="table mb-0">
+							<caption class="caption-top text-center">Data Luka Ringan</caption>
+							<thead>
+								<tr class="table-dark text-center">
+									<th class="col-2">Bulan</i></th>
+									<th class="col-3">Angka Acak</th>
+									<th class="col-7">Hasil Simulasi <?= $_SESSION['tahun_Prediksi_LR']; ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<table class="table table-bordered table-sm accordion mb-0">
+										<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+										<thead>
+											<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr1">
+												<th style="border-left-color:blue;">Januari <i class="fa-solid fa-caret-down"></i></th>
+												<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Januari'] ?></th>
+												<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Januari'] ?></th>	
+											</tr>
+											<tr class="text-center collapse accordion-collapse LR_all"  id="LRr1" data-bs-parent=".table" >
+												<th>No</th>
+												<th>Bulan</th>
+												<th>Frekuensi</th>
+												<th>Probabilitas</th>
+												<th>Kumulatif</th>
+												<th>Interval Angka Acak</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
+											<tr class="text-center collapse accordion-collapse LR_all" id="LRr1" data-bs-parent=".table" >
+												<td><?= $no++; ?></td>
+												<td class="text-justify">Januari <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+												<td><?= $_SESSION['dataLR_bulan'][$i]['Januari']['data_bulan'];  ?></td>
+												<td><?= $_SESSION['prob_LR_Januari'][$i]; ?></td>
+												<td><?= $_SESSION['kumu_Januari_LR'][$i]; ?></td>
+												<td><?= $_SESSION['interval_LR_Januari'][$i]; ?></td>				
+											</tr>
+										<?php endfor; ?>	
+										<tr class="text-center collapse accordion-collapse LR_all" id="LRr1" data-bs-parent=".table">
+											<th colspan="2">Total</th>
+											<td><?= $_SESSION['jumlahFrekuensiLR_Januari']; ?></td>
+											<td><?= $_SESSION['jumlah_prob_Januari_LR'] ?></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<!-- bulan February -->
+								<table class="table table-bordered table-sm accordion mb-0">
+									<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+									<thead>
+										<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr2">
+											<th style="border-left-color:blue">Februari <i class="fa-solid fa-caret-down"></i></th>
+											<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Februari'] ?></th>
+											<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Februari'] ?></th>		
+										</tr>
+										<tr class="text-center collapse accordion-collapse LR_all"  id="LRr2" data-bs-parent=".table" >
+											<th>No</th>
+											<th>Bulan</th>
+											<th>Frekuensi</th>
+											<th>Probabilitas</th>
+											<th>Kumulatif</th>
+											<th>Interval Angka Acak</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
+										<tr class="text-center collapse accordion-collapse LR_all" id="LRr2" data-bs-parent=".table" >
+											<td><?= $no++; ?></td>
+											<td class="text-justify">Februari  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+											<td><?= $_SESSION['dataLR_bulan'][$i]['Februari']['data_bulan'];  ?></td>	
+											<td><?= $_SESSION['prob_LR_Februari'][$i]; ?></td>	
+											<td><?= $_SESSION['kumu_Februari_LR'][$i]; ?></td>
+											<td><?= $_SESSION['interval_LR_Februari'][$i]; ?></td>	
+										</tr>
+									<?php endfor; ?>	
+									<tr class="text-center collapse accordion-collapse LR_all" id="LRr2" data-bs-parent=".table">
+										<th  colspan="2">Total</th>
+										<td><?= $_SESSION['jumlahFrekuensiLR_Februari']; ?></td>
+										<td><?= $_SESSION['jumlah_prob_Februari_LR'] ?></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- bulan Maret -->
 							<table class="table table-bordered table-sm accordion mb-0">
 								<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 								<thead>
-									<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr1">
-										<th style="border-left-color:blue;">Januari <i class="fa-solid fa-caret-down"></i></th>
-										<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Januari'] ?></th>
-										<th class="col-5 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Januari'] ?></th>	
+									<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr3">
+										<th style="border-left-color:blue">Maret <i class="fa-solid fa-caret-down"></i></th>
+										<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Maret'] ?></th>
+										<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Maret'] ?></th>	
 									</tr>
-									<tr class="text-center collapse accordion-collapse LR_all"  id="LRr1" data-bs-parent=".table" >
+									<tr class="text-center collapse accordion-collapse LR_all"  id="LRr3" data-bs-parent=".table" >
 										<th>No</th>
 										<th>Bulan</th>
 										<th>Frekuensi</th>
@@ -1539,36 +1603,35 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 										<th>Interval Angka Acak</th>
 									</tr>
 								</thead>
-								<tbody>	
+								<tbody>
 									<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-									<tr class="text-center collapse accordion-collapse LR_all" id="LRr1" data-bs-parent=".table" >
+									<tr class="text-center collapse accordion-collapse LR_all" id="LRr3" data-bs-parent=".table" >
 										<td><?= $no++; ?></td>
-										<td class="text-justify">Januari <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-										<td><?= $_SESSION['dataLR_bulan'][$i]['Januari']['data_bulan'];  ?></td>
-										<td><?= $_SESSION['prob_LR_Januari'][$i]; ?></td>
-										<td><?= $_SESSION['kumu_Januari_LR'][$i]; ?></td>
-										<td><?= $_SESSION['interval_LR_Januari'][$i]; ?></td>				
+										<td class="text-justify">Maret  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+										<td><?= $_SESSION['dataLR_bulan'][$i]['Maret']['data_bulan'];  ?></td>
+										<td><?= $_SESSION['prob_LR_Maret'][$i]; ?></td>	
+										<td><?= $_SESSION['kumu_Maret_LR'][$i]; ?></td>		
+										<td><?= $_SESSION['interval_LR_Maret'][$i]; ?></td>	
 									</tr>
-
 								<?php endfor; ?>	
-								<tr class="text-center collapse accordion-collapse LR_all" id="LRr1" data-bs-parent=".table">
-									<th colspan="2">Total</th>
-									<td><?= $_SESSION['jumlahFrekuensiLR_Januari']; ?></td>
-									<td><?= $_SESSION['jumlah_prob_Januari_LR'] ?></td>
+								<tr class="text-center collapse accordion-collapse LR_all" id="LRr3" data-bs-parent=".table">
+									<th  colspan="2">Total</th>
+									<td><?= $_SESSION['jumlahFrekuensiLR_Maret']; ?></td>
+									<td><?= $_SESSION['jumlah_prob_Maret_LR'] ?></td>
 								</tr>
 							</tbody>
 						</table>
 
-						<!-- bulan February -->
+						<!-- bulan April -->
 						<table class="table table-bordered table-sm accordion mb-0">
 							<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 							<thead>
-								<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr2">
-									<th style="border-left-color:blue">Februari <i class="fa-solid fa-caret-down"></i></th>
-									<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Februari'] ?></th>
-									<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Februari'] ?></th>		
+								<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr4">
+									<th style="border-left-color:blue">April <i class="fa-solid fa-caret-down"></i></th>
+									<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['April'] ?></th>
+									<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['April'] ?></th>	
 								</tr>
-								<tr class="text-center collapse accordion-collapse LR_all"  id="LRr2" data-bs-parent=".table" >
+								<tr class="text-center collapse accordion-collapse LR_all"  id="LRr4" data-bs-parent=".table" >
 									<th>No</th>
 									<th>Bulan</th>
 									<th>Frekuensi</th>
@@ -1579,33 +1642,33 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 							</thead>
 							<tbody>
 								<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-								<tr class="text-center collapse accordion-collapse LR_all" id="LRr2" data-bs-parent=".table" >
+								<tr class="text-center collapse accordion-collapse LR_all" id="LRr4" data-bs-parent=".table" >
 									<td><?= $no++; ?></td>
-									<td class="text-justify">Februari  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-									<td><?= $_SESSION['dataLR_bulan'][$i]['Februari']['data_bulan'];  ?></td>	
-									<td><?= $_SESSION['prob_LR_Februari'][$i]; ?></td>	
-									<td><?= $_SESSION['kumu_Februari_LR'][$i]; ?></td>
-									<td><?= $_SESSION['interval_LR_Februari'][$i]; ?></td>	
+									<td class="text-justify">April  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+									<td><?= $_SESSION['dataLR_bulan'][$i]['April']['data_bulan'];  ?></td>
+									<td><?= $_SESSION['prob_LR_April'][$i];  ?></td>	
+									<td><?= $_SESSION['kumu_April_LR'][$i]; ?></td>
+									<td><?= $_SESSION['interval_LR_April'][$i]; ?></td>		
 								</tr>
 							<?php endfor; ?>	
-							<tr class="text-center collapse accordion-collapse LR_all" id="LRr2" data-bs-parent=".table">
+							<tr class="text-center collapse accordion-collapse LR_all" id="LRr4" data-bs-parent=".table">
 								<th  colspan="2">Total</th>
-								<td><?= $_SESSION['jumlahFrekuensiLR_Februari']; ?></td>
-								<td><?= $_SESSION['jumlah_prob_Februari_LR'] ?></td>
+								<td><?= $_SESSION['jumlahFrekuensiLR_April']; ?></td>
+								<td><?= $_SESSION['jumlah_prob_April_LR'] ?></td>
 							</tr>
 						</tbody>
 					</table>
 
-					<!-- bulan Maret -->
+					<!-- bulan Mei -->
 					<table class="table table-bordered table-sm accordion mb-0">
 						<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 						<thead>
-							<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr3">
-								<th style="border-left-color:blue">Maret <i class="fa-solid fa-caret-down"></i></th>
-								<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Maret'] ?></th>
-								<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Maret'] ?></th>	
+							<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr5">
+								<th style="border-left-color:red">Mei <i class="fa-solid fa-caret-down"></i></th>
+								<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Mei'] ?></th>
+								<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Mei'] ?></th>	
 							</tr>
-							<tr class="text-center collapse accordion-collapse LR_all"  id="LRr3" data-bs-parent=".table" >
+							<tr class="text-center collapse accordion-collapse LR_all"  id="LRr5" data-bs-parent=".table" >
 								<th>No</th>
 								<th>Bulan</th>
 								<th>Frekuensi</th>
@@ -1616,33 +1679,33 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 						</thead>
 						<tbody>
 							<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-							<tr class="text-center collapse accordion-collapse LR_all" id="LRr3" data-bs-parent=".table" >
+							<tr class="text-center collapse accordion-collapse LR_all" id="LRr5" data-bs-parent=".table" >
 								<td><?= $no++; ?></td>
-								<td class="text-justify">Maret  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-								<td><?= $_SESSION['dataLR_bulan'][$i]['Maret']['data_bulan'];  ?></td>
-								<td><?= $_SESSION['prob_LR_Maret'][$i]; ?></td>	
-								<td><?= $_SESSION['kumu_Maret_LR'][$i]; ?></td>		
-								<td><?= $_SESSION['interval_LR_Maret'][$i]; ?></td>	
+								<td class="text-justify">Mei  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+								<td><?= $_SESSION['dataLR_bulan'][$i]['Mei']['data_bulan'];  ?></td>
+								<td><?= $_SESSION['prob_LR_Mei'][$i];  ?></td>
+								<td><?= $_SESSION['kumu_Mei_LR'][$i]; ?></td>
+								<td><?= $_SESSION['interval_LR_Mei'][$i]; ?></td>							
 							</tr>
 						<?php endfor; ?>	
-						<tr class="text-center collapse accordion-collapse LR_all" id="LRr3" data-bs-parent=".table">
+						<tr class="text-center collapse accordion-collapse LR_all" id="LRr5" data-bs-parent=".table">
 							<th  colspan="2">Total</th>
-							<td><?= $_SESSION['jumlahFrekuensiLR_Maret']; ?></td>
-							<td><?= $_SESSION['jumlah_prob_Maret_LR'] ?></td>
+							<td><?= $_SESSION['jumlahFrekuensiLR_Mei']; ?></td>
+							<td><?= $_SESSION['jumlah_prob_Mei_LR'] ?></td>
 						</tr>
 					</tbody>
 				</table>
 
-				<!-- bulan April -->
+				<!-- bulan Juni -->
 				<table class="table table-bordered table-sm accordion mb-0">
 					<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 					<thead>
-						<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr4">
-							<th style="border-left-color:blue">April <i class="fa-solid fa-caret-down"></i></th>
-							<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['April'] ?></th>
-							<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['April'] ?></th>	
+						<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr6">
+							<th style="border-left-color:red">Juni <i class="fa-solid fa-caret-down"></i></th>
+							<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Juni'] ?></th>
+							<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Juni'] ?></th>	
 						</tr>
-						<tr class="text-center collapse accordion-collapse LR_all"  id="LRr4" data-bs-parent=".table" >
+						<tr class="text-center collapse accordion-collapse LR_all"  id="LRr6" data-bs-parent=".table" >
 							<th>No</th>
 							<th>Bulan</th>
 							<th>Frekuensi</th>
@@ -1653,33 +1716,34 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 					</thead>
 					<tbody>
 						<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-						<tr class="text-center collapse accordion-collapse LR_all" id="LRr4" data-bs-parent=".table" >
+						<tr class="text-center collapse accordion-collapse LR_all" id="LRr6" data-bs-parent=".table" >
 							<td><?= $no++; ?></td>
-							<td class="text-justify">April  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-							<td><?= $_SESSION['dataLR_bulan'][$i]['April']['data_bulan'];  ?></td>
-							<td><?= $_SESSION['prob_LR_April'][$i];  ?></td>	
-							<td><?= $_SESSION['kumu_April_LR'][$i]; ?></td>
-							<td><?= $_SESSION['interval_LR_April'][$i]; ?></td>		
+							<td class="text-justify">Juni  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+							<td><?= $_SESSION['dataLR_bulan'][$i]['Juni']['data_bulan'];  ?></td>
+							<td><?= $_SESSION['prob_LR_Juni'][$i] ?></td>
+							<td><?= $_SESSION['kumu_Juni_LR'][$i]; ?></td>
+							<td><?= $_SESSION['interval_LR_Juni'][$i]; ?></td>			
 						</tr>
 					<?php endfor; ?>	
-					<tr class="text-center collapse accordion-collapse LR_all" id="LRr4" data-bs-parent=".table">
+					<tr class="text-center collapse accordion-collapse LR_all" id="LRr6" data-bs-parent=".table">
 						<th  colspan="2">Total</th>
-						<td><?= $_SESSION['jumlahFrekuensiLR_April']; ?></td>
-						<td><?= $_SESSION['jumlah_prob_April_LR'] ?></td>
+						<td><?= $_SESSION['jumlahFrekuensiLR_Juni']; ?></td>
+						<td><?= $_SESSION['jumlah_prob_Juni_LR'] ?></td>
 					</tr>
 				</tbody>
 			</table>
 
-			<!-- bulan Mei -->
+
+			<!-- bulan Juli -->
 			<table class="table table-bordered table-sm accordion mb-0">
 				<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 				<thead>
-					<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr5">
-						<th style="border-left-color:red">Mei <i class="fa-solid fa-caret-down"></i></th>
-						<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Mei'] ?></th>
-						<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Mei'] ?></th>	
+					<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr7">
+						<th style="border-left-color:red">Juli <i class="fa-solid fa-caret-down"></i></th>
+						<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Juli'] ?></th>
+						<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Juli'] ?></th>	
 					</tr>
-					<tr class="text-center collapse accordion-collapse LR_all"  id="LRr5" data-bs-parent=".table" >
+					<tr class="text-center collapse accordion-collapse LR_all"  id="LRr7" data-bs-parent=".table" >
 						<th>No</th>
 						<th>Bulan</th>
 						<th>Frekuensi</th>
@@ -1690,33 +1754,35 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 				</thead>
 				<tbody>
 					<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-					<tr class="text-center collapse accordion-collapse LR_all" id="LRr5" data-bs-parent=".table" >
+					<tr class="text-center collapse accordion-collapse LR_all" id="LRr7" data-bs-parent=".table" >
 						<td><?= $no++; ?></td>
-						<td class="text-justify">Mei  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-						<td><?= $_SESSION['dataLR_bulan'][$i]['Mei']['data_bulan'];  ?></td>
-						<td><?= $_SESSION['prob_LR_Mei'][$i];  ?></td>
-						<td><?= $_SESSION['kumu_Mei_LR'][$i]; ?></td>
-						<td><?= $_SESSION['interval_LR_Mei'][$i]; ?></td>							
+						<td class="text-justify">Juli  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+						<td><?= $_SESSION['dataLR_bulan'][$i]['Juli']['data_bulan'];  ?></td>	
+						<td><?= $_SESSION['prob_LR_Juli'][$i]?></td>
+						<td><?= $_SESSION['kumu_Juli_LR'][$i]; ?></td>
+						<td><?= $_SESSION['interval_LR_Juli'][$i]; ?></td>	
 					</tr>
 				<?php endfor; ?>	
-				<tr class="text-center collapse accordion-collapse LR_all" id="LRr5" data-bs-parent=".table">
+				<tr class="text-center collapse accordion-collapse LR_all" id="LRr7" data-bs-parent=".table">
 					<th  colspan="2">Total</th>
-					<td><?= $_SESSION['jumlahFrekuensiLR_Mei']; ?></td>
-					<td><?= $_SESSION['jumlah_prob_Mei_LR'] ?></td>
+					<td><?= $_SESSION['jumlahFrekuensiLR_Juli']; ?></td>
+					<td><?= $_SESSION['jumlah_prob_Juli_LR'] ?></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<!-- bulan Juni -->
+
+		<!-- bulan Agustus -->
 		<table class="table table-bordered table-sm accordion mb-0">
 			<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
+
 			<thead>
-				<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr6">
-					<th style="border-left-color:red">Juni <i class="fa-solid fa-caret-down"></i></th>
-					<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Juni'] ?></th>
-					<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Juni'] ?></th>	
+				<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr8">
+					<th style="border-left-color:red">Agustus <i class="fa-solid fa-caret-down"></i></th>
+					<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Agustus'] ?></th>
+					<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Agustus'] ?></th>	
 				</tr>
-				<tr class="text-center collapse accordion-collapse LR_all"  id="LRr6" data-bs-parent=".table" >
+				<tr class="text-center collapse accordion-collapse LR_all"  id="LRr8" data-bs-parent=".table" >
 					<th>No</th>
 					<th>Bulan</th>
 					<th>Frekuensi</th>
@@ -1727,35 +1793,34 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 			</thead>
 			<tbody>
 				<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-				<tr class="text-center collapse accordion-collapse LR_all" id="LRr6" data-bs-parent=".table" >
+				<tr class="text-center collapse accordion-collapse LR_all" id="LRr8" data-bs-parent=".table" >
 					<td><?= $no++; ?></td>
-					<td class="text-justify">Juni  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-					<td><?= $_SESSION['dataLR_bulan'][$i]['Juni']['data_bulan'];  ?></td>
-					<td><?= $_SESSION['prob_LR_Juni'][$i] ?></td>
-					<td><?= $_SESSION['kumu_Juni_LR'][$i]; ?></td>
-					<td><?= $_SESSION['interval_LR_Juni'][$i]; ?></td>			
+					<td class="text-justify">Agustus  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+					<td><?= $_SESSION['dataLR_bulan'][$i]['Agustus']['data_bulan'];  ?></td>
+					<td><?= $_SESSION['prob_LR_Agustus'][$i]; ?></td>
+					<td><?= $_SESSION['kumu_Agustus_LR'][$i]; ?></td>
+					<td><?= $_SESSION['interval_LR_Agustus'][$i]; ?></td>				
 				</tr>
 			<?php endfor; ?>	
-			<tr class="text-center collapse accordion-collapse LR_all" id="LRr6" data-bs-parent=".table">
+			<tr class="text-center collapse accordion-collapse LR_all" id="LRr8" data-bs-parent=".table">
 				<th  colspan="2">Total</th>
-				<td><?= $_SESSION['jumlahFrekuensiLR_Juni']; ?></td>
-				<td><?= $_SESSION['jumlah_prob_Juni_LR'] ?></td>
+				<td><?= $_SESSION['jumlahFrekuensiLR_Agustus']; ?></td>
+				<td><?= $_SESSION['jumlah_prob_Agustus_LR'] ?></td>
 			</tr>
 		</tbody>
 	</table>
 
-
-	<!-- bulan Juli -->
+	<!-- bulan September -->
 	<table class="table table-bordered table-sm accordion mb-0">
 		<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
 		<thead>
-			<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr7">
-				<th style="border-left-color:red">Juli <i class="fa-solid fa-caret-down"></i></th>
-				<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Juli'] ?></th>
-				<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Juli'] ?></th>	
-			</tr>
-			<tr class="text-center collapse accordion-collapse LR_all"  id="LRr7" data-bs-parent=".table" >
-				<th>No</th>
+			<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr9">
+				<th style="border-left-color:red">September <i class="fa-solid fa-caret-down"></i></th>
+				<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['September'] ?></th>
+				<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['September'] ?></th>	
+			</tr>			
+			<tr class="text-center collapse accordion-collapse LR_all"  id="LRr9" data-bs-parent=".table" >
+				<th>No</th> 		
 				<th>Bulan</th>
 				<th>Frekuensi</th>
 				<th>Probabilitas</th>
@@ -1765,97 +1830,21 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 		</thead>
 		<tbody>
 			<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-			<tr class="text-center collapse accordion-collapse LR_all" id="LRr7" data-bs-parent=".table" >
+			<tr class="text-center collapse accordion-collapse LR_all" id="LRr9" data-bs-parent=".table" >
 				<td><?= $no++; ?></td>
-				<td class="text-justify">Juli  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-				<td><?= $_SESSION['dataLR_bulan'][$i]['Juli']['data_bulan'];  ?></td>	
-				<td><?= $_SESSION['prob_LR_Juli'][$i]?></td>
-				<td><?= $_SESSION['kumu_Juli_LR'][$i]; ?></td>
-				<td><?= $_SESSION['interval_LR_Juli'][$i]; ?></td>	
+				<td class="text-justify">September  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
+				<td><?= $_SESSION['dataLR_bulan'][$i]['September']['data_bulan'];  ?></td>		
+				<td><?= $_SESSION['prob_LR_September'][$i]; ?></td>
+				<td><?= $_SESSION['kumu_September_LR'][$i]; ?></td>
+				<td><?= $_SESSION['interval_LR_September'][$i]; ?></td>	
 			</tr>
 		<?php endfor; ?>	
-		<tr class="text-center collapse accordion-collapse LR_all" id="LRr7" data-bs-parent=".table">
+		<tr class="text-center collapse accordion-collapse LR_all" id="LRr9" data-bs-parent=".table">
 			<th  colspan="2">Total</th>
-			<td><?= $_SESSION['jumlahFrekuensiLR_Juli']; ?></td>
-			<td><?= $_SESSION['jumlah_prob_Juli_LR'] ?></td>
+			<td><?= $_SESSION['jumlahFrekuensiLR_September']; ?></td>
+			<td><?= $_SESSION['jumlah_prob_September_LR'] ?></td>
 		</tr>
 	</tbody>
-</table>
-
-
-<!-- bulan Agustus -->
-<table class="table table-bordered table-sm accordion mb-0">
-	<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
-
-	<thead>
-		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr8">
-			<th style="border-left-color:red">Agustus <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Agustus'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Agustus'] ?></th>	
-		</tr>
-		<tr class="text-center collapse accordion-collapse LR_all"  id="LRr8" data-bs-parent=".table" >
-			<th>No</th>
-			<th>Bulan</th>
-			<th>Frekuensi</th>
-			<th>Probabilitas</th>
-			<th>Kumulatif</th>
-			<th>Interval Angka Acak</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-		<tr class="text-center collapse accordion-collapse LR_all" id="LRr8" data-bs-parent=".table" >
-			<td><?= $no++; ?></td>
-			<td class="text-justify">Agustus  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-			<td><?= $_SESSION['dataLR_bulan'][$i]['Agustus']['data_bulan'];  ?></td>
-			<td><?= $_SESSION['prob_LR_Agustus'][$i]; ?></td>
-			<td><?= $_SESSION['kumu_Agustus_LR'][$i]; ?></td>
-			<td><?= $_SESSION['interval_LR_Agustus'][$i]; ?></td>				
-		</tr>
-	<?php endfor; ?>	
-	<tr class="text-center collapse accordion-collapse LR_all" id="LRr8" data-bs-parent=".table">
-		<th  colspan="2">Total</th>
-		<td><?= $_SESSION['jumlahFrekuensiLR_Agustus']; ?></td>
-		<td><?= $_SESSION['jumlah_prob_Agustus_LR'] ?></td>
-	</tr>
-</tbody>
-</table>
-
-<!-- bulan September -->
-<table class="table table-bordered table-sm accordion mb-0">
-	<!-- <caption class="caption-top text-center">Data Meninggal Dunia</caption> -->
-	<thead>
-		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr9">
-			<th style="border-left-color:red">September <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['September'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['September'] ?></th>	
-		</tr>			
-		<tr class="text-center collapse accordion-collapse LR_all"  id="LRr9" data-bs-parent=".table" >
-			<th>No</th> 		
-			<th>Bulan</th>
-			<th>Frekuensi</th>
-			<th>Probabilitas</th>
-			<th>Kumulatif</th>
-			<th>Interval Angka Acak</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $no = 1; for ($i=0; $i < count($_SESSION['dataLR_bulan']) ; $i++) : ?>
-		<tr class="text-center collapse accordion-collapse LR_all" id="LRr9" data-bs-parent=".table" >
-			<td><?= $no++; ?></td>
-			<td class="text-justify">September  <?= $_SESSION['tahunLR_bulan'][$i]; ?></td>
-			<td><?= $_SESSION['dataLR_bulan'][$i]['September']['data_bulan'];  ?></td>		
-			<td><?= $_SESSION['prob_LR_September'][$i]; ?></td>
-			<td><?= $_SESSION['kumu_September_LR'][$i]; ?></td>
-			<td><?= $_SESSION['interval_LR_September'][$i]; ?></td>	
-		</tr>
-	<?php endfor; ?>	
-	<tr class="text-center collapse accordion-collapse LR_all" id="LRr9" data-bs-parent=".table">
-		<th  colspan="2">Total</th>
-		<td><?= $_SESSION['jumlahFrekuensiLR_September']; ?></td>
-		<td><?= $_SESSION['jumlah_prob_September_LR'] ?></td>
-	</tr>
-</tbody>
 </table>
 
 <!-- bulan Oktober -->
@@ -1864,8 +1853,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr10">
 			<th style="border-left-color:red">Oktober <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Oktober'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Oktober'] ?></th>	
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Oktober'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Oktober'] ?></th>	
 		</tr>
 		<tr class="text-center collapse accordion-collapse LR_all"  id="LRr10" data-bs-parent=".table" >
 			<th>No</th>
@@ -1901,8 +1890,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr11">
 			<th style="border-left-color:blue">November <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['November'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['November'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['November'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['November'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse LR_all"  id="LRr11" data-bs-parent=".table" >
 			<th>No</th>
@@ -1938,8 +1927,8 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 	<thead>
 		<tr class="table-secondary icon" data-bs-toggle="collapse" data-bs-target="#LRr12">
 			<th style="border-left-color:blue">Desember <i class="fa-solid fa-caret-down"></i></th>
-			<th class="col-5 text-center"><?= $_SESSION['angkaAcakLR']['Desember'] ?></th>
-			<th class="col-5 text-center"><?= $_SESSION['hasilS_LR']['Desember'] ?></th>		
+			<th class="col-3 text-center"><?= $_SESSION['angkaAcakLR']['Desember'] ?></th>
+			<th class="col-7 text-center" colspan="4"><?= $_SESSION['hasilS_LR']['Desember'] ?></th>		
 		</tr>
 		<tr class="text-center collapse accordion-collapse LR_all"  id="LRr12" data-bs-parent=".table" >
 			<th>No</th>
@@ -1969,28 +1958,28 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;">Total</th>
-		<th><?= $_SESSION['total_hasilS_LR']; ?></th>		
+		<th colspan="4"><?= $_SESSION['total_hasilS_LR']; ?></th>		
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LR']; ?></th>			
+		<th colspan="4" class="musimKemarau"><?= $_SESSION['total_hasilS_Kemarau_LR']; ?></th>			
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LR']; ?></th>
+		<th colspan="4" class="musimHujan"><?= $_SESSION['total_hasilS_Hujan_LR']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
 		<th rowspan="3" colspan="2" style=" vertical-align: middle !important;" class="text-center">Rata-Rata</th>
-		<th><?= $_SESSION['rata2_total_hasilS_LR']; ?></th>
+		<th colspan="4"><?= $_SESSION['rata2_total_hasilS_LR']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimKemarau"><?= $_SESSION['rata2_total_hasilS_Kemarau_LR']; ?></th>
+		<th class="musimKemarau" colspan="4"><?= $_SESSION['rata2_total_hasilS_Kemarau_LR']; ?></th>
 	</tr>
 
 	<tr class="text-center table-dark">
-		<th class="musimHujan"><?= $_SESSION['rata2_total_hasilS_Hujan_LR'];?></th>
+		<th class="musimHujan" colspan="4"><?= $_SESSION['rata2_total_hasilS_Hujan_LR'];?></th>
 	</tr>
 
 </tbody>
@@ -2003,8 +1992,6 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 		<li style="color: red;"><span style="color: gray;">Musim Kemarau</span></li>
 	</ul> 
 </caption>
-
-
 </table>
 </div>		
 </div>
@@ -2012,5 +1999,7 @@ $_SESSION['rata2_total_hasilS_Hujan_LR'] = (int) round($_SESSION['total_hasilS_H
 </div>
 </div>
 </div>
+
+<?php require "grafik-prediksi.php" ?>
 <?php require "export-hasil-prediksi.php" ?>
 
