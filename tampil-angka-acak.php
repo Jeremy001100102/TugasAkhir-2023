@@ -285,23 +285,3 @@ aria-hidden="true">
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-    const copyButtons = document.querySelectorAll('.copy-btn');
-
-    copyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const aValue = this.getAttribute('data-a');
-            const cValue = this.getAttribute('data-c');
-            const mValue = this.getAttribute('data-m');
-            const ziValue = this.getAttribute('data-zi');
-
-            document.getElementById('a_MD').value = aValue;
-            document.getElementById('c_MD').value = cValue;
-            document.getElementById('m_MD').value = mValue;
-            document.getElementById('zi_MD').value = ziValue;
-        });
-    });
-});
-
-</script>

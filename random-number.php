@@ -1,5 +1,5 @@
 <?php 	
-
+set_time_limit(300);
 require "functions-angka-acak.php";
 $dataKecelakaan = dataKecelakaanAcak();
 $dataKecelakaanLengkap = dataKecelakaanLengkap();
